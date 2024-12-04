@@ -5,10 +5,11 @@ import image from "../../public/images/241114_open-cultures_logo-frame-animation
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image src={image} fill alt={""} style={{ objectFit: "cover" }} />
-      </main>
-    </div>
+    <main>
+      <Image src={image} fill alt={""} style={{ objectFit: "cover" }} />
+      <div className={styles.link}>
+        <a href="https://gtas-braunschweig.de/researching/detail/open-planning-cultures">Mehr Infos</a>
+      </div>
+    </main>
   );
 }

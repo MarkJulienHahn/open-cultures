@@ -10,10 +10,25 @@
   }
 }
 
+@font-face {
+  font-family: 'MJH-Regular';
+  src: url('../../public/fonts/MJH-100-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MJH-Medium';
+  src: url('../../public/fonts/MJH-160-Medium.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: "MJH-Regular"
 }
 
 body {
