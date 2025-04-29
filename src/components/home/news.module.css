@@ -1,0 +1,149 @@
+.quoteWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.quote {
+  width: 75%;
+  max-width: 1200px;
+  min-width: 600px;
+  font-family: "Alpina Mono";
+  font-size: var(--fontSize-M);
+  line-height: var(--lineHeight-M);
+  position: relative;
+  text-align: center;
+  padding-right: 5rem;
+}
+
+.newsWrapper {
+  width: 100vw;
+  min-height: 50rem;
+  padding: var(--space-S);
+  position: relative;
+}
+
+.newsEntry {
+  position: absolute;
+  display: inline-block;
+  cursor: grab;
+  user-select: none;
+
+}
+
+.label {
+  position: absolute;
+  height: 1.2em;
+  top: -1.2em;
+  left: 0;
+  background: var(--white);
+  color: var(--beige);
+  padding: 0 3px;
+}
+
+.imageWrapper {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--white);
+  pointer-events: none;
+}
+
+.newsActive {
+  width: 40em;
+  padding: var(--space-XS);
+  margin-top: var(--space-S);
+  display: none;
+  z-index: 2;
+}
+
+.newsActiveHeadline {
+  margin-bottom: var(--space-S);
+  max-width: 75%;
+}
+
+.newsActiveLink {
+    margin-top: 1em;
+  }
+
+.newsEntry:hover .newsActive {
+  display: block;
+}
+
+/* PLANNING HOVER */
+
+.planning:hover .imageWrapper img {
+  border-color: var(--green);
+}
+
+.planning:hover .label {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--pink);
+}
+
+.planning .newsActive {
+  background: var(--green);
+  color: var(--pink);
+}
+
+/* FACTORY HOVER */
+
+.factory:hover .imageWrapper img {
+  border-color: var(--purple);
+}
+
+.factory:hover .label {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: var(--yellow);
+}
+
+.factory .newsActive {
+  background: var(--purple);
+  color: var(--yellow);
+}
+
+/* IMAGINARIES HOVER */
+
+.imaginaries:hover .imageWrapper img {
+  border-color: var(--red);
+  background: var(--red);
+  color: var(--blue);
+}
+
+.imaginaries:hover .label {
+  border-color: var(--red);
+  background: var(--red);
+  color: var(--blue);
+}
+
+.imaginaries .newsActive {
+  background: var(--red);
+  color: var(--blue);
+}
+
+/* NONE HOVER */
+
+.none:hover .imageWrapper img {
+  border-color: var(--beige);
+  background: var(--beige);
+  color: var(--white);
+}
+
+.none:hover .label {
+  border-color: var(--beige);
+  background: var(--beige);
+  color: var(--white);
+}
+
+.none .newsActive {
+  background: var(--white);
+  color: var(--beige);
+}

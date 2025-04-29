@@ -1,0 +1,133 @@
+:root {
+  --white: #ffffffe9;
+  --beige: #b9ad89;
+
+  --green: #38ff40;
+  --pink: #ff00c4;
+
+  --purple: #978af7;
+  --yellow: #dfff3d;
+
+  --red: #e62700;
+  --blue: #99c3ff;
+
+  --space-XS: 0.5rem;
+  --space-S: 1rem;
+  --space-M: 2rem;
+  --space-XXL: 10rem;
+
+  --fontSize-XS: 0.9rem;
+  --lineHeight-XS: 1rem;
+  --letterSpacing-XS: 0.02rem;
+
+  --fontSize-S: 1.2rem;
+  --lineHeight-S: 1.3rem;
+
+  --fontSize-M: 1.5rem;
+  --lineHeight-M: 1.7rem;
+  --letterSpacing-M: -0.04rem;
+}
+
+@font-face {
+  font-family: "Siggnal Regular";
+  src: url("/fonts/Siggnal-Regular-Trial.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alpina Italic";
+  src: url("/fonts/GT-Alpina-Standard-Regular-Italic-Trial.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Alpina Mono";
+  src: url("/fonts/GT-Alpina-Typewriter-Regular-Trial.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  max-width: 100vw;
+  font-family: "Siggnal Regular", sans-serif;
+  font-size: var(--fontSize-S);
+  line-height: var(--lineHeight-S);
+  word-spacing: -0.05em;
+}
+
+body {
+  color: var(--white);
+  background: var(--beige);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 13pt;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.planning {
+  background: var(--green);
+  color: var(--pink);
+}
+.factory {
+  background: var(--purple);
+  color: var(--yellow);
+}
+.imaginaries {
+  background: var(--red);
+  color: var(--blue);
+}
+.planning:hover {
+  background: none;
+  outline: 1.5px solid;
+  color: var(--green);
+}
+.factory:hover {
+  background: none;
+  outline: 1.5px solid;
+  color: var(--purple);
+}
+.imaginaries:hover {
+  background: none;
+  outline: 1.5px solid;
+  color: var(--red);
+}
+.default {
+  background: var(--white);
+  color: var(--beige);
+}
+
+.default:hover {
+  background: none;
+  outline: 1.5px solid;
+  color: var(--white);
+}
+
+.inverted {
+  background: var(--beige);
+  color: var(--white);
+}
+.inverted:hover {
+  background: var(--white);
+  color: var(--beige);
+}

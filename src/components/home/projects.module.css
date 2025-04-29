@@ -1,0 +1,82 @@
+.row {
+  width: 100vw;
+  position: relative;
+  margin-bottom: 15em;
+}
+
+.image {
+  width: 33%;
+  margin-left: var(--space-S);
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border: 1.5px solid var(--white);
+}
+
+.text {
+  position: absolute;
+  top: -2em;
+  left: clamp(2em, 25%, 30em);
+  width: 40em;
+  border: 1.5px solid var(--white);
+  padding: var(--space-S);
+  background: var(--beige);
+}
+
+.kicker {
+  position: absolute;
+  top: -1.3em;
+  font-family: "Alpina Mono";
+  color: var(--white);
+  font-size: var(--fontSize-XS);
+  padding-left: var(--space-S);
+  left: 0;
+}
+
+.buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 66vw;
+  height: 60%;
+}
+
+.buttonEntry {
+  position: absolute;
+}
+
+.buttonEntry:hover {
+  z-index: 50;
+}
+
+.button {
+  background: var(--white);
+  color: var(--beige);
+  font-size: var(--fontSize-M);
+  width: 15em;
+  text-align: center;
+  padding: 0.5em 0;
+  margin-bottom: var(--space-S);
+  cursor: grab;
+}
+
+.buttonContent {
+  background: var(--white);
+  color: var(--beige);
+  border: 1.5px solid var(--white);
+  padding: var(--space-S);
+  width: 25em;
+  right: 0;
+  display: none;
+}
+
+.buttonEntry:hover .buttonContent {
+  display: block;
+}
+.buttonEntry:hover .button {
+  background: var(--beige);
+  color: var(--white);
+  outline: 1.5px solid var(--white);
+}

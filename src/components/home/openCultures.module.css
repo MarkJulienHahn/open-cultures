@@ -1,0 +1,60 @@
+
+.wrapper {
+  margin-bottom: var(--space-XXL);
+  padding-left: 10vw;
+}
+
+.headline {
+  max-width: 30rem;
+  background: var(--white);
+  padding: 0.5em 3em;
+  color: var(--beige);
+  position: relative;
+  text-align: center;
+  transform: translate(3em, 1em);
+  z-index: 2;
+}
+
+.kicker {
+  position: absolute;
+  top: -1.3em;
+  left: 0;
+  font-family: "Alpina Mono";
+  color: var(--white);
+  font-size: var(--fontSize-XS);
+  padding-left: var(--space-S)
+}
+
+.body {
+  width: 60vw;
+  max-width: 1200px;
+  border: 1.5px solid var(--white);
+  padding: 2em 1em;
+  text-indent: 3em;
+  background: var(--beige);
+  position: relative;
+  z-index: 1;
+  transform: translateX(6em);
+}
+
+.contact,
+.contact h3 {
+  font-size: var(--fontSize-XS);
+  line-height: var(--lineHeight-XS);
+  letter-spacing: var(--letterSpacing-XS);
+  font-weight: normal;
+}
+
+.contact h3 {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+.contact {
+  border: 1.5px solid var(--white);
+  padding: 1em;
+  width: auto;
+  transform: translateY(-1em);
+  position: relative;
+  display: inline-block;
+}

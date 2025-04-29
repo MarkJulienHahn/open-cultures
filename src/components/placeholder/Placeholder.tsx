@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+
 import image from "../../public/images/241114_open-cultures_logo-frame-animation_V3.gif";
 
 import logo1 from "../../public/images/TUBraunschweig_1C_white.png";
@@ -10,9 +11,9 @@ import logo4 from "../../public/images/zukunft-niedersachsen_Logo_Weiss_RGB.png"
 import logo5 from "../../public/images/VWST_W_PNG.png";
 import logo6 from "../../public/images/ZKfN_Logo_RGB_white.png";
 
-export default function Home() {
+export default function Placeholder() {
   return (
-    <main>
+    <>
       <Image src={image} fill alt={""} style={{ objectFit: "cover" }} />
       <div className={styles.content}>
         <div className={styles.content__left}>
@@ -32,7 +33,11 @@ export default function Home() {
               <a href="mailto:opencultures@tu-braunschweig.de">Contact ↗</a>
             </div>
             <div>
-              <a href="https://gtas-braunschweig.de/researching/detail/open-planning-cultures" target="blank" rel="_noreferrer">
+              <a
+                href="https://gtas-braunschweig.de/researching/detail/open-planning-cultures"
+                target="blank"
+                rel="_noreferrer"
+              >
                 Information ↗
               </a>
             </div>
@@ -95,6 +100,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }

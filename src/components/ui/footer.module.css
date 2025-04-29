@@ -1,0 +1,41 @@
+.footer {
+  width: calc(100vw - 2 * var(--space-S));
+  margin: var(--space-S);
+  padding: var(--space-S);
+  border: 1.5px solid var(--white);
+}
+
+.contact {
+  width: 25%;
+  white-space: pre-line;
+}
+
+.logosWrapper {
+  width: 75%;
+}
+
+.topRow {
+  display: flex;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 8em;
+}
+
+.logos img {
+  height: 50%;
+  width: auto;
+  max-width: 10em;
+  object-fit: contain;
+  padding: 0 var(--space-L);
+}
+
+.links {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 5em
+}

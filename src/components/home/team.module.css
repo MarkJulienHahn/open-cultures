@@ -1,0 +1,202 @@
+.wrapper {
+  padding-left: 10vw;
+}
+
+.headline {
+  max-width: 8rem;
+  background: var(--white);
+  padding: 0.5em 0;
+  color: var(--beige);
+  position: relative;
+  text-align: center;
+  transform: translate(3em, 1em);
+  z-index: 2;
+}
+
+.kicker {
+  position: absolute;
+  top: -1.3em;
+  font-family: "Alpina Mono";
+  color: var(--white);
+  font-size: var(--fontSize-XS);
+  padding-left: var(--space-S);
+}
+
+.body {
+  width: 40vw;
+  max-width: 1200px;
+  border: 1.5px solid var(--white);
+  padding: 2em 1em;
+  text-indent: 3em;
+  background: var(--beige);
+  position: relative;
+  z-index: 1;
+  transform: translateX(6em);
+}
+
+.teamlist {
+  width: 100vw;
+  padding: var(--space-S);
+  position: relative;
+  width: 100vw;
+  height: 40em;
+}
+.teamEntry {
+  position: absolute;
+  transition:
+    top 0.2s ease,
+    left 0.2s ease;
+  user-select: none;
+}
+
+.teamName {
+  width: 15em;
+  border: 1.5px solid var(--white);
+  padding: var(--space-XS);
+  background: var(--beige);
+  cursor: grab;
+}
+
+/* .teamEntry:hover {
+  z-index: 10;
+} */
+
+.teamEntry:hover .teamName {
+  color: var(--beige);
+  background: var(--white);
+}
+
+.teamActive {
+  width: 25em;
+  padding: var(--space-XS);
+  margin-top: var(--space-S);
+  border: 1.5px solid;
+  display: none;
+  z-index: 2;
+  background: var(--beige);
+}
+
+.teamEntry:hover .teamActive {
+  display: block;
+}
+
+.planning:hover .label {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--pink);
+}
+
+.planning .teamActive {
+  background: var(--green);
+  color: var(--pink);
+}
+
+.factory:hover .label {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: var(--yellow);
+}
+
+.factory .teamActive {
+  background: var(--purple);
+  color: var(--yellow);
+}
+
+.imaginaries:hover .label {
+  border-color: var(--red);
+  background: var(--red);
+  color: var(--blue);
+}
+
+.imaginaries .teamActive {
+  background: var(--red);
+  color: var(--blue);
+}
+
+.none:hover .label {
+  border-color: var(--beige);
+  background: var(--beige);
+  color: var(--white);
+}
+
+.none .newsActive {
+  background: var(--white);
+  color: var(--beige);
+}
+
+.link {
+  margin-top: 1em;
+}
+
+.resetButton {
+  background: var(--white);
+  color: var(--beige);
+  position: fixed;
+  bottom: var(--space-S);
+  left: calc(50vw - 1.75em);
+  z-index: 100;
+  cursor: pointer;
+  width: 3.5em;
+  text-align: center;
+  height: 1em;
+  font-size: var(--fontSize-M);
+}
+
+.resetButton:hover {
+  background: var(--beige);
+  color: var(--white);
+  border: 1.5px solid var(--white);
+}
+
+/* BUTTONS */
+
+.buttonsWrapper {
+  width: 100vw;
+  height: 10em;
+  position: relative;
+  margin-bottom: 15em
+}
+
+.buttonEntry {
+  position: absolute;
+}
+
+.button {
+  background: var(--white);
+  color: var(--beige);
+  font-size: var(--fontSize-M);
+  width: 10em;
+  text-align: center;
+  padding: 0.5em 0;
+  margin-bottom: var(--space-S);
+  cursor: grab
+}
+
+.buttonList {
+  width: 35em;
+  background: var(--white);
+  color: var(--beige);
+  padding: var(--space-S);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-M);
+  display: none
+}
+
+.buttonListName {
+  padding-left: var(--space-M);
+  font-family: "Alpina Mono";
+}
+
+.buttonListEntry {
+  padding-bottom: var(--space-M)
+}
+
+.buttonEntry:hover .buttonList {
+  display: grid;
+}
+
+.buttonEntry:hover .button {
+  background: var(--beige);
+  color: var(--white);
+  outline: 1.5px solid
+}
