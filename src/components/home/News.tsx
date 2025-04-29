@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./news.module.css";
-import NewsEntry from "./NewsEntry";
 
 import { NewsType } from "@/types/types";
 

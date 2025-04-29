@@ -3,11 +3,12 @@ import { getOpenCultures } from "../../../sanity/sanity-utils";
 import styles from "./openCultures.module.css";
 import { PortableText } from "next-sanity";
 import RouterComponent from "./RouterComponent";
+import { TextBlock } from "@/types/types";
 
 type OpenCulturesData = {
   introtext: {
     title: string;
-    text: any;
+    text: TextBlock;
     partners: string[];
     supporters: string[];
   };

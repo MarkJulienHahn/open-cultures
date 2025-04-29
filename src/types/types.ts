@@ -1,5 +1,3 @@
-import { JSX } from "react/jsx-runtime";
-
 export interface TextBlock {
   _key: string;
   _type: 'block';
@@ -13,7 +11,7 @@ export interface TextBlock {
   markDefs?: Array<{
     _key: string;
     _type: string;
-    [key: string]: any;
+    [key: string]: unknown;
   }>;
 }
 

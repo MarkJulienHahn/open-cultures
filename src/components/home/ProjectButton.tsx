@@ -1,6 +1,6 @@
 import { PortableText } from "next-sanity";
 import styles from "./projects.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { TextBlock } from "@/types/types";
 
 export default function ProjectButton({

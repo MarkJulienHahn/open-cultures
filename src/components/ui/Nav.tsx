@@ -9,14 +9,6 @@ export default function Nav() {
   const searchParams = useSearchParams();
   const activeSection = searchParams.get("section");
 
-  const isBottomRowInverted = ![
-    "people",
-    "livinglab",
-    "interacting",
-    "mediating",
-  ].includes(activeSection || "");
-
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.topRow}>

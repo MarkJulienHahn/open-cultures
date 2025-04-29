@@ -13,16 +13,28 @@ export default async function Footer() {
           <div className={styles.logoRow}>
             <p>Partner Institutions</p>
             <div className={styles.logos}>
-              {footer.partners.map((entry: { url: string }) => (
-                <Image src={entry.url} width={500} height={250} alt={"Logo"} />
+              {footer.partners.map((entry: { url: string }, i: number) => (
+                <Image
+                  key={i}
+                  src={entry.url}
+                  width={500}
+                  height={250}
+                  alt={"Logo"}
+                />
               ))}
             </div>
           </div>
           <div className={styles.logoRow}>
             <p>Funded by</p>
             <div className={styles.logos}>
-              {footer.supporters.map((entry: { url: string }) => (
-                <Image src={entry.url} width={500} height={250} alt={"Logo"} />
+              {footer.supporters.map((entry: { url: string }, i: number) => (
+                <Image
+                  key={i}
+                  src={entry.url}
+                  width={500}
+                  height={250}
+                  alt={"Logo"}
+                />
               ))}
             </div>
           </div>
