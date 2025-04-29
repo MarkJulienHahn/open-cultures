@@ -1,10 +1,11 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./nav.module.css";
 import NavButton from "./NavButton";
 
+// Suspense boundary should wrap around the useSearchParams hook
 export default function Nav() {
   const searchParams = useSearchParams();
   const activeSection = searchParams.get("section");
@@ -44,5 +45,14 @@ export default function Nav() {
         />
       </div>
     </div>
+  );
+}
+
+// Wrap your component in a Suspense boundary where needed
+function SuspendedNav() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Nav />
+    </Suspense>
   );
 }
