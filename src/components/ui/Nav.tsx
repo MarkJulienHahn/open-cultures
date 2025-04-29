@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
 import styles from "./nav.module.css";
 import NavButton from "./NavButton";
 
