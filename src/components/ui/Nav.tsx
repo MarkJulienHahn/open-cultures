@@ -28,7 +28,7 @@ export default function Nav() {
             <NavButton label={"Open Planning"} style={"factory"} />
             <NavButton label={"Open Planning"} style={"imaginaries"} />
           </div>
-          <NavButton label={"Index"} style={!isHome ? "default muted" : "inverted"} link={"index"} />
+          <NavButton label={"Index"} style={!isHome ? "default muted" : "inverted"} link={"glossary"} />
         </div>
       </div>
 
