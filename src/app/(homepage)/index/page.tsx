@@ -26,36 +26,37 @@ import {
 import { Suspense } from "react";
 
 export default async function INDEX() {
-  const openCultures = await getOpenCultures();
-  const openPlanning = await getOpenPlanning();
-  const openFactory = await getOpenFactory();
-  const openImaginaries = await getOpenImaginaries();
+  // const openCultures = await getOpenCultures();
+  // const openPlanning = await getOpenPlanning();
+  // const openFactory = await getOpenFactory();
+  // const openImaginaries = await getOpenImaginaries();
 
-  const team = await getPerson();
-  const praxisPartners = await getPraxisPartners();
-  const advisoryBoard = await getAdvisoryBoard();
+  // const team = await getPerson();
+  // const praxisPartners = await getPraxisPartners();
+  // const advisoryBoard = await getAdvisoryBoard();
 
-  const livingLab = await getLivingLab();
-  const livingLabProjects = await getLivingLabProjects();
+  // const livingLab = await getLivingLab();
+  // const livingLabProjects = await getLivingLabProjects();
 
-  const tml = await getTML();
-  const tmlProjects = await getTMLProjects();
-  const mpc = await getMPC();
-  const mpcProjects = await getMPCProjects();
-  const summerSchools = await getSummerSchools();
-  const summerSchoolProjects = await getSummerSchoolsProjects();
-  const conferences = await getConferences();
-  const conferencesProjects = await getConferencesProjects();
+  // const tml = await getTML();
+  // const tmlProjects = await getTMLProjects();
+  // const mpc = await getMPC();
+  // const mpcProjects = await getMPCProjects();
+  // const summerSchools = await getSummerSchools();
+  // const summerSchoolProjects = await getSummerSchoolsProjects();
+  // const conferences = await getConferences();
+  // const conferencesProjects = await getConferencesProjects();
 
-  const printedMatter = await getPrintedMatter();
-  const printedMatterProjects = await getPrintedMatterProjects();
-  const spokenWord = await getSpokenWord();
-  const spokenWordProjects = await getSpokenWordProjects();
+  // const printedMatter = await getPrintedMatter();
+  // const printedMatterProjects = await getPrintedMatterProjects();
+  // const spokenWord = await getSpokenWord();
+  // const spokenWordProjects = await getSpokenWordProjects();
 
   return (
     <main className={styles.wrapper}>
       <Suspense fallback={<div>Loading...</div>}>
-        <IndexRow
+        INDEX
+        {/*     <IndexRow
           label={"Open Planning Cultures"}
           category="open-planning-culture"
           introtext={openCultures.introtext.text}
@@ -140,7 +141,7 @@ export default async function INDEX() {
             introtext={spokenWord.text}
             content={spokenWordProjects}
           />
-        </div>
+        </div> */}
       </Suspense>
     </main>
   );
