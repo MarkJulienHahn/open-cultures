@@ -16,6 +16,7 @@
   position: relative;
   text-align: center;
   padding-right: 5rem;
+  background: var(--beige);
 }
 
 .newsWrapper {
@@ -30,7 +31,6 @@
   display: inline-block;
   cursor: grab;
   user-select: none;
-
 }
 
 .label {
@@ -69,8 +69,8 @@
 }
 
 .newsActiveLink {
-    margin-top: 1em;
-  }
+  margin-top: 1em;
+}
 
 .newsEntry:hover .newsActive {
   display: block;

@@ -22,12 +22,22 @@ export async function getNews() {
 export async function getOpenCultures() {
   return client.fetch(`*[_type == "openCultures"][0]{...}`);
 }
-
+export async function getOpenPlanning() {
+  return client.fetch(`*[_type == "openPlanning"][0]{...}`);
+}
+export async function getOpenFactory() {
+  return client.fetch(`*[_type == "openFactory"][0]{...}`);
+}
+export async function getOpenImaginaries() {
+  return client.fetch(`*[_type == "openImaginaries"][0]{...}`);
+}
 export async function getTeam() {
   return client.fetch(`*[_type == "team"][0]{...}`);
 }
 export async function getPerson() {
-  return client.fetch(`*[_type == "person"]{...}`);
+  return client.fetch(
+    `*[_type == "person"]|order(name){..., portrait {alt, "url": asset->url}}`
+  );
 }
 export async function getAdvisoryBoard() {
   return client.fetch(`*[_type == "advisoryBoard"]{...}`);
@@ -41,6 +51,18 @@ export async function getLivingLab() {
   );
 }
 
+export async function getLivingLabProjects() {
+  return client.fetch(
+    `*[_type == "livingLabProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`
+  );
+}
+
 export async function getInteracting() {
   return client.fetch(
     `*[_type == "interacting"][0]{text, image { alt, "url": asset->url, "dimensions": asset->metadata.dimensions}}`
@@ -50,36 +72,59 @@ export async function getInteracting() {
 export async function getTML() {
   return client.fetch(`*[_type == "transdisciplinaryMethodLab"][0]{...}`);
 }
+export async function getTMLProjects() {
+  return client.fetch(`*[_type == "transdisciplinaryMethodLabProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`);
+}
 
 export async function getMPC() {
   return client.fetch(`*[_type == "methodologicalPhdColloquium"][0]{...}`);
 }
+
+export async function getMPCProjects() {
+  return client.fetch(`*[_type == "methodologicalPhdColloquiumProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`);
+}
+
 export async function getSummerSchools() {
   return client.fetch(`*[_type == "summerSchools"][0]{...}`);
 }
+
+export async function getSummerSchoolsProjects() {
+  return client.fetch(`*[_type == "summerSchoolsProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`);
+}
+
 export async function getConferences() {
   return client.fetch(`*[_type == "conferences"][0]{...}`);
 }
 
-export async function getLivingLabProjects() {
-  return client.fetch(
-    `*[_type == "livingLabProject"] | order(orderRank) {
-      _id,
-      _type,
+export async function getConferencesProjects() {
+  return client.fetch(`*[_type == "conferencesProject"] | order(orderRank) {
+      slug, 
       headline,
       subHeadline,
       text,
-      images[]{
-        asset->{
-          _id,
-          url
-        },
-        caption,
-        alt
-      }
-    }`
-  );
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`);
 }
+
+
 
 export async function getMediating() {
   return client.fetch(
@@ -87,12 +132,48 @@ export async function getMediating() {
   );
 }
 
+export async function getMediatingProjects() {
+  return client.fetch(
+    `*[_type == "mediatingProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`
+  );
+}
+
 export async function getPrintedMatter() {
   return client.fetch(`*[_type == "printedMatter"][0]{...}`);
 }
 
+export async function getPrintedMatterProjects() {
+  return client.fetch(
+    `*[_type == "printedMatterProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`
+  );
+}
+
 export async function getSpokenWord() {
   return client.fetch(`*[_type == "spokenWord"][0]{...}`);
+}
+
+export async function getSpokenWordProjects() {
+  return client.fetch(
+    `*[_type == "spokenWordProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`
+  );
 }
 
 export async function getFooter() {
@@ -102,5 +183,6 @@ export async function getFooter() {
       email,
       partners[]{ "url": asset->url },
       supporters[]{ "url": asset->url }
-    }`);
+    }`
+  );
 }

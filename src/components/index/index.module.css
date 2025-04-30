@@ -1,0 +1,147 @@
+.wrapper {
+  padding: var(--space-S);
+  margin-top: var(--space-L);
+  width: 100%;
+}
+
+.row {
+  background: var(--white);
+  color: var(--beige);
+  font-size: var(--fontSize-M);
+  min-height: 1em;
+  padding: 0 2px 0 2em;
+  margin-bottom: 1.5px;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  transition:
+    max-height 0.5s,
+    padding 0.5s;
+  position: relative;
+}
+
+.open {
+  max-height: 5000px;
+  cursor: default;
+}
+
+.closed {
+  max-height: 1em;
+}
+
+.row:hover {
+  color: var(--white);
+  background: var(--beige);
+  outline: 1.5px solid;
+}
+
+.rowOpen {
+  cursor: default;
+  color: var(--white);
+  background: var(--beige);
+  outline: 1.5px solid;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.indented {
+  width: 90%;
+}
+
+.section {
+  font-size: var(--fontSize-XS);
+  font-family: "Alpina Mono";
+  padding-left: 1em;
+}
+
+.content {
+  margin-top: var(--space-S);
+  font-size: var(--fontSize-S);
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__text {
+  width: 60%;
+  margin-bottom: var(--space-S);
+}
+
+.content__subhead {
+  margin-bottom: var(--space-M);
+  padding-left: var(--space-L);
+  white-space: pre-line;
+}
+
+.content__image {
+  margin-right: var(--space-L);
+  margin-bottom: var(--space-L);
+  width: 20%;
+  max-width: 400px;
+}
+
+.content__image img {
+  width: 100%;
+  height: auto;
+}
+
+.planning:hover,
+.open.planning {
+  background: var(--green);
+  color: var(--pink);
+  outline: 1.5px solid;
+}
+
+.factory:hover,
+.open.factory {
+  background: var(--purple);
+  color: var(--yellow);
+  outline: 1.5px solid;
+}
+
+.imaginaries:hover,
+.open.imaginaries {
+  background: var(--red);
+  color: var(--blue);
+  outline: 1.5px solid;
+}
+
+.open {
+  background: var(--beige);
+  color: var(--white);
+  outline: 1.5px solid;
+}
+
+.introtext {
+  margin-top: var(--space-S);
+  margin-bottom: var(--space-S);
+  font-size: var(--fontSize-S);
+  width: 30em;
+}
+
+.closeButton {
+  position: absolute;
+  left: -0.3em;
+  top: -0.3em;
+}
+
+.closeButton:hover {
+  opacity: 0.5;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  opacity: 0.8
+}
+
+.caption {
+  font-size: var(--fontSize-XS);
+  font-family: "Alpina Mono";
+  text-align: center;
+}

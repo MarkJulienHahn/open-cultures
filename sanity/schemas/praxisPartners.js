@@ -13,10 +13,23 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Name is required"),
     },
     {
-      name: "affiliation",
-      title: "Affiliation",
-      type: "text",
-      validation: (Rule) => Rule.required().error("Affiliation is required"),
+      name: "text",
+      title: "Text",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [{ title: "Italic", value: "em" }],
+          },
+        },
+      ],
+      validation: (Rule) =>
+        Rule.required()
+          .min(1)
+          .error("Text is required and must contain at least one block."),
     },
     {
       name: "link",
@@ -24,6 +37,14 @@ export default defineType({
       type: "string",
       validation: (Rule) =>
         Rule.max(150).warning("Zitat should not exceed 150 characters"),
+    },
+    {
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "name",
+      },
+      validation: (Rule) => Rule.required().error("Slug is required."),
     },
     orderRankField({ type: "praxisPartners" }),
   ],

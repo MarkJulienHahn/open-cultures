@@ -4,6 +4,9 @@ import person from "./person";
 import advisoryBoard from "./advisoryBoard";
 import praxisPartners from "./praxisPartners";
 import openCultures from "./openCultures";
+import openPlanning from "./openPlanning";
+import openFactory from "./openFactory";
+import openImaginaries from "./openImaginaries";
 import livingLab from "./livingLab";
 import livingLabProject from "./livingLabProject";
 import interacting from "./interacting";
@@ -31,6 +34,9 @@ const schemaTypes = [
   advisoryBoard,
   praxisPartners,
   openCultures,
+  openPlanning,
+  openFactory,
+  openImaginaries,
   livingLab,
   livingLabProject,
   interacting,

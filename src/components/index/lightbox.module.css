@@ -1,0 +1,52 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  overscroll-behavior: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeButton {
+  position: fixed;
+  top: var(--space-S);
+  right: var(--space-S);
+}
+
+.slider {
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image__wrapper {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image__wrapper img {
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-position: center;
+}
+
+.caption {
+    font-size: var(--fontSize-XS);
+    font-family: "Alpina Mono";
+    text-align: center;
+    padding-top: var(--space-XS)
+  }

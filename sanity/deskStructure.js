@@ -62,7 +62,7 @@ export const myStructure = (S, context) =>
       S.divider(),
 
       S.listItem()
-        .title("Site")
+        .title("Main Site")
         .icon(EarthGlobeIcon)
         .child(
           S.list()
@@ -170,12 +170,45 @@ export const myStructure = (S, context) =>
               S.listItem()
                 .title("Footer")
                 .icon(EqualIcon)
-                .child(
-                  S.document().schemaType("footer").documentId("footer")
-                ),
+                .child(S.document().schemaType("footer").documentId("footer")),
             ])
         ),
 
+      S.divider(),
+
+      S.listItem()
+        .title("Sub Pages")
+        .icon(EarthGlobeIcon)
+        .child(
+          S.list()
+            .title("Site Content")
+            .items([
+              S.listItem()
+                .title("Open Planning")
+                .icon(EarthGlobeIcon)
+                .child(
+                  S.document()
+                    .schemaType("openPlanning")
+                    .documentId("openPlanning")
+                ),
+              S.listItem()
+                .title("Open Factory")
+                .icon(EarthGlobeIcon)
+                .child(
+                  S.document()
+                    .schemaType("openFactory")
+                    .documentId("openFactory")
+                ),
+              S.listItem()
+                .title("Open Imaginaries")
+                .icon(EarthGlobeIcon)
+                .child(
+                  S.document()
+                    .schemaType("openImaginaries")
+                    .documentId("openImaginaries")
+                ),
+            ])
+        ),
       S.divider(),
 
       S.listItem()

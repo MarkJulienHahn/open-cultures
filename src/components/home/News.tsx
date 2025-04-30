@@ -11,7 +11,7 @@ export default async function News() {
   const openCultures = await getOpenCultures();
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id={"open-cultures"}>
       <div className={styles.quoteWrapper}>
         <div className={styles.quote}>
           <p>{openCultures.headerText}</p>

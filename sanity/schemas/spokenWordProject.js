@@ -56,6 +56,15 @@ export default defineType({
       ],
     },
 
+    {
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "headline",
+      },
+      validation: (Rule) => Rule.required().error("Slug is required."),
+    },
+
     orderRankField({ type: "spokenWordProject" }),
   ],
 })

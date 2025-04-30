@@ -25,6 +25,14 @@ export default defineType({
       validation: (Rule) =>
         Rule.max(150).warning("Zitat should not exceed 150 characters"),
     },
+    {
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "name",
+      },
+      validation: (Rule) => Rule.required().error("Slug is required."),
+    },
     orderRankField({ type: "advisoryBoard" }),
   ],
 });

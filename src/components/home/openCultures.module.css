@@ -57,4 +57,5 @@
   transform: translateY(-1em);
   position: relative;
   display: inline-block;
+  background: var(--beige)
 }
