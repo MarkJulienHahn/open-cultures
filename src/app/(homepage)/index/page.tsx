@@ -1,28 +1,28 @@
-import IndexRow from "@/components/index/IndexRow";
+// import IndexRow from "@/components/index/IndexRow";
 import styles from "@/components/index/index.module.css";
-import {
-  getAdvisoryBoard,
-  getConferences,
-  getConferencesProjects,
-  getLivingLab,
-  getLivingLabProjects,
-  getMPC,
-  getMPCProjects,
-  getOpenCultures,
-  getOpenFactory,
-  getOpenImaginaries,
-  getOpenPlanning,
-  getPerson,
-  getPraxisPartners,
-  getPrintedMatter,
-  getPrintedMatterProjects,
-  getSpokenWord,
-  getSpokenWordProjects,
-  getSummerSchools,
-  getSummerSchoolsProjects,
-  getTML,
-  getTMLProjects,
-} from "../../../../sanity/sanity-utils";
+// import {
+//   getAdvisoryBoard,
+//   getConferences,
+//   getConferencesProjects,
+//   getLivingLab,
+//   getLivingLabProjects,
+//   getMPC,
+//   getMPCProjects,
+//   getOpenCultures,
+//   getOpenFactory,
+//   getOpenImaginaries,
+//   getOpenPlanning,
+//   getPerson,
+//   getPraxisPartners,
+//   getPrintedMatter,
+//   getPrintedMatterProjects,
+//   getSpokenWord,
+//   getSpokenWordProjects,
+//   getSummerSchools,
+//   getSummerSchoolsProjects,
+//   getTML,
+//   getTMLProjects,
+// } from "../../../../sanity/sanity-utils";
 import { Suspense } from "react";
 
 export default async function INDEX() {

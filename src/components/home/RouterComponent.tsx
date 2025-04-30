@@ -15,7 +15,7 @@ export default function RouterComponent({
 
   useEffect(() => {
     if (inView) {
-      router.push(section, { scroll: false });
+      router.push(section, { scroll: false, shallow: true });
     }
   }, [inView, router, section]);
   return (
