@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
 
 export default function RouterComponent({
@@ -11,13 +11,28 @@ export default function RouterComponent({
   id?: string;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { ref, inView } = useInView({ threshold: 1 });
+
+  // Create a function to update search params
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+      return params.toString();
+    },
+    [searchParams]
+  );
 
   useEffect(() => {
     if (inView) {
-      router.push(section, { scroll: false, shallow: true });
+      // Update just the search params, not the entire path
+      const newUrl = pathname + "?" + createQueryString("section", section);
+      router.push(newUrl, { scroll: false });
     }
-  }, [inView, router, section]);
+  }, [inView, router, section, pathname, createQueryString]);
+
   return (
     <div
       style={{
