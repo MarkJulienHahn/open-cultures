@@ -4,7 +4,6 @@ import {
   getAdvisoryBoard,
   getConferences,
   getConferencesProjects,
-  getInteracting,
   getLivingLab,
   getLivingLabProjects,
   getMPC,

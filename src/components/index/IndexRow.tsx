@@ -41,7 +41,8 @@ export default function IndexRow({
 
   const handleClick = () => {
     if (!isActive) {
-      params.set("category", category), params.delete("entry");
+      params.set("category", category);
+      params.delete("entry");
     }
     router.push(`?${params.toString()}`);
   };

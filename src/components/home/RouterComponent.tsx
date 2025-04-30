@@ -17,7 +17,7 @@ export default function RouterComponent({
     if (inView) {
       router.push(section, { scroll: false });
     }
-  }, [inView, router]);
+  }, [inView, router, section]);
   return (
     <div
       style={{

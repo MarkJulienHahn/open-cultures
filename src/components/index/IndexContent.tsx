@@ -47,7 +47,6 @@ export default function IndexContent({ entry }: Props) {
 
   const handleClick = () => {
     if (!isActive) {
-      entry;
       params.set("entry", entry.slug.current);
     }
 
