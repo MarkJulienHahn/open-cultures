@@ -54,7 +54,7 @@ export default async function INDEX() {
 
   return (
     <main className={styles.wrapper}>
-      <Suspense fallback={null}>
+      <Suspense fallback={<div>Loading...</div>}>
         <IndexRow
           label={"Open Planning Cultures"}
           category="open-planning-culture"
