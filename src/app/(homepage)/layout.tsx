@@ -3,7 +3,6 @@ import "./globals.css";
 import Nav from "@/components/ui/Nav";
 import Footer from "@/components/ui/Footer";
 import { Suspense } from "react";
-import Wallpaper from "@/components/ui/Wallpaper";
 
 export const metadata: Metadata = {
   title: "Open Cultures",
@@ -24,7 +23,6 @@ export default function RootLayout({
         </Suspense>
         {children}
         <Footer />
-        <Wallpaper img={"/images/openCultures.png"} />
       </body>
     </html>
   );
