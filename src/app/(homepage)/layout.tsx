@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import Nav from "@/components/ui/Nav";
-import BodyClassSetter from "@/components/ui/BodyClassSetter";
 
 export const metadata: Metadata = {
   title: "Open Cultures",

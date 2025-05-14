@@ -4,13 +4,6 @@ import { getOpenPlanning } from "../../../../sanity/sanity-utils";
 
 import { PortableText } from "next-sanity";
 import Wallpaper from "@/components/ui/Wallpaper";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  AwaitedReactNode,
-  Key,
-} from "react";
 
 export default async function page() {
   const openPlanning = await getOpenPlanning();
@@ -24,7 +17,6 @@ export default async function page() {
               <p>{openPlanning.headerText}</p>
             </div>
           </div>
-          {/* <NewsEntryWrapper news={news} /> */}
         </div>
         <div className={styles.wrapper}>
           <div className={`${styles.headline} body__planning__inverted`}>

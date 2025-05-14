@@ -39,6 +39,14 @@ export type PersonType = {
   lab?: string,
   name: string,
   text: TextBlock,
-  slug: { current: string }
-
+  slug: { current: string },
+  quote?: TextBlock
 }
+
+export type ProjectType = {
+  text: TextBlock;
+  headline?: string;
+  subHeadline?: string;
+  slug: { current: string };
+  images?: ImageType[];
+};
