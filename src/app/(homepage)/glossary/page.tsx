@@ -26,6 +26,7 @@ import {
 import SearchableIndex from "@/components/index/SearchableIndex";
 import Footer from "@/components/ui/Footer";
 import Wallpaper from "@/components/ui/Wallpaper";
+import { Suspense } from "react";
 
 export default async function Glossary() {
   const openCultures = await getOpenCultures();
@@ -57,29 +58,31 @@ export default async function Glossary() {
   return (
     <>
       <main className={styles.wrapper}>
-        <SearchableIndex
-          openCultures={openCultures}
-          openPlanning={openPlanning}
-          openFactory={openFactory}
-          openImaginaries={openImaginaries}
-          team={team}
-          praxisPartners={praxisPartners}
-          advisoryBoard={advisoryBoard}
-          livingLab={livingLab}
-          livingLabProjects={livingLabProjects}
-          tml={tml}
-          tmlProjects={tmlProjects}
-          mpc={mpc}
-          mpcProjects={mpcProjects}
-          summerSchools={summerSchools}
-          summerSchoolProjects={summerSchoolProjects}
-          conferences={conferences}
-          conferencesProjects={conferencesProjects}
-          printedMatter={printedMatter}
-          printedMatterProjects={printedMatterProjects}
-          spokenWord={spokenWord}
-          spokenWordProjects={spokenWordProjects}
-        />
+        <Suspense fallback={null}>
+          <SearchableIndex
+            openCultures={openCultures}
+            openPlanning={openPlanning}
+            openFactory={openFactory}
+            openImaginaries={openImaginaries}
+            team={team}
+            praxisPartners={praxisPartners}
+            advisoryBoard={advisoryBoard}
+            livingLab={livingLab}
+            livingLabProjects={livingLabProjects}
+            tml={tml}
+            tmlProjects={tmlProjects}
+            mpc={mpc}
+            mpcProjects={mpcProjects}
+            summerSchools={summerSchools}
+            summerSchoolProjects={summerSchoolProjects}
+            conferences={conferences}
+            conferencesProjects={conferencesProjects}
+            printedMatter={printedMatter}
+            printedMatterProjects={printedMatterProjects}
+            spokenWord={spokenWord}
+            spokenWordProjects={spokenWordProjects}
+          />
+        </Suspense>
         <IndexRow
           label={"Open Planning Cultures"}
           category="open-planning-culture"
@@ -103,7 +106,12 @@ export default async function Glossary() {
         />
         <p className={styles.section}>People</p>
         <div className={styles.rows}>
-          <IndexRow label={"Team"} content={team} category="team" filter={true}/>
+          <IndexRow
+            label={"Team"}
+            content={team}
+            category="team"
+            filter={true}
+          />
           <IndexRow
             label={"Praxis Partners"}
             content={praxisPartners}
