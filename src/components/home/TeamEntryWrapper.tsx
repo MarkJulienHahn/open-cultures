@@ -19,9 +19,6 @@ export default function TeamEntryWrapper({ persons }: { persons: PersonType[] })
     inViewRef.current = inView
   }, [inView])
 
-  // Add a shuffle counter to force position updates
-  const [shuffleCount, setShuffleCount] = useState(0)
-
   // Store positions in a ref to avoid re-renders affecting them
   const positionsRef = useRef<Position[]>([])
 
@@ -97,7 +94,6 @@ export default function TeamEntryWrapper({ persons }: { persons: PersonType[] })
     const newPositions = generatePositions()
     positionsRef.current = newPositions
     setPositions(newPositions)
-    setShuffleCount((prev) => prev + 1) // Increment to force position updates
   }, [generatePositions])
 
   return (

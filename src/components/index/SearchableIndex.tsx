@@ -6,13 +6,57 @@ import styles from "@/components/index/index.module.css";
 import SearchResult from "./SearchResult";
 import Hamburger from "hamburger-react";
 
+// Define types for the props
+interface TextBlock {
+  _type: string;
+  children: { text: string }[];
+}
+
+interface Person {
+  name?: string;
+  affiliation?: string;
+  text?: TextBlock;
+  quote?: string;
+}
+
+interface Entry {
+  label: string;
+  category: string;
+  contentText: string;
+  content: any;
+}
+
+interface SearchableIndexProps {
+  openCultures: any;
+  openPlanning: any;
+  openFactory: any;
+  openImaginaries: any;
+  team: Person[];
+  praxisPartners: Person[];
+  advisoryBoard: Person[];
+  livingLab: any;
+  livingLabProjects: any[];
+  tml: any;
+  tmlProjects: any[];
+  mpc: any;
+  mpcProjects: any[];
+  summerSchools: any;
+  summerSchoolProjects: any[];
+  conferences: any;
+  conferencesProjects: any[];
+  printedMatter: any;
+  printedMatterProjects: any[];
+  spokenWord: any;
+  spokenWordProjects: any[];
+}
+
 function textFrom(obj: any): string {
   if (!obj) return "";
   if (typeof obj === "string") return obj;
   if (Array.isArray(obj)) {
     return obj
       .filter((b) => b._type === "block" && b.children)
-      .map((b) => b.children.map((c) => c.text).join(""))
+      .map((b) => b.children.map((c: { text: any; }) => c.text).join(""))
       .join("\n");
   }
   if (typeof obj === "object" && "text" in obj) return obj.text;
@@ -41,7 +85,7 @@ export default function SearchableIndex({
   printedMatterProjects,
   spokenWord,
   spokenWordProjects,
-}: any) {
+}: SearchableIndexProps) {
   const [term, setTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(1);
 
@@ -72,19 +116,19 @@ export default function SearchableIndex({
         introtext: textFrom(openImaginaries.introtext.text),
         content: openImaginaries,
       },
-      ...team.map((person: any) => ({
+      ...team.map((person) => ({
         label: person.name || "Unnamed",
         category: "team",
         contentText: `${textFrom(person?.text)} ${person?.affiliation || ""}`,
         content: person,
       })),
-      ...praxisPartners.map((person: any) => ({
+      ...praxisPartners.map((person) => ({
         label: person.name || "Unnamed",
         category: "praxis-partners",
         contentText: `${textFrom(person?.text)} ${person?.affiliation || ""}`,
         content: person,
       })),
-      ...advisoryBoard.map((person: any) => ({
+      ...advisoryBoard.map((person) => ({
         label: person.name || "Unnamed",
         category: "advisory-board",
         contentText: `${textFrom(person?.quote)} ${person?.affiliation || ""}`,
@@ -96,7 +140,7 @@ export default function SearchableIndex({
         contentText: textFrom(livingLab.text),
         content: livingLab,
       },
-      ...livingLabProjects.map((entry: any) => ({
+      ...livingLabProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "living-lab",
         contentText: `${textFrom(entry?.text)}`,
@@ -108,7 +152,7 @@ export default function SearchableIndex({
         contentText: textFrom(tml.text),
         content: tml,
       },
-      ...tmlProjects.map((entry: any) => ({
+      ...tmlProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "transdisciplinary-method-lab",
         contentText: `${textFrom(entry?.text)}`,
@@ -120,7 +164,7 @@ export default function SearchableIndex({
         contentText: textFrom(mpc.text),
         content: mpc,
       },
-      ...mpcProjects.map((entry: any) => ({
+      ...mpcProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "methodological-phd-colloquium",
         contentText: `${textFrom(entry?.text)}`,
@@ -132,7 +176,7 @@ export default function SearchableIndex({
         contentText: textFrom(summerSchools.text),
         content: summerSchools,
       },
-      ...summerSchoolProjects.map((entry: any) => ({
+      ...summerSchoolProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "summer-schools",
         contentText: `${textFrom(entry?.text)}`,
@@ -144,7 +188,7 @@ export default function SearchableIndex({
         contentText: textFrom(conferences.text),
         content: conferences,
       },
-      ...conferencesProjects.map((entry: any) => ({
+      ...conferencesProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "conferences",
         contentText: `${textFrom(entry?.text)}`,
@@ -156,7 +200,7 @@ export default function SearchableIndex({
         contentText: textFrom(printedMatter.text),
         content: printedMatter,
       },
-      ...printedMatterProjects.map((entry: any) => ({
+      ...printedMatterProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "printed-matter",
         contentText: `${textFrom(entry?.text)}`,
@@ -168,7 +212,7 @@ export default function SearchableIndex({
         contentText: textFrom(spokenWord.text),
         content: spokenWord,
       },
-      ...spokenWordProjects.map((entry: any) => ({
+      ...spokenWordProjects.map((entry) => ({
         label: entry.headline || "Unnamed",
         category: "spoken-word",
         contentText: `${textFrom(entry?.text)}`,

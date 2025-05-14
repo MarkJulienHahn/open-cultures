@@ -43,8 +43,6 @@ export default function IndexContent({ entry }: Props) {
   const contentRef = useRef<HTMLDivElement>(null);
   const rowRef = useRef<HTMLDivElement>(null); // Ref for the row to scroll into view
 
-  const [measuredHeight, setMeasuredHeight] = useState(0);
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentEntry = searchParams.get("entry");
@@ -71,12 +69,6 @@ export default function IndexContent({ entry }: Props) {
       setShouldRender(true);
     }
   }, [isActive]);
-
-  useEffect(() => {
-    if (isActive && contentRef.current) {
-      setMeasuredHeight(contentRef.current.scrollHeight);
-    }
-  }, [isActive, entry]);
 
   // Scroll into view after row is open and fully rendered
   useEffect(() => {
