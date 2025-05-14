@@ -5,7 +5,7 @@ import Fuse from "fuse.js";
 import styles from "@/components/index/index.module.css";
 import SearchResult from "./SearchResult";
 import Hamburger from "hamburger-react";
-import { PersonType, ProjectType } from "@/types/types";
+import { ImageType, PersonType, ProjectType, TextBlock } from "@/types/types";
 
 function textFrom(
   obj: string | { _type: string; children: { text: string }[] } | undefined
@@ -25,13 +25,37 @@ function textFrom(
   if (
     typeof obj === "object" &&
     "text" in obj &&
-    typeof (obj).text === "string"
+    typeof obj.text === "string"
   ) {
-    return (obj).text;
+    return obj.text;
   }
 
   return "";
 }
+
+type EntryProps = {
+  headerText: string;
+  introtext: {
+    partners: string[];
+    supporters: string[];
+    text: TextBlock;
+  };
+  text: TextBlock[];
+  title: string;
+};
+
+type ProjectIntroProps = {
+  image: ImageType;
+  text: TextBlock;
+};
+
+type ProjectProps = {
+  headline: string;
+  images: ImageType[];
+  slug: { current: string };
+  subHeadline: string;
+  text: TextBlock;
+};
 
 export default function SearchableIndex({
   openCultures,
@@ -55,7 +79,29 @@ export default function SearchableIndex({
   printedMatterProjects,
   spokenWord,
   spokenWordProjects,
-}: any) {
+}: {
+  openCultures: EntryProps;
+  openPlanning: EntryProps;
+  openFactory: EntryProps;
+  openImaginaries: EntryProps;
+  team: PersonType[];
+  praxisPartners: PersonType[];
+  advisoryBoard: PersonType[];
+  livingLab: ProjectIntroProps;
+  tml: ProjectIntroProps;
+  mpc: ProjectIntroProps;
+  summerSchools: ProjectIntroProps;
+  conferences: ProjectIntroProps;
+  printedMatter: ProjectIntroProps;
+  spokenWord: ProjectIntroProps;
+  livingLabProjects: ProjectProps[];
+  tmlProjects: ProjectProps[];
+  mpcProjects: ProjectProps[];
+  summerSchoolProjects: ProjectProps[];
+  conferencesProjects: ProjectProps[];
+  printedMatterProjects: ProjectProps[];
+  spokenWordProjects: ProjectProps[];
+}) {
   const [term, setTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(1);
 
