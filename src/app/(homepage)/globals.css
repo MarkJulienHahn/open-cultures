@@ -21,10 +21,10 @@
   --lineHeight-XS: 1rem;
   --letterSpacing-XS: 0.02rem;
 
-  --fontSize-S: 1.2rem;
-  --lineHeight-S: 1.3rem;
+  --fontSize-S: 1.1rem;
+  --lineHeight-S: 1.2rem;
 
-  --fontSize-M: 1.5rem;
+  --fontSize-M: 1.45rem;
   --lineHeight-M: 1.7rem;
   --letterSpacing-M: -0.04rem;
 }
@@ -58,13 +58,19 @@ body {
   font-size: var(--fontSize-S);
   line-height: var(--lineHeight-S);
   word-spacing: -0.05em;
+  color: var(--white);
 }
 
 body {
-  color: var(--white);
-  background: var(--beige);
+  /* color: var(--white); */
+  /* background: var(--beige); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: transparent;
+  color: inherit;
 }
 
 h1 {
@@ -92,35 +98,82 @@ li {
   position: fixed;
   top: 0;
   z-index: -100;
-  transition: all 0.5s ;
+  transition: all 0.5s;
 }
 
-.planning {
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body__default {
+  background: var(--beige);
+  color: var(--white);
+}
+
+.planning,
+.body__planning {
   background: var(--green);
   color: var(--pink);
 }
-.factory {
+
+.body__planning__inverted,
+.planning__inverted {
+  color: var(--green);
+  background: var(--pink);
+}
+
+.planning__inverted:hover {
+  background: none;
+  color: var(--pink);
+  border: 1.5px solid;
+}
+
+.border {
+  border: 1.5px solid;
+}
+
+.factory,
+.body__factory {
   background: var(--purple);
   color: var(--yellow);
 }
-.imaginaries {
+
+.body__factory__inverted,
+.factory__inverted {
+  color: var(--purple);
+  background: var(--yellow);
+}
+
+.imaginaries,
+.body__imaginaries {
   background: var(--red);
   color: var(--blue);
 }
+
+.body__imaginaries__inverted,
+.imaginaries__inverted {
+  color: var(--red);
+  background: var(--blue);
+}
+
 .planning:hover {
   background: none;
   outline: 1.5px solid;
-  color: var(--green);
+  color: var(--pink);
 }
 .factory:hover {
   background: none;
   outline: 1.5px solid;
-  color: var(--purple);
+  color: var(--yellow);
 }
 .imaginaries:hover {
   background: none;
   outline: 1.5px solid;
-  color: var(--red);
+  color: var(--blue);
 }
 .default {
   background: var(--white);
@@ -161,4 +214,25 @@ li {
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: #ccc !important;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --space-XS: 0.3rem;
+    --space-S: 0.5rem;
+    --space-M: 1.5rem;
+    --space-L: 3rem;
+    --space-XXL: 7rem;
+
+    --fontSize-XS: 0.8rem;
+    --lineHeight-XS: 0.9rem;
+    --letterSpacing-XS: 0.02rem;
+
+    --fontSize-S: 1rem;
+    --lineHeight-S: 1.1rem;
+
+    --fontSize-M: 1.3rem;
+    --lineHeight-M: 1.4rem;
+    --letterSpacing-M: -0.05rem;
+  }
 }

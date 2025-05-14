@@ -24,6 +24,7 @@
   min-height: 50rem;
   padding: var(--space-S);
   position: relative;
+  z-index: 10;
 }
 
 .newsEntry {
@@ -60,7 +61,7 @@
   padding: var(--space-XS);
   margin-top: var(--space-S);
   display: none;
-  z-index: 2;
+  z-index: 80;
 }
 
 .newsActiveHeadline {
@@ -69,7 +70,7 @@
 }
 
 .newsActiveLink {
-  margin-top: 1em;
+  padding-top: 1em;
 }
 
 .newsEntry:hover .newsActive {
@@ -146,4 +147,39 @@
 .none .newsActive {
   background: var(--white);
   color: var(--beige);
+}
+
+@media screen and (max-width: 1024px) {
+  .quoteWrapper {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+  }
+
+  .quote {
+    width: 80%;
+    max-width: 1200px;
+    min-width: unset;
+    padding: 0 var(--space-S);
+    font-size: var(--fontSize-S);
+    line-height: var(--lineHeight-S);
+  }
+  .newsEntry {
+    position: relative;
+    top: unset !important;
+    left: unset !important;
+    max-width: 80%;
+    margin-bottom: var(--space-L);
+  }
+
+  .newsActive {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    padding: var(--space-S);
+  }
+
+  .newsWrapper {
+    margin-bottom: var(--space-L);
+  }
 }

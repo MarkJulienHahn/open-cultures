@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./team.module.css";
 
 type TeamButtonProps = {
@@ -11,52 +11,57 @@ type TeamButtonProps = {
     quote?: string;
     link?: string;
   }[];
-  initialPosition: {
-    top: number; // Keep as number for the initial values
-    left: number; // Keep as number for the initial values
-  };
 };
 
-export default function TeamButton({
-  label,
-  content,
-  initialPosition,
-}: TeamButtonProps) {
-  // Make sure position is set as a string for top/left
+export default function TeamButton({ label, content }: TeamButtonProps) {
   const [position, setPosition] = useState<{ top: string; left: string }>({
-    top: `${initialPosition.top}px`,
-    left: `${initialPosition.left}px`,
+    top: "0px",
+    left: "0px",
   });
 
   const entryRef = useRef<HTMLDivElement | null>(null);
 
-  let offsetX = 0;
-  let offsetY = 0;
-  let isDragging = false;
+  const isDragging = useRef(false);
+  const offsetX = useRef(0);
+  const offsetY = useRef(0);
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    isDragging = true;
-    offsetX = e.clientX - entryRef.current!.offsetLeft;
-    offsetY = e.clientY - entryRef.current!.offsetTop;
+    isDragging.current = true;
+    offsetX.current = e.clientX - (entryRef.current?.offsetLeft || 0);
+    offsetY.current = e.clientY - (entryRef.current?.offsetTop || 0);
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      const newPosition = {
-        top: `${e.clientY - offsetY}px`, // Keep `px` here
-        left: `${e.clientX - offsetX}px`, // Keep `px` here
-      };
-      setPosition(newPosition);
+    if (isDragging.current) {
+      setPosition({
+        top: `${e.clientY - offsetY.current}px`,
+        left: `${e.clientX - offsetX.current}px`,
+      });
     }
   };
 
   const handleMouseUp = () => {
-    isDragging = false;
+    isDragging.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
   };
+
+  useEffect(() => {
+    // Dynamically set position when the component mounts
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    setPosition({
+      top: `${Math.random() * (vh * 0.1)}px`,
+      left: `${Math.random() * (vw * 0.8)}px`,
+    });
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []); // Only run on mount
 
   return (
     <div

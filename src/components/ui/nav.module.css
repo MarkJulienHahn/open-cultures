@@ -17,7 +17,7 @@
   position: absolute;
   right: 0;
   width: 50%;
-  min-width: 600px;
+  min-width: 800px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -31,4 +31,79 @@
   padding-bottom: 4px;
   margin-right: var(--space-S);
   cursor: pointer;
+}
+
+.mobile,
+.mobileMenu {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: var(--space-S);
+  }
+
+  .menuButton {
+    background: var(--white);
+    color: var(--beige);
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fontSize-M);
+    display: inline-block;
+    padding-left: 2em;
+    padding-bottom: 2px;
+    padding-right: 5px;
+  }
+
+  .menuBurger {
+    position: absolute;
+    top: -6px;
+    left: 0px;
+  }
+
+  .indexButton {
+    background: var(--white);
+    color: var(--beige);
+    font-size: var(--fontSize-M);
+    padding-bottom: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .mobileMenu {
+    width: 100%;
+    padding: 4rem var(--space-S);
+    position: fixed;
+    display: block;
+    top: 0;
+    z-index: 99;
+    transition: opacity 0.2s ease;
+  }
+  .mobileOpen {
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+  }
+
+  .mobileClosed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .button {
+    padding: 2px 2px 8px;
+    font-size: 2em;
+    margin-right: var(--space-S);
+    margin-bottom: var(--space-XS);
+    cursor: pointer;
+  }
 }

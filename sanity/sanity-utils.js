@@ -124,8 +124,6 @@ export async function getConferencesProjects() {
     }`);
 }
 
-
-
 export async function getMediating() {
   return client.fetch(
     `*[_type == "mediating"][0]{text, image { alt, "url": asset->url, "dimensions": asset->metadata.dimensions}}`
@@ -185,4 +183,12 @@ export async function getFooter() {
       supporters[]{ "url": asset->url }
     }`
   );
+}
+
+export async function getImpressum() {
+  return client.fetch(`*[_type == "impressum"][0]{...}`);
+}
+
+export async function getDatenschutz() {
+  return client.fetch(`*[_type == "datenschutz"][0]{...}`);
 }

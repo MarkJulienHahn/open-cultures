@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -11,13 +12,24 @@ type Props = {
   setLightBox: (index: boolean) => void;
   images: {
     url: string;
-    alt: string | null;
-    caption: string | null;
+    alt: string | null;
+    caption: string | null;
     dimensions: { width: number; height: number; aspectRatio: number };
   }[];
 };
 
 export default function Lightbox({ setLightBox, images }: Props) {
+  useEffect(() => {
+    // Lock scroll
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      // Unlock scroll on cleanup
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <span className={styles.closeButton} onClick={() => setLightBox(false)}>

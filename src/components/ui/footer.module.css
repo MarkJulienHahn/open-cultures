@@ -1,9 +1,13 @@
 .footer {
-  width: calc(100vw - 2 * var(--space-S));
-  margin: var(--space-S);
+  width: 100vw;
   padding: var(--space-S);
-  border: 1.5px solid var(--white);
-  background: var(--beige)
+  background: var(--beige);
+}
+
+.footerInner {
+  border: 1.5px solid;
+  width: 100%;
+  padding: var(--space-S);
 }
 
 .contact {
@@ -31,12 +35,50 @@
   width: auto;
   max-width: 10em;
   object-fit: contain;
-
 }
 
 .links {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding-top: 5em
+  padding-top: 5em;
+}
+
+.planning {
+  background: var(--green);
+}
+
+.factory {
+  background: var(--purple);
+}
+
+.imaginaries {
+  background: var(--red);
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    font-size: var(--fontSize-XS);
+    line-height: var(--lineHeight-XS);
+  }
+  .topRow {
+    display: block;
+  }
+  .contact {
+    width: 100%;
+  }
+  .logosWrapper {
+    margin-top: var(--space-L)
+  }
+  .logos {
+    height: 5em;
+    justify-content: space-evenly;
+    width: calc(100vw - 5 * var(--space-S));
+  }
+  .links {
+    display: block;
+  }
+  .links a {
+    margin-right: var(--space-S)
+  }
 }

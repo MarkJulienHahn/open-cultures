@@ -18,6 +18,10 @@ export default async function LivingLabComponent() {
     <>
       <RouterComponent id="livinglab" section="?section=livingLab" />
       <div className={styles.row}>
+        <div className={styles.mobileHeader}>
+          <div className={styles.mobileKicker}>LivingLab</div>
+          <div className={styles.mobileHeadline}>LivingLab</div>
+        </div>
         <div className={styles.text}>
           <div className={styles.kicker}>LivingLab</div>
           <PortableText value={livingLab.text} />
@@ -31,7 +35,11 @@ export default async function LivingLabComponent() {
           />
         </div>
 
-        <ProjectButtons content={livingLabProjects} category={"LivingLab"} />
+        <ProjectButtons
+          content={livingLabProjects}
+          category={"LivingLab"}
+          categorySlug={"living-lab"}
+        />
       </div>
     </>
   );

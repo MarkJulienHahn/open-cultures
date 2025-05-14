@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
+
 import Nav from "@/components/ui/Nav";
-import Footer from "@/components/ui/Footer";
-import { Suspense } from "react";
+import BodyClassSetter from "@/components/ui/BodyClassSetter";
 
 export const metadata: Metadata = {
   title: "Open Cultures",
@@ -12,17 +12,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Nav />
-        </Suspense>
+        <Nav />
         {children}
-        <Footer />
       </body>
     </html>
   );

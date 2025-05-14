@@ -1,29 +1,67 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
-export default function Wallpaper({ img }: { img: string }) {
-  const [scrollY, setScrollY] = useState(0);
+export default function Wallpaper({
+  img,
+  background,
+}: {
+  img: string;
+  background: string;
+}) {
+  const [opacity, setOpacity] = useState(1);
+  const ticking = useRef(false);
+
+  const handleScroll = useCallback(() => {
+    if (!ticking.current) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const newOpacity = scrollY > 300 ? 0 : 1;
+        if (newOpacity !== opacity) {
+          setOpacity(newOpacity);
+        }
+        ticking.current = false;
+      });
+      ticking.current = true;
+    }
+  }, [opacity]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <div
-      className="wallpaper"
       style={{
-        background: `url(${img})`,
-        backgroundSize: "cover",    
-        // filter: scrollY > 100 ? "blur(10px)" : "blur(0px)",
-        opacity: scrollY > 100 ? "0" : "1",
-    }}
+        backgroundColor: `var(--${background})`,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1,
+      }}
     >
+      <div
+        className="wallpaper"
+        style={{
+          background: `url(${img})`,
+          backgroundSize: "cover",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: opacity,
+          transition: "opacity 0.2s ease-out",
+          zIndex: -2,
+        }}
+      />
     </div>
   );
 }

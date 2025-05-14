@@ -49,6 +49,11 @@
   user-select: none;
 }
 
+.teamEntry p {
+  max-height: 7.5em;
+  overflow: hidden;
+}
+
 .teamName {
   width: 15em;
   border: 1.5px solid var(--white);
@@ -57,9 +62,9 @@
   cursor: grab;
 }
 
-/* .teamEntry:hover {
-  z-index: 10;
-} */
+.teamAffiliation {
+  font-family: "Alpina Mono";
+}
 
 .teamEntry:hover .teamName {
   color: var(--beige);
@@ -154,7 +159,7 @@
   width: 100vw;
   height: 10em;
   position: relative;
-  margin-bottom: 15em
+  margin-bottom: 15em;
 }
 
 .buttonEntry {
@@ -169,7 +174,7 @@
   text-align: center;
   padding: 0.5em 0;
   margin-bottom: var(--space-S);
-  cursor: grab
+  cursor: grab;
 }
 
 .buttonList {
@@ -179,7 +184,7 @@
   padding: var(--space-S);
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-M);
-  display: none
+  display: none;
 }
 
 .buttonListName {
@@ -188,7 +193,7 @@
 }
 
 .buttonListEntry {
-  padding-bottom: var(--space-M)
+  padding-bottom: var(--space-M);
 }
 
 .buttonEntry:hover .buttonList {
@@ -198,5 +203,52 @@
 .buttonEntry:hover .button {
   background: var(--beige);
   color: var(--white);
-  outline: 1.5px solid
+  outline: 1.5px solid;
+}
+
+.linkButton {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .buttonsWrapper,
+  .teamlist,
+  .resetButton {
+    display: none;
+  }
+  .wrapper {
+    padding-left: var(--space-S);
+    padding-right: var(--space-S);
+  }
+  .headline {
+    transform: unset;
+    margin: 0;
+    width: 80%;
+    font-size: var(--fontSize-M);
+    line-height: var(--lineHeight-M);
+    padding: var(--space-XS) var(--space-S);
+  }
+  .kicker {
+    top: -1.7em;
+    padding-left: 0;
+    left: 0;
+  }
+  .body {
+    width: 80%;
+    padding: 2em var(--space-S) var(--space-S);
+    margin-left: 20%;
+    transform: translateY(-1em);
+  }
+  .linkButton {
+    display: block;
+    background: var(--white);
+    color: var(--beige);
+    margin: var(--space-S) var(--space-S) 0 calc(20% + 5px);
+    font-size: var(--fontSize-M);
+    line-height: var(--lineHeight-M);
+    padding: var(--space-XS) var(--space-S);
+    text-align: center;
+    font-family: "Alpina Mono";
+    transform: translateY(-0.5em);
+  }
 }

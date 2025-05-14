@@ -8,9 +8,11 @@ import {
   getInteracting,
   getMPC,
   getSummerSchools,
+  getSummerSchoolsProjects,
   getTML,
 } from "../../../sanity/sanity-utils";
 import ProjectButtons from "./ProjectButtons";
+import SummerSchoolButtons from "./SummerSchoolButtons";
 import RouterComponent from "./RouterComponent";
 
 export default async function InteractingComponent() {
@@ -18,34 +20,50 @@ export default async function InteractingComponent() {
   const TML = await getTML();
   const MPC = await getMPC();
   const summerSchools = await getSummerSchools();
+  const summerSchoolProjects = await getSummerSchoolsProjects();
   const conferences = await getConferences();
 
   return (
-    <div className={styles.row}>
-      <RouterComponent id="interacting" section={"?section=interacting"} />
-      <div className={styles.text}>
-        <div className={styles.kicker}>Interacting</div>
-        <PortableText value={interacting.text} />
-      </div>
-      <div className={styles.image}>
-        <Image
-          src={interacting.image.url}
-          width={interacting.image.dimensions.width}
-          height={interacting.image.dimensions.height}
-          alt={interacting.image.alt || ""}
+    <>
+      <div className={styles.row} style={{ marginBottom: "0" }}>
+        <RouterComponent id="interacting" section={"?section=interacting"} />
+        <div className={styles.mobileHeader}>
+          <div className={styles.mobileKicker}>Interacting</div>
+          <div className={styles.mobileHeadline}>Interacting</div>
+        </div>
+        <div className={styles.text}>
+          <div className={styles.kicker}>Interacting</div>
+          <PortableText value={interacting.text} />
+        </div>
+        <div className={styles.image}>
+          <Image
+            src={interacting.image.url}
+            width={interacting.image.dimensions.width}
+            height={interacting.image.dimensions.height}
+            alt={interacting.image.alt || ""}
+          />
+        </div>
+
+        <ProjectButtons
+          content={[TML, MPC, conferences]}
+          category={"Interacting"}
+          headlines={[
+            "Transdisciplinary Method Lab",
+            "Methodological PhD Colloquium",
+            "Conferences",
+          ]}
+          categorySlug="interacting"
         />
       </div>
-
-      <ProjectButtons
-        content={[TML, MPC, summerSchools, conferences]}
-        category={"Interacting"}
-        headlines={[
-          "Transdisciplinary Method Lab",
-          "Methodological PhD Colloquium",
-          "Summer Schools",
-          "Conferences",
-        ]}
-      />
-    </div>
+      <div className={styles.summerSchoolButtons}>
+        <SummerSchoolButtons
+          content={[summerSchools]}
+          category={"Interacting"}
+          categorySlug={"interacting"}
+          headlines={["Summer Schools"]}
+          projects={summerSchoolProjects}
+        />
+      </div>
+    </>
   );
 }

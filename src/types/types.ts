@@ -16,22 +16,22 @@ export interface TextBlock {
 }
 
 export interface ImageType {
-    caption: { en: string, de: string };
-    url: string;
-    alt?: string;
-    dimensions: { _type: string, width: number, height: number, aspectRatio: number }
-  }
-  
-  export interface Slug {
-    current: string
-  }
+  caption: { en: string, de: string };
+  url: string;
+  alt?: string;
+  dimensions: { _type: string, width: number, height: number, aspectRatio: number }
+}
+
+export interface Slug {
+  current: string
+}
 
 export type NewsType = {
-    title: string,
-    text: TextBlock,
-    image: ImageType,
-    slug?: string,
-    lab?: string
+  title: string,
+  text: TextBlock,
+  image: ImageType,
+  slug?: string,
+  lab?: string
 }
 
 export type PersonType = {
@@ -39,5 +39,6 @@ export type PersonType = {
   lab?: string,
   name: string,
   text: TextBlock,
+  slug: { current: string }
 
 }

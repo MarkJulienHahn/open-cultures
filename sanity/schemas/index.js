@@ -25,6 +25,7 @@ import spokenWordProject from "./spokenWordProject";
 import printedMatter from "./printedMatter";
 import printedMatterProject from "./printedMatterProject";
 import impressum from "./impressum";
+import datenschutz from "./datenschutz";
 import footer from "./footer";
 
 const schemaTypes = [
@@ -55,6 +56,7 @@ const schemaTypes = [
   printedMatter,
   printedMatterProject,
   impressum,
+  datenschutz,
   footer,
 ];
 

@@ -30,6 +30,15 @@ export default {
       ],
       validation: (Rule) => Rule.required().error("Image is required."),
     },
+    {
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "headline",
+      },
+      readOnly: true,
+      validation: (Rule) => Rule.required().error("Slug is required."),
+    },
   ],
   preview: {
     prepare() {

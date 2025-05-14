@@ -1,0 +1,12 @@
+.wrapper {
+  padding: var(--space-XXL) var(--space-S);
+}
+
+.text p + p {
+    margin-top: 1em
+}
+
+.text strong {
+    font-weight: normal;
+    font-family: "Alpina Mono";
+}

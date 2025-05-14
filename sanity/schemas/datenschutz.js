@@ -12,7 +12,10 @@ export default {
           styles: [],
           lists: [],
           marks: {
-            decorators: [{ title: "Italic", value: "em" }],
+            decorators: [
+              { title: "Italic", value: "em" },
+              { title: "Bold", value: "strong" },
+            ],
           },
         },
       ],

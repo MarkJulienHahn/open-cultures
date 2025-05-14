@@ -19,6 +19,10 @@ export default async function MediatingComponent() {
   return (
     <div className={styles.row}>
       <RouterComponent id="mediating" section={"?section=mediating"} />
+      <div className={styles.mobileHeader}>
+        <div className={styles.mobileKicker}>Mediating</div>
+        <div className={styles.mobileHeadline}>Mediating</div>
+      </div>
       <div className={styles.text}>
         <div className={styles.kicker}>Mediating</div>
         <PortableText value={mediating.text} />
@@ -35,6 +39,7 @@ export default async function MediatingComponent() {
         content={[spokenWord, printedMatter]}
         headlines={["Spoken Word", "Printed Matter"]}
         category={"Mediating"}
+        categorySlug="mediating"
       />
     </div>
   );

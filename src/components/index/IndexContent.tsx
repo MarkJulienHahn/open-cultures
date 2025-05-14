@@ -1,11 +1,13 @@
-import { useRouter, useSearchParams } from "next/navigation";
+"use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { PortableText } from "next-sanity";
 import styles from "./index.module.css";
 import Image from "next/image";
 import { TextBlock } from "@/types/types";
 import Hamburger from "hamburger-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Lightbox from "./Lightbox";
 
 type Entry = {
@@ -38,31 +40,82 @@ type Props = {
 
 export default function IndexContent({ entry }: Props) {
   const [lightbox, setLightBox] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null); // Ref for the row to scroll into view
+
+  const [measuredHeight, setMeasuredHeight] = useState(0);
 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const currentCategory = searchParams.get("entry");
+  const currentEntry = searchParams.get("entry");
 
   const params = new URLSearchParams(searchParams.toString());
+  const isActive = currentEntry === entry.slug.current;
+  const lab = entry?.lab?.toLowerCase();
+
+  const [shouldRender, setShouldRender] = useState(false);
+
+  // Delay activating the row on first load, so it animates in
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (isActive) {
+        setShouldRender(true);
+      }
+    }, 50); // short delay for animation
+    return () => clearTimeout(timeout);
+  }, []); // only once on mount
+
+  // Handle opening after initial mount
+  useEffect(() => {
+    if (isActive && !shouldRender) {
+      setShouldRender(true);
+    }
+  }, [isActive]);
+
+  useEffect(() => {
+    if (isActive && contentRef.current) {
+      setMeasuredHeight(contentRef.current.scrollHeight);
+    }
+  }, [isActive, entry]);
+
+  // Scroll into view after row is open and fully rendered
+  useEffect(() => {
+    if (isActive && rowRef.current) {
+      // Add a delay to ensure the animation is completed before scrolling
+      const timeout = setTimeout(() => {
+        rowRef.current &&
+          rowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 500); // Adjust delay to match animation timing
+      return () => clearTimeout(timeout);
+    }
+  }, [isActive]); // Scroll into view when the row becomes active
+
+  useEffect(() => {
+    if (!isActive && shouldRender) {
+      const timeout = setTimeout(() => {
+        setShouldRender(false);
+      }, 250); // match animation duration
+      return () => clearTimeout(timeout);
+    }
+  }, [isActive, shouldRender]);
 
   const handleClick = () => {
     if (!isActive) {
       params.set("entry", entry.slug.current);
+      router.push(`?${params.toString()}`, { scroll: false });
     }
-
-    router.push(`?${params.toString()}`);
   };
 
   const closeRow = () => {
     if (isActive) {
-      params.delete("entry");
-      const newParams = params.toString();
-      router.push(newParams ? `?${newParams}` : "/");
+      setShouldRender(false);
+      setTimeout(() => {
+        params.delete("entry");
+        const newParams = params.toString();
+        router.push(newParams ? `?${newParams}` : "/", { scroll: false });
+      }, 250); // match animation duration
     }
   };
-
-  const isActive = currentCategory === entry.slug.current;
-  const lab = entry?.lab?.toLowerCase();
 
   return (
     <>
@@ -71,58 +124,72 @@ export default function IndexContent({ entry }: Props) {
       )}
 
       <div
-        className={`${styles.row} ${lab && styles[lab]} ${styles.indented} ${isActive ? styles.open : styles.closed}`}
+        className={`${styles.row} ${lab && styles[lab]} ${styles.indented} 
+        ${isActive ? styles.open : styles.closed}
+        `}
         onClick={handleClick}
       >
+        <div className={styles.rowRef} ref={rowRef}></div>
         <div>{entry.name || entry.headline}</div>
-        <div className={styles.content}>
-          <div className={styles.content__text}>
-            <div>
-              {isActive && (
-                <span className={styles.closeButton} onClick={closeRow}>
-                  <Hamburger size={20} toggled={true} />
-                </span>
-              )}
-              {entry.affiliation ||
-                (entry.subHeadline && (
-                  <p className={styles.content__subhead}>
-                    {entry.affiliation || entry.subHeadline}
-                  </p>
-                ))}
-            </div>
-
-            {entry.text && <PortableText value={entry.text} />}
-            {entry.quote && <p>{entry.quote}</p>}
-          </div>
-
-          {entry?.portrait?.url && (
-            <div className={styles.content__image}>
-              <Image
-                src={entry?.portrait?.url}
-                alt=""
-                width={400}
-                height={500}
-              />
-            </div>
-          )}
-
-          {entry.images && (
-            <div
-              className={`${styles.content__image} ${entry.images.length > 0 && styles.clickable}`}
-              onClick={() => setLightBox(true)}
+        <AnimatePresence initial={false}>
+          {shouldRender && (
+            <motion.div
+              key="entry-content"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25 }}
+              style={{ overflow: "hidden" }}
             >
-              <Image
-                src={entry.images[0].url}
-                alt={entry.images[0].alt || ""}
-                width={500}
-                height={600}
-              />{" "}
-              <p className={styles.caption}>
-                {1} / {entry.images.length}
-              </p>
-            </div>
+              <div className={styles.content} ref={contentRef}>
+                <div className={styles.content__text}>
+                  <div>
+                    <span className={styles.closeButton} onClick={closeRow}>
+                      <Hamburger size={20} toggled={true} />
+                    </span>
+
+                    <div className={styles.content__subhead}>
+                      {entry.affiliation || entry.subHeadline}
+                    </div>
+
+                    {entry.text && <PortableText value={entry.text} />}
+                    {entry.quote && <p>{entry.quote}</p>}
+                  </div>
+                </div>
+
+                {entry?.portrait?.url && (
+                  <div className={styles.content__image}>
+                    <Image
+                      src={entry.portrait.url}
+                      alt=""
+                      width={400}
+                      height={500}
+                    />
+                  </div>
+                )}
+
+                {entry.images && (
+                  <div
+                    className={`${styles.content__image} ${
+                      entry.images.length > 0 && styles.clickable
+                    }`}
+                    onClick={() => setLightBox(true)}
+                  >
+                    <Image
+                      src={entry.images[0].url}
+                      alt={entry.images[0].alt || ""}
+                      width={500}
+                      height={600}
+                    />
+                    <p className={styles.caption}>
+                      {1} / {entry.images.length}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
           )}
-        </div>
+        </AnimatePresence>
       </div>
     </>
   );

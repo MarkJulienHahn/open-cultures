@@ -1,72 +1,109 @@
-"use client";
-import { useState, useEffect } from "react";
+"use client"
 
-import styles from "./team.module.css";
-import TeamEntry from "./TeamEntry";
-import { PersonType } from "@/types/types";
-import { useInView } from "react-intersection-observer";
-import RouterComponent from "./RouterComponent";
+import { useState, useEffect, useCallback, useRef } from "react"
+import styles from "./team.module.css"
+import TeamEntry from "./TeamEntry"
+import type { PersonType } from "@/types/types"
+import { useInView } from "react-intersection-observer"
+import RouterComponent from "./RouterComponent"
 
-type Position = { top: number; left: number };
+type Position = { top: number; left: number }
 
-export default function TeamEntryWrapper({
-  persons,
-}: {
-  persons: PersonType[];
-}) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const { ref, inView } = useInView({ threshold: 0.5 });
+export default function TeamEntryWrapper({ persons }: { persons: PersonType[] }) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const { ref, inView } = useInView({ threshold: 0.5 })
 
-  const generateRandomPosition = (
-    existing: Position[],
-    minDistance = 150
-  ): Position => {
-    let attempts = 0;
-    while (attempts < 1000) {
-      const top = (Math.random() * 38 * parseFloat(getComputedStyle(document.documentElement).fontSize)); // 38em in px
-      const left = (Math.random() * 80 * window.innerWidth) / 100;
-
-      const isFarEnough = existing.every((p) => {
-        const dx = p.left - left;
-        const dy = p.top - top;
-        return Math.sqrt(dx * dx + dy * dy) >= minDistance;
-      });
-
-      if (isFarEnough) return { top, left };
-      attempts++;
-    }
-
-    // fallback
-    return {
-      top: (Math.random() * 38 * parseFloat(getComputedStyle(document.documentElement).fontSize)),
-      left: (Math.random() * 80 * window.innerWidth) / 100,
-    };
-  };
-
-  const generateAllPositions = (): Position[] => {
-    const positions: Position[] = [];
-    for (let i = 0; i < persons.length; i++) {
-      positions.push(generateRandomPosition(positions, 150));
-    }
-    return positions;
-  };
-
-  const [positions, setPositions] = useState<Position[]>([]);
-
+  // Use a ref for inView to avoid re-renders affecting positions
+  const inViewRef = useRef(inView)
   useEffect(() => {
-    setPositions(generateAllPositions());
-    // Only run once on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    inViewRef.current = inView
+  }, [inView])
 
-  const handleReset = () => {
-    setPositions(generateAllPositions());
-  };
+  // Add a shuffle counter to force position updates
+  const [shuffleCount, setShuffleCount] = useState(0)
+
+  // Store positions in a ref to avoid re-renders affecting them
+  const positionsRef = useRef<Position[]>([])
+
+  // Simplified position generation
+  const generatePositions = useCallback(() => {
+    if (typeof window === "undefined") return Array(persons.length).fill({ top: 0, left: 0 })
+
+    const containerWidth = window.innerWidth * 0.8 // 80% of window width
+    const containerHeight = window.innerHeight * 0.6 // 80% of window height
+
+    const positions: Position[] = []
+
+    for (let i = 0; i < persons.length; i++) {
+      // Try to find a position that's not too close to existing positions
+      let newPos: Position
+      let attempts = 0
+      let tooClose = true
+
+      while (tooClose && attempts < 50) {
+        newPos = {
+          top: Math.random() * containerHeight,
+          left: Math.random() * containerWidth,
+        }
+
+        // Check if this position is far enough from existing positions
+        tooClose = positions.some((pos) => {
+          const dx = pos.left - newPos.left
+          const dy = pos.top - newPos.top
+          return dx * dx + dy * dy < 150 * 150 // Minimum distance
+        })
+
+        attempts++
+
+        if (!tooClose || attempts >= 50) {
+          positions.push(newPos)
+          break
+        }
+      }
+
+      // If we couldn't find a good position, just use a random one
+      if (tooClose) {
+        positions.push({
+          top: Math.random() * containerHeight,
+          left: Math.random() * containerWidth,
+        })
+      }
+    }
+
+    return positions
+  }, [persons.length])
+
+  // State for positions - only used for rendering
+  const [positions, setPositions] = useState<Position[]>([])
+
+  // Generate positions on mount and when window size changes
+  useEffect(() => {
+    const handleResize = () => {
+      const newPositions = generatePositions()
+      positionsRef.current = newPositions
+      setPositions(newPositions)
+    }
+
+    // Initial generation
+    handleResize()
+
+    // Update on window resize
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [generatePositions])
+
+  // Handle shuffle button click
+  const handleShuffle = useCallback(() => {
+    const newPositions = generatePositions()
+    positionsRef.current = newPositions
+    setPositions(newPositions)
+    setShuffleCount((prev) => prev + 1) // Increment to force position updates
+  }, [generatePositions])
 
   return (
     <>
       {inView && (
-        <div className={styles.resetButton} onClick={handleReset}>
+        <div className={styles.resetButton} onClick={handleShuffle}>
           Shuffle
         </div>
       )}
@@ -74,15 +111,15 @@ export default function TeamEntryWrapper({
       <div className={styles.teamlist} ref={ref}>
         {persons.map((member, i) => (
           <TeamEntry
-            key={i}
+            key={`${member.name}-${i}`}
             member={member}
             i={i}
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}
-            initialPosition={positions[i]}
+            initialPosition={positions[i] || { top: 0, left: 0 }}
           />
         ))}
       </div>
     </>
-  );
+  )
 }

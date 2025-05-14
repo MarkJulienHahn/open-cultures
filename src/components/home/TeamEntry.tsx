@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./team.module.css";
 import { PortableText } from "next-sanity";
-
 import { PersonType } from "@/types/types";
+import Link from "next/link";
 
 type TeamEntryProps = {
   member: PersonType;
@@ -24,37 +24,45 @@ export default function TeamEntry({
   const [position, setPosition] = useState(initialPosition);
   const entryRef = useRef<HTMLDivElement | null>(null);
 
-  let offsetX = 0;
-  let offsetY = 0;
-  let isDragging = false;
+  const isDragging = useRef(false);
+  const offsetX = useRef(0);
+  const offsetY = useRef(0);
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    isDragging = true;
-    offsetX = e.clientX - entryRef.current!.offsetLeft;
-    offsetY = e.clientY - entryRef.current!.offsetTop;
+    isDragging.current = true;
+    offsetX.current = e.clientX - (entryRef.current?.offsetLeft || 0);
+    offsetY.current = e.clientY - (entryRef.current?.offsetTop || 0);
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      const newPosition = {
-        top: e.clientY - offsetY,
-        left: e.clientX - offsetX,
-      };
-      setPosition(newPosition);
+    if (isDragging.current) {
+      setPosition({
+        top: e.clientY - offsetY.current,
+        left: e.clientX - offsetX.current,
+      });
     }
   };
 
   const handleMouseUp = () => {
-    isDragging = false;
+    isDragging.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
+  // Effect to reset position when `initialPosition` changes
   useEffect(() => {
     setPosition(initialPosition);
   }, [initialPosition]);
+
+  // Cleanup listeners on unmount
+  useEffect(() => {
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
 
   return (
     <div
@@ -65,8 +73,8 @@ export default function TeamEntry({
         .filter(Boolean)
         .join(" ")}
       style={{
-        top: position ? `${position.top}px` : "0px",
-        left: position ? `${position.left}px` : "0px",
+        top: `${position.top}px`,
+        left: `${position.left}px`,
         zIndex: i === activeIndex ? "10" : "0",
       }}
       ref={entryRef}
@@ -75,11 +83,15 @@ export default function TeamEntry({
     >
       <div className={styles.teamName}>
         <div>{member.name}</div>
-        <div>{member.affiliation}</div>
+        <div className={styles.teamAffiliation}>{member.affiliation}</div>
       </div>
       <div className={styles.teamActive}>
         <PortableText value={member.text} />
-        <div className={styles.link}>Show Profile ↗</div>
+        <div className={styles.link}>
+          <Link href={`/glossary?category=team&entry=${member.slug.current}`}>
+            Show Profile ↗
+          </Link>
+        </div>
       </div>
     </div>
   );

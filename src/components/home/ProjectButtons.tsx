@@ -9,16 +9,19 @@ type ProjectType = {
   text: TextBlock;
   headline?: string;
   subHeadline?: string;
+  slug: { current: string };
 };
 
 export default function ProjectButtons({
   content,
   category,
   headlines,
+  categorySlug,
 }: {
   content: ProjectType[];
   category: string;
   headlines?: string[];
+  categorySlug: string;
 }) {
   const headlinesUsed = headlines || content.map((entry) => entry.headline);
 
@@ -32,7 +35,7 @@ export default function ProjectButtons({
   ) {
     let attempts = 0;
     while (attempts < 1000) {
-      const top = (Math.random() * 50 * window.innerHeight) / 100;
+      const top = (Math.random() * 30 * window.innerHeight) / 100;
       const left = (Math.random() * 25 * window.innerWidth) / 100;
       const isFarEnough = existing.every((p) => {
         const dx = p.left - left;
@@ -43,8 +46,8 @@ export default function ProjectButtons({
       attempts++;
     }
     return {
-      top: (Math.random() * 50 * window.innerHeight) / 100,
-      left: (Math.random() * 25 * window.innerWidth) / 100
+      top: (Math.random() * 30 * window.innerHeight) / 100,
+      left: (Math.random() * 25 * window.innerWidth) / 100,
     };
   }
 
@@ -57,9 +60,8 @@ export default function ProjectButtons({
     setPositions(pos);
   }, [content]);
 
-  // Ensure positions are populated before rendering
   if (positions.length === 0) {
-    return <div>Loading...</div>; // Or any other placeholder
+    return <div>Loading...</div>;
   }
 
   return (
@@ -68,6 +70,7 @@ export default function ProjectButtons({
         <ProjectButton
           key={i}
           category={category}
+          categorySlug={categorySlug}
           content={entry}
           label={headlinesUsed[i]}
           position={positions[i]}

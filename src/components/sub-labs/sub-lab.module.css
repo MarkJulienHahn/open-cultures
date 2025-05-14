@@ -1,0 +1,120 @@
+.wrapper {
+  padding-bottom: var(--space-XXL);
+  padding-left: 10vw;
+}
+
+.headline {
+  max-width: 30rem;
+
+  padding: 0.5em 3em;
+
+  position: relative;
+  text-align: center;
+  transform: translate(3em, 1em);
+  z-index: 2;
+}
+
+.kicker {
+  position: absolute;
+  top: -1.3em;
+  left: 0;
+  font-family: "Alpina Mono";
+
+  font-size: var(--fontSize-XS);
+  padding-left: var(--space-S);
+}
+
+.body {
+  width: 60vw;
+  max-width: 1200px;
+  padding: 2em 1em;
+  text-indent: 3em;
+  position: relative;
+  z-index: 1;
+  transform: translateX(6em);
+}
+
+.quoteWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.quote {
+  width: 75%;
+  max-width: 1200px;
+  min-width: 600px;
+  font-family: "Alpina Mono";
+  font-size: var(--fontSize-M);
+  line-height: var(--lineHeight-M);
+  position: relative;
+  text-align: center;
+  padding-right: 5rem;
+}
+
+.contact,
+.contact h3 {
+  font-size: var(--fontSize-XS);
+  line-height: var(--lineHeight-XS);
+  letter-spacing: var(--letterSpacing-XS);
+  font-weight: normal;
+}
+
+.contact h3 {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+.contact {
+  padding: 1em;
+  width: auto;
+  transform: translateY(-1em);
+  position: relative;
+  display: inline-block;
+  max-width: 25em;
+}
+
+@media screen and (max-width: 1024px) {
+  .quoteWrapper {
+    margin-top: 0;
+    margin-bottom: 5rem;
+  }
+
+  .quote {
+    width: 80%;
+    max-width: 1200px;
+    min-width: unset;
+    padding: 0 var(--space-S);
+    font-size: var(--fontSize-S);
+    line-height: var(--lineHeight-S);
+  }
+  .wrapper {
+    padding-left: var(--space-S);
+    padding-right: var(--space-S);
+  }
+  .headline {
+    transform: unset;
+    margin: 0;
+    width: 80%;
+    font-size: var(--fontSize-M);
+    line-height: var(--lineHeight-M);
+    padding: var(--space-XS) var(--space-S);
+  }
+  .kicker {
+    top: -1.7em;
+    padding-left: 0;
+  }
+  .body {
+    width: 80%;
+    padding: 2em var(--space-S) var(--space-S);
+    margin-left: 20%;
+    transform: translateY(-1.5em);
+  }
+  .contact {
+    transform: translateY(-3.5em);
+    padding: 1em var(--space-S) var(--space-S);
+    width: 80%;
+  }
+}

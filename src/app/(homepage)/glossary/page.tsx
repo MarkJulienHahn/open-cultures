@@ -23,9 +23,11 @@ import {
   getTML,
   getTMLProjects,
 } from "../../../../sanity/sanity-utils";
-import { Suspense } from "react";
+import SearchableIndex from "@/components/index/SearchableIndex";
+import Footer from "@/components/ui/Footer";
+import Wallpaper from "@/components/ui/Wallpaper";
 
-export default async function INDEX() {
+export default async function Glossary() {
   const openCultures = await getOpenCultures();
   const openPlanning = await getOpenPlanning();
   const openFactory = await getOpenFactory();
@@ -53,10 +55,32 @@ export default async function INDEX() {
   const spokenWordProjects = await getSpokenWordProjects();
 
   return (
-    <main className={styles.wrapper}>
-      <Suspense fallback={<div>Loading...</div>}>
-        INDEX
-            <IndexRow
+    <>
+      <main className={styles.wrapper}>
+        <SearchableIndex
+          openCultures={openCultures}
+          openPlanning={openPlanning}
+          openFactory={openFactory}
+          openImaginaries={openImaginaries}
+          team={team}
+          praxisPartners={praxisPartners}
+          advisoryBoard={advisoryBoard}
+          livingLab={livingLab}
+          livingLabProjects={livingLabProjects}
+          tml={tml}
+          tmlProjects={tmlProjects}
+          mpc={mpc}
+          mpcProjects={mpcProjects}
+          summerSchools={summerSchools}
+          summerSchoolProjects={summerSchoolProjects}
+          conferences={conferences}
+          conferencesProjects={conferencesProjects}
+          printedMatter={printedMatter}
+          printedMatterProjects={printedMatterProjects}
+          spokenWord={spokenWord}
+          spokenWordProjects={spokenWordProjects}
+        />
+        <IndexRow
           label={"Open Planning Cultures"}
           category="open-planning-culture"
           introtext={openCultures.introtext.text}
@@ -142,7 +166,9 @@ export default async function INDEX() {
             content={spokenWordProjects}
           />
         </div>
-      </Suspense>
-    </main>
+        <Wallpaper background={"beige"} img={""} />
+      </main>
+      <Footer />
+    </>
   );
 }
