@@ -7,16 +7,29 @@ import SearchResult from "./SearchResult";
 import Hamburger from "hamburger-react";
 import { PersonType, ProjectType } from "@/types/types";
 
-function textFrom(obj: any): string {
+function textFrom(
+  obj: string | { _type: string; children: { text: string }[] } | undefined
+): string {
   if (!obj) return "";
   if (typeof obj === "string") return obj;
+
+  // Check if obj is an array of blocks
   if (Array.isArray(obj)) {
     return obj
       .filter((b) => b._type === "block" && b.children)
       .map((b) => b.children.map((c) => c.text).join(""))
       .join("\n");
   }
-  if (typeof obj === "object" && "text" in obj) return obj.text;
+
+  // Check if obj is an object with a `text` field
+  if (
+    typeof obj === "object" &&
+    "text" in obj &&
+    typeof (obj).text === "string"
+  ) {
+    return (obj).text;
+  }
+
   return "";
 }
 
@@ -46,7 +59,7 @@ export default function SearchableIndex({
   const [term, setTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(1);
 
-  console.log(livingLabProjects)
+  console.log(livingLabProjects);
 
   // 1. Flatten your searchable sections into one array
   const entries = useMemo(() => {
@@ -244,7 +257,11 @@ export default function SearchableIndex({
 
       {term &&
         filtered.map((entry) => (
-          <SearchResult term={term} key={entry.label + entry.category} entry={entry} />
+          <SearchResult
+            term={term}
+            key={entry.label + entry.category}
+            entry={entry}
+          />
         ))}
 
       {term && results.length > visibleCount && (
