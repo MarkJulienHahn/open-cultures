@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import Nav from "@/components/ui/Nav";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Open Cultures",
@@ -18,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Nav />
-        {children}
+        <Suspense>{children}</Suspense>
       </body>
     </html>
   );
