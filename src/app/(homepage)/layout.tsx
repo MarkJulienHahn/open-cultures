@@ -17,12 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Suspense fallback={null}>
         <body>
           <Nav />
           {children}
         </body>
-      </Suspense>
     </html>
   );
 }

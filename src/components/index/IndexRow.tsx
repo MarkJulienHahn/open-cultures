@@ -28,6 +28,7 @@ type Props = {
   label: string;
   introtext?: TextBlock;
   content?: Entry[];
+  filter?: boolean;
 };
 
 export default function IndexRow({
@@ -35,6 +36,7 @@ export default function IndexRow({
   label,
   introtext,
   content,
+  filter,
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -64,14 +66,13 @@ export default function IndexRow({
 
   useEffect(() => {
     if (isActive && rowRef.current) {
-      // Add a delay to ensure the animation is completed before scrolling
       const timeout = setTimeout(() => {
         rowRef.current &&
           rowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 500); // Adjust delay to match animation timing
+      }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [isActive]); // Scroll into view when the row becomes active
+  }, [isActive]);
 
   return (
     <>
@@ -80,13 +81,20 @@ export default function IndexRow({
         onClick={handleClick}
       >
         <div className={styles.rowRef} ref={rowRef}></div>
-        <div>
+        <div className={styles.rowSingle}>
           {isActive && (
             <span className={styles.closeButton} onClick={closeRow}>
               <Hamburger size={20} toggled={true} />
             </span>
           )}
           {label}
+          {/* {filter ? (
+            <div className={styles.filter}>
+              <div>OpenPlanning</div>
+              <div>OpenFactory</div>
+              <div>OpenImaginaries</div>
+            </div>
+          ) : null} */}
         </div>
         <AnimatePresence initial={false}>
           {introtext && isActive && (

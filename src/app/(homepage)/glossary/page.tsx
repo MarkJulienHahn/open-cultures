@@ -103,7 +103,7 @@ export default async function Glossary() {
         />
         <p className={styles.section}>People</p>
         <div className={styles.rows}>
-          <IndexRow label={"Team"} content={team} category="team" />
+          <IndexRow label={"Team"} content={team} category="team" filter={true}/>
           <IndexRow
             label={"Praxis Partners"}
             content={praxisPartners}
