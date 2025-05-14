@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, usePathname } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import styles from "./nav.module.css";
 import NavButton from "./NavButton";
 import { Cross as Hamburger } from "hamburger-react";
@@ -20,7 +20,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <Suspense>
       {/* DESKTOP */}
       <div className={styles.wrapper}>
         <div className={styles.topRow}>
@@ -211,6 +211,6 @@ export default function Nav() {
           link={"open-imaginaries"}
         />
       </div>
-    </>
+    </Suspense>
   );
 }
