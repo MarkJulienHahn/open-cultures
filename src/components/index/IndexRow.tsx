@@ -36,7 +36,7 @@ export default function IndexRow({
   label,
   introtext,
   content,
-  filter,
+  // filter,
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
