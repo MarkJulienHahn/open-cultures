@@ -15,7 +15,12 @@ type Entry = {
   headline?: string;
   subHeadline?: string;
   slug: { current: string };
+  position?: string;
   affiliation?: string;
+  email: string;
+  link: string[];
+  externalLink: string;
+  title?: string;
   text?: TextBlock;
   quote?: string;
   portrait?: {
@@ -36,9 +41,10 @@ type Entry = {
 
 type Props = {
   entry: Entry;
+  category?: string;
 };
 
-export default function IndexContent({ entry }: Props) {
+export default function IndexContent({ entry, category }: Props) {
   const [lightbox, setLightBox] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const rowRef = useRef<HTMLDivElement>(null); // Ref for the row to scroll into view
@@ -53,40 +59,36 @@ export default function IndexContent({ entry }: Props) {
 
   const [shouldRender, setShouldRender] = useState(false);
 
-  // Delay activating the row on first load, so it animates in
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (isActive) {
         setShouldRender(true);
       }
-    }, 50); // short delay for animation
+    }, 50);
     return () => clearTimeout(timeout);
-  }, []); // only once on mount
+  }, []);
 
-  // Handle opening after initial mount
   useEffect(() => {
     if (isActive && !shouldRender) {
       setShouldRender(true);
     }
   }, [isActive]);
 
-  // Scroll into view after row is open and fully rendered
   useEffect(() => {
     if (isActive && rowRef.current) {
-      // Add a delay to ensure the animation is completed before scrolling
       const timeout = setTimeout(() => {
         rowRef.current &&
           rowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 500); // Adjust delay to match animation timing
+      }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [isActive]); // Scroll into view when the row becomes active
+  }, [isActive]);
 
   useEffect(() => {
     if (!isActive && shouldRender) {
       const timeout = setTimeout(() => {
         setShouldRender(false);
-      }, 250); // match animation duration
+      }, 250);
       return () => clearTimeout(timeout);
     }
   }, [isActive, shouldRender]);
@@ -105,9 +107,16 @@ export default function IndexContent({ entry }: Props) {
         params.delete("entry");
         const newParams = params.toString();
         router.push(newParams ? `?${newParams}` : "/", { scroll: false });
-      }, 250); // match animation duration
+      }, 250);
     }
   };
+
+const showExternal = () => {
+  if (entry?.externalLink) {
+    window.open(entry.externalLink, '_blank');
+  }
+};
+
 
   return (
     <>
@@ -119,10 +128,20 @@ export default function IndexContent({ entry }: Props) {
         className={`${styles.row} ${lab && styles[lab]} ${styles.indented} 
         ${isActive ? styles.open : styles.closed}
         `}
-        onClick={handleClick}
+        onClick={!entry.externalLink ? handleClick : showExternal}
       >
         <div className={styles.rowRef} ref={rowRef}></div>
-        <div>{entry.name || entry.headline}</div>
+        <div className={styles.rowInner}>
+          <span>
+            {entry?.title} {entry.name || entry.headline} {entry.externalLink && "↗"}
+          </span>
+          {category == "team" && (
+            <div className={styles.rowDetails}>
+              <span>{!isActive ? entry.position : null}</span>
+              <span>{!isActive ? `Open${entry.lab}` : null}</span>
+            </div>
+          )}
+        </div>
         <AnimatePresence initial={false}>
           {shouldRender && (
             <motion.div
@@ -141,7 +160,26 @@ export default function IndexContent({ entry }: Props) {
                     </span>
 
                     <div className={styles.content__subhead}>
-                      {entry.affiliation || entry.subHeadline}
+                      <div style={{ fontFamily: "Siggnal Mono" }}>
+                        {entry.affiliation ? entry.affiliation : null}
+                      </div>
+                      <div style={{ marginTop: "1em" }}>
+                        <a href={`mailto:${entry?.email}`}>
+                          {entry?.email ? entry?.email : null}
+                        </a>
+                      </div>
+                      {entry?.link?.length &&
+                        entry?.link?.map((entry, i) => (
+                          <div key={i}>
+                            <a
+                              href={`https://${entry}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {entry ? `${entry} ↗` : null}
+                            </a>
+                          </div>
+                        ))}
                     </div>
 
                     {entry.text && <PortableText value={entry.text} />}

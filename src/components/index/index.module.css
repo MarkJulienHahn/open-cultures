@@ -57,7 +57,7 @@
 
 .section {
   font-size: var(--fontSize-XS);
-  font-family: "Alpina Mono";
+  font-family: "Siggnal Mono";
   padding-left: 1em;
 }
 
@@ -77,6 +77,11 @@
   margin-bottom: var(--space-M);
   padding-left: var(--space-L);
   white-space: pre-line;
+  max-width: 30em;
+}
+
+.content__subhead a:hover {
+  text-decoration: underline;
 }
 
 .content__image {
@@ -145,7 +150,7 @@
 
 .caption {
   font-size: var(--fontSize-XS);
-  font-family: "Alpina Mono";
+  font-family: "Siggnal Mono";
   text-align: center;
 }
 
@@ -195,7 +200,7 @@
 
 .searchResult__category {
   width: 20em;
-  font-family: "Alpina Mono";
+  font-family: "Siggnal Mono";
 }
 
 .searchResult__text {
@@ -253,24 +258,19 @@
   width: 100%;
 }
 
-.filter {
-  right: 0;
-  font-size: var(--fontSize-S);
-  font-family: "Alpina Mono";
-  height: 37px;
+.rowInner {
   display: flex;
+  justify-content: space-between;
 }
 
-.filter div {
-  padding: 2px var(--space-S) 0;
-  cursor: pointer;
-  height: 100%;
-  padding-top: 10px;
-}
-
-.filter div:hover {
-  background: var(--white);
-  color: var(--beige);
+.rowDetails {
+  width: 66%;
+  font-size: var(--fontSize-XS);
+  line-height: var(--lineHeight-XS);
+  padding-top: 3px;
+  font-family: "Siggnal Mono";
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (max-width: 1024px) {
@@ -315,5 +315,18 @@
   }
   .searchResult__category {
     padding-right: 20px;
+  }
+  .rowInner {
+    display: block;
+  }
+  .rowDetails {
+    width: 100%;
+    margin-top: var(--space-XS);
+    display: flex;
+    /* justify-content: space-between; */
+  }
+  .rowDetails span:first-child {
+    width: 60%;
+    padding-right: var(--space-S);
   }
 }

@@ -41,7 +41,22 @@ export default {
         {
           name: "partners",
           type: "array",
-          of: [{ name: "name", type: "string" }],
+          of: [
+            {
+              name: "partner",
+              type: "object",
+              fields: [
+                { name: "name", type: "text" },
+                { name: "link", type: "string" },
+                { name: "indented", type: "boolean" },
+              ],
+              preview: {
+                select: {
+                  title: "name",
+                },
+              },
+            },
+          ],
         },
         {
           name: "supporters",

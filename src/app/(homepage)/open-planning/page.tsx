@@ -21,7 +21,7 @@ export default async function page() {
         <div className={styles.wrapper}>
           <div className={`${styles.headline} body__planning__inverted`}>
             <div className={styles.kicker} style={{ color: "var(--pink)" }}>
-              Open Cultures
+              OpenPlanning
             </div>
             {openPlanning.introtext.title}
           </div>
@@ -29,27 +29,8 @@ export default async function page() {
             <PortableText value={openPlanning.introtext.text} />
           </div>
           <div className={`${styles.contact} body__planning border`}>
-            <h3>Partner Institutions</h3>
-            <ul>
-              {openPlanning.introtext.partners.map(
-                (entry: {
-                  name: string | undefined;
-                  link: string | undefined;
-                }) =>
-                  entry?.name && (
-                    <li key={entry.name}>
-                      <div>{entry.name}</div>
-                      {entry.link && (
-                        <div>
-                          <a href={entry.link} target="_blank" rel="noreferrer">
-                            → Contact
-                          </a>
-                        </div>
-                      )}
-                    </li>
-                  )
-              )}
-            </ul>
+            <h3><em>Partner Institutions</em></h3>
+            <PortableText value={openPlanning.introtext.partners} />
           </div>
         </div>
         <Wallpaper background={"green"} img={"/images/openPlanning.png"} />

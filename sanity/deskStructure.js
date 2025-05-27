@@ -106,7 +106,7 @@ export const myStructure = (S, context) =>
                     .documentId("transdisciplinaryMethodLab")
                 ),
               S.listItem()
-                .title("Methodological PhD Colloquium")
+                .title("Doctoral School")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
@@ -122,7 +122,7 @@ export const myStructure = (S, context) =>
                     .documentId("sumemrSchools")
                 ),
               S.listItem()
-                .title("Conferences")
+                .title("Public Conferences")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
@@ -236,7 +236,7 @@ export const myStructure = (S, context) =>
 
               orderableDocumentListDeskItem({
                 type: "methodologicalPhdColloquiumProject",
-                title: "Methodological PhD Colloquium",
+                title: "Doctoral School",
                 icon: JoystickIcon,
                 S,
                 context,
@@ -251,7 +251,7 @@ export const myStructure = (S, context) =>
               }),
               orderableDocumentListDeskItem({
                 type: "conferencesProject",
-                title: "Conferences",
+                title: "Public Conferences",
                 icon: JoystickIcon,
                 S,
                 context,

@@ -17,10 +17,6 @@ export default defineType({
     {
       name: "subHeadline",
       type: "text",
-      validation: (Rule) =>
-        Rule.required()
-          .min(1)
-          .error("Text is required and must contain at least one block."),
     },
     {
       name: "text",
@@ -67,4 +63,4 @@ export default defineType({
 
     orderRankField({ type: "summerSchoolsProject" }),
   ],
-})
+});

@@ -91,17 +91,17 @@ export default async function Glossary() {
           />
           <p className={styles.section}>SubLabs</p>
           <IndexRow
-            label={"Open Planning"}
+            label={"OpenPlanning"}
             category="open-planning"
             introtext={openPlanning.introtext.text}
           />
           <IndexRow
-            label={"Open Factory"}
+            label={"OpenFactory"}
             category="open-factory"
             introtext={openFactory.introtext.text}
           />
           <IndexRow
-            label={"Open Imaginaries"}
+            label={"OpenImaginaries"}
             category="open-imaginaries"
             introtext={openImaginaries.introtext.text}
           />
@@ -113,7 +113,6 @@ export default async function Glossary() {
               label={"Team"}
               content={team}
               category="team"
-              filter={true}
             />
             <IndexRow
               label={"Praxis Partners"}
@@ -148,8 +147,8 @@ export default async function Glossary() {
               content={tmlProjects}
             />
             <IndexRow
-              label={"Methodological PhD Colloquium"}
-              category="methodological-phd-colloquium"
+              label={"Doctoral School"}
+              category="doctoral-school"
               introtext={mpc.text}
               content={mpcProjects}
             />
@@ -160,8 +159,8 @@ export default async function Glossary() {
               content={summerSchoolProjects}
             />
             <IndexRow
-              label={"Conferences"}
-              category="conferences"
+              label={"Public Conferences"}
+              category="public-conferences"
               introtext={conferences.text}
               content={conferencesProjects}
             />

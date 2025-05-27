@@ -6,7 +6,20 @@ export default {
     {
       name: "name",
       type: "string",
-      title: "Name",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "title",
+      type: "string",
+      options: {
+        list: ["", "Prof.", "Dr.", "Prof. Dr."],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
+    {
+      name: "position",
+      type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -16,11 +29,22 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "email",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "link",
+      type: "array",
+      of: [{ name: "link", type: "string" }],
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "lab",
       type: "string",
       title: "Lab",
       options: {
-        list: ["None", "Planning", "Factory", "Imaginaries"],
+        list: ["Cultures", "Planning", "Factory", "Imaginaries"],
         layout: "radio",
         direction: "horizontal",
       },
@@ -55,9 +79,17 @@ export default {
       options: {
         source: "name",
       },
-      validation: (Rule) =>
-        Rule.required()
-          .error("Slug is required."),
+      validation: (Rule) => Rule.required().error("Slug is required."),
     },
   ],
+  preview: {
+    select: {
+      title: "name",
+    },
+    prepare({ title }) {
+      return {
+        title,
+      };
+    },
+  },
 };

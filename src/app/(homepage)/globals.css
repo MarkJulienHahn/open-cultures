@@ -45,8 +45,8 @@
 }
 
 @font-face {
-  font-family: "Alpina Mono";
-  src: url("/fonts/GT-Alpina-Typewriter-Regular-Trial.otf") format("opentype");
+  font-family: "Siggnal Mono";
+  src: url("/fonts/Siggnal-Mono-Regular-Trial.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -75,6 +75,11 @@ body {
 
 h1 {
   font-size: 13pt;
+}
+
+em {
+  font-style: normal;
+  font-family: "Siggnal Mono"
 }
 
 * {

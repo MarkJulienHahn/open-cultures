@@ -83,7 +83,7 @@ export default function TeamButton({ label, content }: TeamButtonProps) {
           <div className={styles.buttonListEntry} key={i}>
             <div className={styles.buttonListName}>
               <p>{entry.name}</p>
-              <p>{entry.affiliation}</p>
+              {entry.affiliation && <p>{entry.affiliation}</p>}
             </div>
             {entry.quote && <p>»{entry.quote}«</p>}
             {entry.link && (
@@ -94,6 +94,7 @@ export default function TeamButton({ label, content }: TeamButtonProps) {
           </div>
         ))}
       </div>
+
     </div>
   );
 }

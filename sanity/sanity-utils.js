@@ -177,7 +177,7 @@ export async function getSpokenWordProjects() {
 export async function getFooter() {
   return client.fetch(
     `*[_type == "footer"][0]{
-      text,
+      contact,
       email,
       partners[]{ "url": asset->url },
       supporters[]{ "url": asset->url }

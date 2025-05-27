@@ -10,6 +10,7 @@ import {
 } from "../../../sanity/sanity-utils";
 import ProjectButtons from "./ProjectButtons";
 import RouterComponent from "./RouterComponent";
+import Link from "next/link";
 
 export default async function MediatingComponent() {
   const mediating = await getMediating();
@@ -34,6 +35,9 @@ export default async function MediatingComponent() {
           height={mediating.image.dimensions.height}
           alt={mediating.image.alt || ""}
         />
+        <Link href="/glossary?category=printed-matter">
+          <div className={styles.linkButton}>Show More↗</div>
+        </Link>
       </div>
       <ProjectButtons
         content={[spokenWord, printedMatter]}

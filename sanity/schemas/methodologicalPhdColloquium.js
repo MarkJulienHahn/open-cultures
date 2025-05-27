@@ -1,7 +1,7 @@
 export default {
   name: "methodologicalPhdColloquium",
   type: "document",
-  title: "Methodological PhD Colloquium",
+  title: "Doctoral School",
   fields: [
     {
       name: "text",
@@ -34,7 +34,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: "Methodological PhD Colloquium",
+        title: "Doctoral School",
       };
     },
   },

@@ -28,7 +28,6 @@ type Props = {
   label: string;
   introtext?: TextBlock;
   content?: Entry[];
-  filter?: boolean;
 };
 
 export default function IndexRow({
@@ -36,14 +35,12 @@ export default function IndexRow({
   label,
   introtext,
   content,
-  // filter,
 }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get("category");
 
   const rowRef = useRef<HTMLDivElement>(null);
-
   const params = new URLSearchParams(searchParams.toString());
 
   const handleClick = () => {
@@ -88,13 +85,6 @@ export default function IndexRow({
             </span>
           )}
           {label}
-          {/* {filter ? (
-            <div className={styles.filter}>
-              <div>OpenPlanning</div>
-              <div>OpenFactory</div>
-              <div>OpenImaginaries</div>
-            </div>
-          ) : null} */}
         </div>
         <AnimatePresence initial={false}>
           {introtext && isActive && (
@@ -121,7 +111,7 @@ export default function IndexRow({
             transition={{ duration: 0.25 }}
           >
             {content.map((entry) => (
-              <IndexContent key={entry.slug.current} entry={entry} />
+              <IndexContent key={entry.slug.current} entry={entry} category={category}/>
             ))}
           </motion.div>
         )}

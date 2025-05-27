@@ -16,7 +16,7 @@ export default function Wallpaper({
     if (!ticking.current) {
       window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        const newOpacity = scrollY > 300 ? 0 : 1;
+        const newOpacity = scrollY > 2 * window.innerHeight ? 0 : 1;
         if (newOpacity !== opacity) {
           setOpacity(newOpacity);
         }

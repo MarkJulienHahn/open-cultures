@@ -21,11 +21,8 @@ export default async function Team() {
   return (
     <div>
       <div className={styles.wrapper}>
-        <div className={styles.headline}>
-          <div className={styles.kicker}>People</div>
-          Team
-        </div>
         <div className={styles.body}>
+          <div className={styles.kicker}>People</div>
           <PortableText value={team.text} />
         </div>
       </div>

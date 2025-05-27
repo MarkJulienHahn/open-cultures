@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getFooter } from "../../../sanity/sanity-utils";
 import styles from "./footer.module.css";
 import Image from "next/image";
+import { PortableText } from "next-sanity";
 
 export default async function Footer({ page }: { page?: string }) {
   const footer = await getFooter();
@@ -10,7 +11,9 @@ export default async function Footer({ page }: { page?: string }) {
     <div className={`${styles.footer} ${page && styles[page]}`}>
       <div className={styles.footerInner}>
         <div className={styles.topRow}>
-          <p className={styles.contact}>{footer.text}</p>
+          <div className={styles.contact}>
+            <PortableText value={footer.contact} />
+          </div>
           <div className={styles.logosWrapper}>
             <div className={styles.logoRow}>
               <p>Partner Institutions</p>
@@ -26,7 +29,7 @@ export default async function Footer({ page }: { page?: string }) {
                 ))}
               </div>
             </div>
-            <div className={styles.logoRow}>
+            <div className={styles.logoRow} style={{marginTop: "2em"}}>
               <p>Funded by</p>
               <div className={styles.logos}>
                 {footer.supporters.map((entry: { url: string }, i: number) => (
@@ -41,7 +44,6 @@ export default async function Footer({ page }: { page?: string }) {
               </div>
             </div>
             <div className={styles.links}>
-              <a href={`mailto:${footer.email}`}>Email</a>
               <Link href="imprint">Imprint</Link>
               <Link href="privacy">Privacy</Link>
             </div>

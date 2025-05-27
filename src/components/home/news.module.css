@@ -1,24 +1,3 @@
-.quoteWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-}
-
-.quote {
-  width: 75%;
-  max-width: 1200px;
-  min-width: 600px;
-  font-family: "Alpina Mono";
-  font-size: var(--fontSize-M);
-  line-height: var(--lineHeight-M);
-  position: relative;
-  text-align: center;
-  padding-right: 5rem;
-  background: var(--beige);
-}
-
 .newsWrapper {
   width: 100vw;
   min-height: 50rem;
@@ -44,14 +23,11 @@
   padding: 0 3px;
 }
 
-.imageWrapper {
-  max-width: 400px;
-  max-height: 400px;
-}
-
 .imageWrapper img {
-  width: 100%;
-  height: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
   border: 2px solid var(--white);
   pointer-events: none;
 }

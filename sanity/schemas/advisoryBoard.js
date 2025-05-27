@@ -13,9 +13,18 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Name is required"),
     },
     {
+      name: "title",
+      type: "string",
+      options: {
+        list: ["", "Prof.", "Dr.", "Prof. Dr."],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
+    {
       name: "affiliation",
       title: "Affiliation",
-      type: "text",
+      type: "string",
       validation: (Rule) => Rule.required().error("Affiliation is required"),
     },
     {
@@ -23,7 +32,7 @@ export default defineType({
       title: "Zitat",
       type: "text",
       validation: (Rule) =>
-        Rule.max(150).warning("Zitat should not exceed 150 characters"),
+        Rule.max(400).warning("Zitat should not exceed 150 characters"),
     },
     {
       name: "slug",
@@ -35,4 +44,14 @@ export default defineType({
     },
     orderRankField({ type: "advisoryBoard" }),
   ],
+  preview: {
+    select: {
+      title: "name",
+    },
+    prepare({ title }) {
+      return {
+        title,
+      };
+    },
+  },
 });

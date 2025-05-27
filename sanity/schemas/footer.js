@@ -7,14 +7,26 @@ export default defineType({
   title: "Footer",
   fields: [
     {
-      name: "text",
-      title: "Contact",
-      type: "text",
+      name: "contact",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: "Italic", value: "em" },
+              { title: "Bold", value: "strong" },
+            ],
+          },
+        },
+      ],
     },
-    {
-      name: "email",
-      type: "string",
-    },
+    // {
+    //   name: "email",
+    //   type: "string",
+    // },
     {
       name: "partners",
       type: "array",

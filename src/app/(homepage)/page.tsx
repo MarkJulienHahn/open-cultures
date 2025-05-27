@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <main>
-        <News />
         <OpenCultures />
+        <News />
         <Team />
         <Projects />
         <Wallpaper background={"beige"} img={"/images/openCultures.png"} />

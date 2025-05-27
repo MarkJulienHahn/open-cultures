@@ -82,7 +82,7 @@ export default function TeamEntry({
       onClick={() => setActiveIndex(i)}
     >
       <div className={styles.teamName}>
-        <div>{member.name}</div>
+        <div>{member.title} {member.name}</div>
         <div className={styles.teamAffiliation}>{member.affiliation}</div>
       </div>
       <div className={styles.teamActive}>

@@ -18,7 +18,7 @@
   position: absolute;
   top: -1.3em;
   left: 0;
-  font-family: "Alpina Mono";
+  font-family: "Siggnal Mono";
   color: var(--white);
   font-size: var(--fontSize-XS);
   padding-left: var(--space-S);
@@ -34,6 +34,27 @@
   position: relative;
   z-index: 1;
   transform: translateX(6em);
+}
+
+.quoteWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10rem;
+  margin-bottom: 30rem;
+}
+
+.quote {
+  width: 75%;
+  max-width: 1200px;
+  min-width: 600px;
+  font-family: "Siggnal Mono";
+  font-size: var(--fontSize-M);
+  line-height: var(--lineHeight-M);
+  position: relative;
+  text-align: center;
+  padding-right: 5rem;
+  background: var(--beige);
 }
 
 .contact,
@@ -57,6 +78,16 @@
   position: relative;
   display: inline-block;
   background: var(--beige);
+  max-width: 35em;
+}
+
+.contact h3 {
+  font-family: "Siggnal Mono"
+}
+
+.contactEntry a:hover {
+  background: var(--white);
+  color: var(--beige);
 }
 
 @media screen and (max-width: 1024px) {

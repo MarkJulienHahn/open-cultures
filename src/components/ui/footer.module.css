@@ -2,6 +2,8 @@
   width: 100vw;
   padding: var(--space-S);
   background: var(--beige);
+  font-size: var(--fontSize-XS);
+  line-height: var(--lineHeight-XS);
 }
 
 .footerInner {
@@ -13,6 +15,11 @@
 .contact {
   width: 25%;
   white-space: pre-line;
+  padding-right: 8em;
+}
+
+.contact p + p {
+  padding-top: 1em;
 }
 
 .logosWrapper {
@@ -27,13 +34,12 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 8em;
 }
 
 .logos img {
   height: 50%;
   width: auto;
-  max-width: 10em;
+  max-width: 8em;
   object-fit: contain;
 }
 
@@ -68,7 +74,7 @@
     width: 100%;
   }
   .logosWrapper {
-    margin-top: var(--space-L)
+    margin-top: var(--space-L);
   }
   .logos {
     height: 5em;
@@ -79,6 +85,6 @@
     display: block;
   }
   .links a {
-    margin-right: var(--space-S)
+    margin-right: var(--space-S);
   }
 }

@@ -50,6 +50,7 @@ export default defineType({
       title: "Lab",
       options: {
         list: ["none", "planning", "factory", "imaginaries"],
+        default: "none",
         layout: "radio",
         direction: "horizontal",
       },

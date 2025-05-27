@@ -105,9 +105,6 @@ export default function SearchableIndex({
   const [term, setTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(1);
 
-  console.log(livingLabProjects);
-
-  // 1. Flatten your searchable sections into one array
   const entries = useMemo(() => {
     return [
       {

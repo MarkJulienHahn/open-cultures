@@ -4,7 +4,7 @@ import { orderRankField } from "@sanity/orderable-document-list";
 export default defineType({
   name: "methodologicalPhdColloquiumProject",
   type: "document",
-  title: "Methodological PhD Colloquium — Projekt",
+  title: "Doctoral School — Projekt",
   fields: [
     {
       name: "headline",

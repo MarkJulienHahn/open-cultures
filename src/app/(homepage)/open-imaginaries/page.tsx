@@ -22,7 +22,7 @@ export default async function page() {
         <div className={styles.wrapper}>
           <div className={`${styles.headline} body__imaginaries__inverted`}>
             <div className={styles.kicker} style={{ color: "var(--blue)" }}>
-              Open Cultures
+              OpenImaginaries
             </div>
             {openImaginaries.introtext.title}
           </div>
@@ -31,31 +31,10 @@ export default async function page() {
           </div>
           {openImaginaries.introtext.partners && (
             <div className={`${styles.contact} body__imaginaries border`}>
-              <h3>Partner Institutions</h3>
-              <ul>
-                {openImaginaries.introtext.partners.map(
-                  (entry: {
-                    name: string | undefined;
-                    link: string | undefined;
-                  }) =>
-                    entry?.name && (
-                      <li key={entry.name}>
-                        <div>{entry.name}</div>
-                        {entry.link && (
-                          <div>
-                            <a
-                              href={entry.link}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              → Contact
-                            </a>
-                          </div>
-                        )}
-                      </li>
-                    )
-                )}
-              </ul>
+              <h3>
+                <em>Partner Institutions</em>
+              </h3>
+              <PortableText value={openImaginaries.introtext.partners} />
             </div>
           )}
         </div>

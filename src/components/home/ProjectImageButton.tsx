@@ -63,43 +63,47 @@ export default function ProjectImageButton({
   }, []);
 
   return (
-    <div
-      className={styles.buttonEntryOuter}
-      style={{
-        top: `${position.top}px`,
-        left: `${position.left}px`,
-      }}
-      ref={entryRef}
-      onMouseDown={handleMouseDown}
-    >
-      <div className={styles.buttonEntry}>
-        <div className={styles.kicker}>{category}</div>
-        <div className={styles.entryImage}>
-          <Image
-            src={project.images[0].url}
-            width={400}
-            height={400}
-            alt={project.images[0].alt || "Summer School Image"}
-          />
-        </div>
-        <div className={styles.buttonContent}>
-          <div className={styles.textHeadline}>{project.headline}</div>
-          <PortableText value={project.text} />
-          {project.slug?.current ? (
-            <div className={styles.buttonLink}>
-              <Link
-                href={
-                  categorySlug == "living-lab"
-                    ? `/glossary?category=${categorySlug}&entry=${project.slug.current}`
-                    : `/glossary?category=${project.slug.current}`
-                }
-              >
-                Show More ↗
-              </Link>
-            </div>
-          ) : null}
+    project.images && (
+      <div
+        className={styles.buttonEntryOuter}
+        style={{
+          top: `${position.top}px`,
+          left: `${position.left}px`,
+        }}
+        ref={entryRef}
+        onMouseDown={handleMouseDown}
+      >
+        <div className={styles.buttonEntry}>
+          <div className={styles.kicker}>{category}</div>
+          <div className={styles.entryImage}>
+            {project.images?.length && (
+              <Image
+                src={project.images[0].url}
+                width={400}
+                height={400}
+                alt={project.images[0].alt || "Summer School Image"}
+              />
+            )}
+          </div>
+          <div className={styles.buttonContent}>
+            <div className={styles.textHeadline}>{project.headline}</div>
+            <PortableText value={project.text} />
+            {project.slug?.current ? (
+              <div className={styles.buttonLink}>
+                <Link
+                  href={
+                    categorySlug == "living-lab"
+                      ? `/glossary?category=${categorySlug}&entry=${project.slug.current}`
+                      : `/glossary?category=${project.slug.current}`
+                  }
+                >
+                  Show More ↗
+                </Link>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 }

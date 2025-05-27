@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { ImageType, TextBlock } from "@/types/types";
 import ProjectButton from "./ProjectButton";
 import ProjectImageButton from "./ProjectImageButton";
+import styles from "./projects.module.css";
+import Link from "next/link";
 
 type ProjectType = {
   text: TextBlock;
@@ -73,16 +75,21 @@ export default function SummerSchoolButtons({
   }
 
   return (
-    <>
-      <ProjectButton
-        category={category}
-        categorySlug={categorySlug}
-        content={content[0]}
-        label={headlinesUsed[0]}
-        position={positions[0]}
-        link={"/glossary?category=summer-schools"}
-      />
-
+    <div className={styles.summerSchool}>
+      <div className={styles.mobileHeader}>
+        <div className={styles.mobileKicker}>Interacting</div>
+        <div className={styles.mobileHeadline}>SummerSchools</div>
+      </div>
+      <div className={styles.summerSchoolButton}>
+        <ProjectButton
+          category={category}
+          categorySlug={categorySlug}
+          content={content[0]}
+          label={headlinesUsed[0]}
+          position={positions[0]}
+          link={"/glossary?category=summer-schools"}
+        />
+      </div>
       {projects &&
         projects.map(
           (project, i) =>
@@ -96,6 +103,9 @@ export default function SummerSchoolButtons({
               />
             )
         )}
-    </>
+      <Link href="/glossary?category=transdisciplinary-method-lab">
+        <div className={styles.linkButton}>Show More↗</div>
+      </Link>
+    </div>
   );
 }

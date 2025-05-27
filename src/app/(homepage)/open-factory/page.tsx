@@ -21,7 +21,7 @@ export default async function page() {
         <div className={styles.wrapper}>
           <div className={`${styles.headline} body__factory__inverted`}>
             <div className={styles.kicker} style={{ color: "var(--yellow)" }}>
-              Open Cultures
+              OpenFactory
             </div>
             {openFactory.introtext.title}
           </div>
@@ -30,31 +30,10 @@ export default async function page() {
           </div>
           {openFactory.introtext.partners && (
             <div className={`${styles.contact} body__factory border`}>
-              <h3>Partner Institutions</h3>
-              <ul>
-                {openFactory.introtext.partners.map(
-                  (entry: {
-                    name: string | undefined;
-                    link: string | undefined;
-                  }) =>
-                    entry?.name && (
-                      <li key={entry.name}>
-                        <div>{entry.name}</div>
-                        {entry.link && (
-                          <div>
-                            <a
-                              href={entry.link}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              → Contact
-                            </a>
-                          </div>
-                        )}
-                      </li>
-                    )
-                )}
-              </ul>
+              <h3>
+                <em>Partner Institutions</em>
+              </h3>
+              <PortableText value={openFactory.introtext.partners} />
             </div>
           )}
         </div>

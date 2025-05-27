@@ -14,6 +14,7 @@ import {
 import ProjectButtons from "./ProjectButtons";
 import SummerSchoolButtons from "./SummerSchoolButtons";
 import RouterComponent from "./RouterComponent";
+import Link from "next/link";
 
 export default async function InteractingComponent() {
   const interacting = await getInteracting();
@@ -42,6 +43,9 @@ export default async function InteractingComponent() {
             height={interacting.image.dimensions.height}
             alt={interacting.image.alt || ""}
           />
+          <Link href="/glossary?category=transdisciplinary-method-lab">
+            <div className={styles.linkButton}>Show More↗</div>
+          </Link>
         </div>
 
         <ProjectButtons
