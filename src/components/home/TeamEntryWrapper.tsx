@@ -6,7 +6,6 @@ import TeamEntry from "./TeamEntry";
 import type { PersonType } from "@/types/types";
 import { useInView } from "react-intersection-observer";
 import RouterComponent from "./RouterComponent";
-import TeamButton from "./TeamButton";
 
 type Position = { top: number; left: number };
 

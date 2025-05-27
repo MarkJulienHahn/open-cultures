@@ -16,21 +16,33 @@ export default function Wallpaper({
     if (!ticking.current) {
       window.requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        const newOpacity = scrollY > 2 * window.innerHeight ? 0 : 1;
-        if (newOpacity !== opacity) {
-          setOpacity(newOpacity);
+        const viewportHeight = window.innerHeight;
+        const scrollHeight = document.body.scrollHeight;
+
+        const nearBottom = scrollY + viewportHeight >= scrollHeight - 100;
+        const scrolledDown = scrollY > 2 * viewportHeight;
+
+        let newOpacity = 1;
+
+        if (scrolledDown && !nearBottom) {
+          newOpacity = 0;
         }
+
+        if (nearBottom) {
+          newOpacity = 1;
+        }
+
+        setOpacity(newOpacity);
         ticking.current = false;
       });
+
       ticking.current = true;
     }
-  }, [opacity]);
+  }, []);
 
   useEffect(() => {
-    handleScroll();
-
+    handleScroll(); // initial check
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -53,11 +65,12 @@ export default function Wallpaper({
         style={{
           background: `url(${img})`,
           backgroundSize: "cover",
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          opacity: opacity,
+          opacity,
           transition: "opacity 0.2s ease-out",
           zIndex: -2,
         }}

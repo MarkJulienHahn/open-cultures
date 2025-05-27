@@ -1,3 +1,7 @@
+.wrapper {
+  margin-bottom: 40em;
+}
+
 .row {
   width: 100vw;
   position: relative;
