@@ -190,8 +190,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-M);
   display: none;
+  flex-direction: row;
+  justify-content: space-between;
   z-index: 1000;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .buttonListName {
@@ -199,12 +202,16 @@
   font-family: "Siggnal Mono";
 }
 
+.buttonColumn {
+  width: 15em;
+}
+
 .buttonListEntry {
-  /* padding-bottom: var(--space-M); */
+  margin-bottom: var(--space-M)
 }
 
 .buttonEntry:hover .buttonList {
-  display: grid;
+  display: flex;
 }
 
 .buttonEntry:hover .button {
@@ -242,9 +249,11 @@
   }
   .body {
     width: 80%;
-    padding: 2em var(--space-S) var(--space-S);
+    padding: var(--space-S);
     margin-left: 20%;
     transform: translateY(-1em);
+    margin-bottom: 0;
+    margin-top: 5em;
   }
   .linkButton {
     display: block;

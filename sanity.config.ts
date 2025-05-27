@@ -12,7 +12,7 @@ const singletonTypes = new Set(["settings"]);
 
 const config = defineConfig({
   name: 'default',
-  title: 'Open Cultures',
+  title: 'OpenCultures',
 
   projectId: 'anxs6t8r',
   dataset: 'production',

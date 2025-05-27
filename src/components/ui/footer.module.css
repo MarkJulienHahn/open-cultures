@@ -52,14 +52,17 @@
 
 .planning {
   background: var(--green);
+  color: var(--pink);
 }
 
 .factory {
   background: var(--purple);
+  color: var(--yellow);
 }
 
 .imaginaries {
   background: var(--red);
+  color: var(--blue);
 }
 
 @media screen and (max-width: 1024px) {

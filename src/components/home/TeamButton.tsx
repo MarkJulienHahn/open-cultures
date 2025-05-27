@@ -9,7 +9,7 @@ type TeamButtonProps = {
     name: string;
     affiliation: string;
     quote?: string;
-    link?: string;
+    externalLink?: string;
   }[];
 };
 
@@ -79,22 +79,57 @@ export default function TeamButton({ label, content }: TeamButtonProps) {
       </div>
 
       <div className={styles.buttonList}>
-        {content.map((entry, i) => (
-          <div className={styles.buttonListEntry} key={i}>
-            <div className={styles.buttonListName}>
-              <p>{entry.name}</p>
-              {entry.affiliation && <p>{entry.affiliation}</p>}
-            </div>
-            {entry.quote && <p>»{entry.quote}«</p>}
-            {entry.link && (
-              <a href={entry.link} target="_blank" rel="noreferrer">
-                Show Website↗
-              </a>
-            )}
-          </div>
-        ))}
+        <div className={styles.buttonColumn}>
+          {content.map(
+            (entry, i) =>
+              i < content.length / 2 && (
+                <div className={styles.buttonListEntry} key={i}>
+                  <div className={styles.buttonListName}>
+                    <p>
+                      {entry.name}
+                    </p>
+                    {entry.affiliation && <p>{entry.affiliation}</p>}
+                  </div>
+                  {entry.quote && <p>»{entry.quote}«</p>}
+                  {entry.externalLink && (
+                    <a
+                      href={entry.externalLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Show Website↗
+                    </a>
+                  )}
+                </div>
+              )
+          )}
+        </div>
+        <div className={styles.buttonColumn}>
+          {content.map(
+            (entry, i) =>
+              i >= content.length / 2 && (
+                <div className={styles.buttonListEntry} key={i}>
+                  <div className={styles.buttonListName}>
+                    <p>
+                      {entry.name}
+                    </p>
+                    {entry.affiliation && <p>{entry.affiliation}</p>}
+                  </div>
+                  {entry.quote && <p>»{entry.quote}«</p>}
+                  {entry.externalLink && (
+                    <a
+                      href={entry.externalLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Show Website↗
+                    </a>
+                  )}
+                </div>
+              )
+          )}
+        </div>
       </div>
-
     </div>
   );
 }

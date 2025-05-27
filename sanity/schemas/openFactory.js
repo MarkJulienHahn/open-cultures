@@ -1,7 +1,7 @@
 export default {
   name: "openFactory",
   type: "document",
-  title: "Open Factory",
+  title: "OpenFactoy",
   fields: [
     {
       name: "headerText",
@@ -76,7 +76,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: "Open Cultures",
+        title: "OpenFactory",
       };
     },
   },

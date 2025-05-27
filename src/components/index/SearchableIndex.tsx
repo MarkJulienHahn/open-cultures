@@ -114,19 +114,19 @@ export default function SearchableIndex({
         content: openCultures,
       },
       {
-        label: "Open Planning",
+        label: "OpenPlanning",
         category: "open-planning",
         contentText: textFrom(openPlanning.introtext.text),
         content: openPlanning,
       },
       {
-        label: "Open Factory",
+        label: "OpenFactoy",
         category: "open-factory",
         contentText: textFrom(openFactory.introtext.text),
         content: openFactory,
       },
       {
-        label: "Open Imaginaries",
+        label: "OpenImaginaries",
         category: "open-imaginaries",
         introtext: textFrom(openImaginaries.introtext.text),
         content: openImaginaries,

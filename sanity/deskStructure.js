@@ -69,7 +69,7 @@ export const myStructure = (S, context) =>
             .title("Site Content")
             .items([
               S.listItem()
-                .title("Open Cultures")
+                .title("OpenCultures")
                 .icon(EarthGlobeIcon)
                 .child(
                   S.document()
@@ -184,7 +184,7 @@ export const myStructure = (S, context) =>
             .title("Site Content")
             .items([
               S.listItem()
-                .title("Open Planning")
+                .title("OpenPlanning")
                 .icon(EarthGlobeIcon)
                 .child(
                   S.document()
@@ -192,7 +192,7 @@ export const myStructure = (S, context) =>
                     .documentId("openPlanning")
                 ),
               S.listItem()
-                .title("Open Factory")
+                .title("OpenFactoy")
                 .icon(EarthGlobeIcon)
                 .child(
                   S.document()
@@ -200,7 +200,7 @@ export const myStructure = (S, context) =>
                     .documentId("openFactory")
                 ),
               S.listItem()
-                .title("Open Imaginaries")
+                .title("OpenImaginaries")
                 .icon(EarthGlobeIcon)
                 .child(
                   S.document()

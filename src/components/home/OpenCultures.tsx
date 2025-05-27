@@ -27,7 +27,7 @@ export default async function OpenCultures() {
       </div>
       <div className={styles.wrapper}>
         <div className={styles.headline}>
-          <div className={styles.kicker}>Open Cultures</div>
+          <div className={styles.kicker}>OpenCultures</div>
           {openCultures.introtext.title}
         </div>
         <div className={styles.body}>

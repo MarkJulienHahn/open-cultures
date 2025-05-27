@@ -26,7 +26,7 @@ export default function NavInner() {
         <div className={styles.topRow}>
           <div className={styles.left}>
             <NavButton
-              label={"Open Cultures"}
+              label={"OpenCultures"}
               link={!isHome ? "/" : ""}
               style={
                 isHome
@@ -44,7 +44,7 @@ export default function NavInner() {
           <div className={styles.right}>
             <div>
               <NavButton
-                label={"Open Planning"}
+                label={"OpenPlanning"}
                 style={
                   isHome
                     ? "planning"
@@ -59,7 +59,7 @@ export default function NavInner() {
                 link={"open-planning"}
               />
               <NavButton
-                label={"Open Factory"}
+                label={"OpenFactoy"}
                 style={
                   isHome
                     ? "factory"
@@ -74,7 +74,7 @@ export default function NavInner() {
                 link={"open-factory"}
               />
               <NavButton
-                label={"Open Imaginaries"}
+                label={"OpenImaginaries"}
                 style={
                   isHome
                     ? "imaginaries"
@@ -135,7 +135,7 @@ export default function NavInner() {
           <span className={styles.menuBurger}>
             <Hamburger size={15} toggled={open} toggle={setOpen} />
           </span>
-          <span>Open Cultures</span>
+          <span>OpenCultures</span>
         </div>
         <div className={styles.indexButton}>
           <Link href="/glossary">
@@ -159,10 +159,10 @@ export default function NavInner() {
             />
           </>
         ) : (
-          <NavButton label={"Open Cultures"} style={"default"} link={"/"} />
+          <NavButton label={"OpenCultures"} style={"default"} link={"/"} />
         )}
         <NavButton
-          label={"Open Planning"}
+          label={"OpenPlanning"}
           style={
             isHome
               ? "planning"
@@ -177,7 +177,7 @@ export default function NavInner() {
           link={"open-planning"}
         />
         <NavButton
-          label={"Open Factory"}
+          label={"OpenFactoy"}
           style={
             isHome
               ? "factory"
@@ -192,7 +192,7 @@ export default function NavInner() {
           link={"open-factory"}
         />
         <NavButton
-          label={"Open Imaginaries"}
+          label={"OpenImaginaries"}
           style={
             isHome
               ? "imaginaries"

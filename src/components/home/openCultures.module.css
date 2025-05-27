@@ -118,4 +118,8 @@
     padding: 1em var(--space-S) var(--space-S);
     width: 80%;
   }
+  .quote {
+    padding-right: 0;
+    min-width: unset;
+  }
 }

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Backend | Open Cultures",
-  description: "Welcome to the Backend of Open Cultures",
+  title: "Backend | OpenCultures",
+  description: "Welcome to the Backend of OpenCultures",
 };
 
 export default function AdminLayout({ children }) {

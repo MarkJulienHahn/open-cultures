@@ -1,7 +1,7 @@
 export default {
   name: "openCultures",
   type: "document",
-  title: "Open Cultures",
+  title: "OpenCultures",
   fields: [
     {
       name: "headerText",
@@ -69,7 +69,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: "Open Cultures",
+        title: "OpenCultures",
       };
     },
   },

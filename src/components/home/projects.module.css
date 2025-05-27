@@ -146,6 +146,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .wrapper {
+    margin-bottom: 0;
+  }
   .row {
     margin-top: 10em;
     margin-bottom: 10em;
@@ -228,6 +231,7 @@
   }
   .summerSchoolButtons {
     width: calc(100vw - var(--space-S));
+    height: 0;
   }
   .summerSchoolButton {
     display: none;

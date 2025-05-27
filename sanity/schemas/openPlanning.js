@@ -1,7 +1,7 @@
 export default {
   name: "openPlanning",
   type: "document",
-  title: "Open Planning",
+  title: "OpenPlanning",
   fields: [
     {
       name: "headerText",
@@ -76,7 +76,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: "Open Cultures",
+        title: "OpenPlanning",
       };
     },
   },

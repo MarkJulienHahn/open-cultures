@@ -84,8 +84,9 @@ export default async function Glossary() {
           />
         </Suspense>
         <Suspense fallback={null}>
+          <p className={styles.section}>Climate Future Lab</p>
           <IndexRow
-            label={"Open Planning Cultures"}
+            label={"Open Planning Cultures. Design Principles for Transformative Spaces"}
             category="open-planning-culture"
             introtext={openCultures.introtext.text}
           />
@@ -109,11 +110,7 @@ export default async function Glossary() {
         <p className={styles.section}>People</p>
         <Suspense fallback={null}>
           <div className={styles.rows}>
-            <IndexRow
-              label={"Team"}
-              content={team}
-              category="team"
-            />
+            <IndexRow label={"Team"} content={team} category="team" />
             <IndexRow
               label={"Praxis Partners"}
               content={praxisPartners}
