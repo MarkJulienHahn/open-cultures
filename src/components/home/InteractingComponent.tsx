@@ -53,7 +53,7 @@ export default async function InteractingComponent() {
           category={"Interacting"}
           headlines={[
             "Transdisciplinary Method Lab",
-            "Methodological PhD Colloquium",
+            "Doctoral School",
             "Conferences",
           ]}
           categorySlug="interacting"
