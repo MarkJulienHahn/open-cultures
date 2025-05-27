@@ -174,14 +174,14 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
-        label: "Methodological PhD Colloquium",
-        category: "methodological-phd-colloquium",
+        label: "Doctoral School",
+        category: "doctoral-school",
         contentText: textFrom(mpc.text),
         content: mpc,
       },
       ...mpcProjects.map((entry: ProjectType) => ({
         label: entry.headline || "Unnamed",
-        category: "methodological-phd-colloquium",
+        category: "doctoral-school",
         contentText: `${textFrom(entry?.text)}`,
         content: entry,
       })),
