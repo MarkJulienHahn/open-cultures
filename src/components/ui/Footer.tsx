@@ -54,7 +54,6 @@ export default async function Footer({ page }: { page?: string }) {
           </div>
         </div>
       </div>
-      <div style={{ height: "100px" }} aria-hidden="true" />
     </>
   );
 }

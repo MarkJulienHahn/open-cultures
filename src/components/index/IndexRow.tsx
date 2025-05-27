@@ -17,6 +17,9 @@ type Entry = {
   affiliation?: string;
   text?: TextBlock;
   quote?: string;
+  email: string;
+  link: string[];
+  externalLink: string;
   portrait?: {
     url: string;
   };

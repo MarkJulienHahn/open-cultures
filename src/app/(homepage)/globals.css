@@ -59,6 +59,7 @@ body {
   line-height: var(--lineHeight-S);
   word-spacing: -0.05em;
   color: var(--white);
+  overscroll-behavior: none;
 }
 
 body {

@@ -19,7 +19,7 @@ export default function Wallpaper({
         const viewportHeight = window.innerHeight;
         const scrollHeight = document.body.scrollHeight;
 
-        const nearBottom = scrollY + viewportHeight >= scrollHeight - 100;
+        const nearBottom = scrollY + viewportHeight >= scrollHeight - 500;
         const scrolledDown = scrollY > 2 * viewportHeight;
 
         let newOpacity = 1;
