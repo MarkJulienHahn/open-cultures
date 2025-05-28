@@ -9,7 +9,8 @@ import {
 
 import styles from "./team.module.css";
 import TeamEntryWrapper from "./TeamEntryWrapper";
-import TeamButton from "./TeamButton";
+import AdvisoryBoard from "./AdvisoryBoard";
+import PraxisPartners from "./PraxisPartners";
 import Link from "next/link";
 
 export default async function Team() {
@@ -28,8 +29,8 @@ export default async function Team() {
       </div>
       <TeamEntryWrapper persons={persons} />
       <div className={styles.buttonsWrapper}>
-        <TeamButton label={"Advisory Board"} content={advisoryBoard} />
-        <TeamButton label={"Praxis Partners"} content={praxisPartners} />
+        <AdvisoryBoard label={"Advisory Board"} content={advisoryBoard} />
+        <PraxisPartners label={"Praxis Partners"} content={praxisPartners} />
       </div>
       <Link href="/glossary?category=team">
         <div className={styles.linkButton}>Show Team↗</div>

@@ -7,6 +7,57 @@ export default defineType({
   title: "Footer",
   fields: [
     {
+      name: "coordination",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: "Italic", value: "em" },
+              { title: "Bold", value: "strong" },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      name: "info",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: "Italic", value: "em" },
+              { title: "Bold", value: "strong" },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      name: "address",
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [],
+          lists: [],
+          marks: {
+            decorators: [
+              { title: "Italic", value: "em" },
+              { title: "Bold", value: "strong" },
+            ],
+          },
+        },
+      ],
+    },
+    {
       name: "contact",
       type: "array",
       of: [

@@ -138,7 +138,7 @@ export default async function Glossary() {
         <Suspense fallback={null}>
           <div className={styles.rows}>
             <IndexRow
-              label={"Transdisciplinary Method Lab"}
+              label={"Transdisciplinary MethodLab"}
               category="transdisciplinary-method-lab"
               introtext={tml.text}
               content={tmlProjects}

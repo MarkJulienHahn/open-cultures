@@ -4,7 +4,7 @@ import { orderRankField } from "@sanity/orderable-document-list";
 export default defineType({
   name: "transdisciplinaryMethodLabProject",
   type: "document",
-  title: "Transdisciplinary Method Lab — Projekt",
+  title: "Transdisciplinary MethodLab — Projekt",
   fields: [
     {
       name: "headline",

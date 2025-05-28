@@ -52,7 +52,7 @@ export default async function InteractingComponent() {
           content={[TML, MPC, conferences]}
           category={"Interacting"}
           headlines={[
-            "Transdisciplinary Method Lab",
+            "Transdisciplinary MethodLab",
             "Doctoral School",
             "Conferences",
           ]}

@@ -28,14 +28,20 @@ export default async function page() {
           <div className={`${styles.body} body__factory border`}>
             <PortableText value={openFactory.introtext.text} />
           </div>
-          {openFactory.introtext.partners && (
-            <div className={`${styles.contact} body__factory border`}>
-              <h3>
-                <em>Partner Institutions</em>
-              </h3>
-              <PortableText value={openFactory.introtext.partners} />
+          <div className={`${styles.contact} body__factory border`}>
+            <div className={styles.kicker} style={{ color: "var(--yellow)" }}>
+              Partner Institutions
             </div>
-          )}
+            <PortableText value={openFactory.introtext.partners} />
+          </div>
+          <div
+            className={`${styles.contact}  ${styles.contactSingle} body__factory border`}
+          >
+            <div className={styles.kicker} style={{ color: "var(--yellow)" }}>
+              Contact
+            </div>
+            <PortableText value={openFactory.introtext.contact} />
+          </div>
         </div>
         <Wallpaper background={"purple"} img={"/images/openFactory.png"} />
       </main>

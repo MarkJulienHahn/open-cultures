@@ -92,13 +92,13 @@ export default function ProjectButton({
           )}
         </div>
       </div>
-      {link && (
+      {/* {link && (
         <div className={styles.linkWrapper}>
           <Link href={link}>
             <div className={styles.link}>Show all ↗</div>
           </Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

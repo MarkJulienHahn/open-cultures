@@ -12,7 +12,7 @@ type OpenCulturesData = {
     partners: { name: string; link: string; indented: boolean }[];
     supporters: string[];
   };
-  headerText: string
+  headerText: string;
 };
 
 export default async function OpenCultures() {
@@ -33,31 +33,35 @@ export default async function OpenCultures() {
         <div className={styles.body}>
           <PortableText value={openCultures.introtext.text} />
         </div>
-        <div className={styles.contact}>
-          <h3>Partner Institutions</h3>
-          <ul>
-            {openCultures.introtext.partners.map((entry, i) => (
-              <li
-                key={i}
-                className={styles.contactEntry}
-                style={{ paddingLeft: entry.indented ? "3em" : "0" }}
-              >
-                {entry?.link ? (
-                  <a href={entry?.link} target="_blank" rel="noreferrer">
-                    {entry?.name} ↗
-                  </a>
-                ) : (
-                  entry?.name
-                )}
-              </li>
-            ))}
-          </ul>
-          <h3>Funded by</h3>
-          <ul>
-            {openCultures.introtext.supporters.map((entry) => (
-              <li key={entry}>{entry}</li>
-            ))}
-          </ul>
+        <div className={styles.contactWrapper}>
+          <div className={styles.contact}>
+            <div className={styles.kicker}>Partner Institutions</div>
+            <ul>
+              {openCultures.introtext.partners.map((entry, i) => (
+                <li
+                  key={i}
+                  className={styles.contactEntry}
+                  style={{ paddingLeft: entry.indented ? "3em" : "0" }}
+                >
+                  {entry?.link ? (
+                    <a href={entry?.link} target="_blank" rel="noreferrer">
+                      {entry?.name} ↗
+                    </a>
+                  ) : (
+                    entry?.name
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.contact}>
+            <div className={styles.kicker}>Funded by</div>
+            <ul>
+              {openCultures.introtext.supporters.map((entry) => (
+                <li key={entry}>{entry}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>

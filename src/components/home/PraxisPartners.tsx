@@ -8,12 +8,14 @@ type TeamButtonProps = {
   content: {
     name: string;
     affiliation: string;
+    title: string;
+    website?: string;
     quote?: string;
     externalLink?: string;
   }[];
 };
 
-export default function TeamButton({ label, content }: TeamButtonProps) {
+export default function AdvisoryBoard({ label, content }: TeamButtonProps) {
   const [position, setPosition] = useState<{ top: string; left: string }>({
     top: "0px",
     left: "0px",
@@ -78,56 +80,21 @@ export default function TeamButton({ label, content }: TeamButtonProps) {
         {label}
       </div>
 
-      <div className={styles.buttonList}>
+      <div className={styles.buttonListPartners}>
         <div className={styles.buttonColumn}>
-          {content.map(
-            (entry, i) =>
-              i < content.length / 2 && (
-                <div className={styles.buttonListEntry} key={i}>
-                  <div className={styles.buttonListName}>
-                    <p>
-                      {entry.name}
-                    </p>
-                    {entry.affiliation && <p>{entry.affiliation}</p>}
-                  </div>
-                  {entry.quote && <p>»{entry.quote}«</p>}
-                  {entry.externalLink && (
-                    <a
-                      href={entry.externalLink}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Show Website↗
-                    </a>
-                  )}
-                </div>
-              )
-          )}
-        </div>
-        <div className={styles.buttonColumn}>
-          {content.map(
-            (entry, i) =>
-              i >= content.length / 2 && (
-                <div className={styles.buttonListEntry} key={i}>
-                  <div className={styles.buttonListName}>
-                    <p>
-                      {entry.name}
-                    </p>
-                    {entry.affiliation && <p>{entry.affiliation}</p>}
-                  </div>
-                  {entry.quote && <p>»{entry.quote}«</p>}
-                  {entry.externalLink && (
-                    <a
-                      href={entry.externalLink}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Show Website↗
-                    </a>
-                  )}
-                </div>
-              )
-          )}
+          {content.map((entry, i) => (
+            <div className={styles.buttonListPartner} key={i}>
+              <div
+                style={{ pointerEvents: entry.externalLink ? "auto" : "none" }}
+              >
+                <a href={entry.externalLink} target="_blank" rel="noreferrer">
+                  <p>
+                    {entry.title} {entry.name}&nbsp;{entry.externalLink ? "↗" : null}
+                  </p>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

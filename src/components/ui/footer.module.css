@@ -1,6 +1,7 @@
 .footer {
   width: 100vw;
   padding: var(--space-S);
+  padding-top: 0;
   background: var(--beige);
   font-size: var(--fontSize-XS);
   line-height: var(--lineHeight-XS);
@@ -13,41 +14,65 @@
 }
 
 .contact {
-  width: 25%;
+  margin-right: 2em;
   white-space: pre-line;
-  padding-right: 8em;
 }
 
 .contact p + p {
   padding-top: 1em;
 }
 
+.coordination {
+  grid-column: span 2;
+}
+.info {
+  grid-column: span 4;
+}
+.address {
+  grid-column: span 2;
+}
+.contactData {
+  grid-column: span 2;
+}
+
+.links {
+  grid-column: span 2;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
 .logosWrapper {
-  width: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .topRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 2em;
+}
+
+.logoRow {
+  width: 100%;
 }
 
 .logos {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1.52em;
 }
 
 .logos img {
   height: 50%;
   width: auto;
-  max-width: 8em;
   object-fit: contain;
-}
-
-.links {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding-top: 5em;
+  max-width: 150px;
+  max-height: 45px;
 }
 
 .planning {
@@ -78,6 +103,7 @@
   }
   .logosWrapper {
     margin-top: var(--space-L);
+    display: block;
   }
   .logos {
     height: 5em;

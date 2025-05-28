@@ -46,6 +46,16 @@ export default function NewsEntry({
     }
   };
 
+  function extractQueryString(fullUrl: string): string {
+    try {
+      const url = new URL(fullUrl);
+      return url.search ? url.pathname + url.search : url.pathname;
+    } catch (error) {
+      console.error("Ungültige URL:", error);
+      return "";
+    }
+  }
+
   const handleMouseUp = () => {
     isDragging.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
@@ -58,6 +68,8 @@ export default function NewsEntry({
       document.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
+
+  console.log(entry.slug, extractQueryString(entry.slug));
 
   return (
     <div
@@ -87,7 +99,7 @@ export default function NewsEntry({
         <PortableText value={entry.text} />
         {entry.slug && (
           <div className={styles.newsActiveLink}>
-            <Link href={entry.slug}>→ Read more</Link>
+            <Link href={extractQueryString(entry.slug)}>→ Read more</Link>
           </div>
         )}
       </div>

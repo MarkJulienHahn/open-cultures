@@ -63,6 +63,7 @@
   padding: var(--space-XS);
   background: var(--beige);
   cursor: grab;
+  border: 1.5px solid;
 }
 
 .teamAffiliation {
@@ -83,7 +84,8 @@
   border: 1.5px solid;
   display: none;
   z-index: 2;
-  background: var(--beige);
+  color: var(--beige);
+  background: var(--white);
 }
 
 .teamEntry:hover .teamActive {
@@ -196,10 +198,29 @@
   position: relative;
   flex-wrap: wrap;
 }
+.buttonListPartners {
+  width: 17em;
+  background: var(--white);
+  color: var(--beige);
+  padding: var(--space-S);
+  display: none;
+  z-index: 1000;
+  position: relative;
+  flex-wrap: wrap;
+}
 
 .buttonListName {
   padding-left: var(--space-M);
   font-family: "Siggnal Mono";
+}
+
+.buttonListName a:hover,
+.buttonListPartner a:hover {
+  text-decoration: underline;
+}
+
+.buttonListPartner {
+  margin-bottom: 0.8em;
 }
 
 .buttonColumn {
@@ -207,10 +228,11 @@
 }
 
 .buttonListEntry {
-  margin-bottom: var(--space-M)
+  margin-bottom: var(--space-M);
 }
 
-.buttonEntry:hover .buttonList {
+.buttonEntry:hover .buttonList,
+.buttonEntry:hover .buttonListPartners {
   display: flex;
 }
 

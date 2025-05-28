@@ -59,7 +59,7 @@ export default function NavInner() {
                 link={"open-planning"}
               />
               <NavButton
-                label={"OpenFactoy"}
+                label={"OpenFactory"}
                 style={
                   isHome
                     ? "factory"

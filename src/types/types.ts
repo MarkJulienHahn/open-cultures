@@ -36,6 +36,8 @@ export type NewsType = {
 
 export type PersonType = {
   affiliation?: string,
+  position?: string,
+  website?: string,
   lab?: string,
   title?: string,
   name: string,

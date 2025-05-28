@@ -98,7 +98,7 @@ export const myStructure = (S, context) =>
                     .documentId("interacting")
                 ),
               S.listItem()
-                .title("Transdisciplinary Method Lab")
+                .title("Transdisciplinary MethodLab")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
@@ -228,7 +228,7 @@ export const myStructure = (S, context) =>
               S.divider(),
               orderableDocumentListDeskItem({
                 type: "transdisciplinaryMethodLabProject",
-                title: "Transdisciplinary Method Lab",
+                title: "Transdisciplinary MethodLab",
                 icon: JoystickIcon,
                 S,
                 context,

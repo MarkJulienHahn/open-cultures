@@ -12,43 +12,50 @@ export default async function Footer({ page }: { page?: string }) {
       <div className={`${styles.footer} ${page && styles[page]}`}>
         <div className={styles.footerInner}>
           <div className={styles.topRow}>
-            <div className={styles.contact}>
+            <div className={`${styles.contact} ${styles.coordination}`}>
+              <PortableText value={footer.coordination} />
+            </div>
+            <div className={`${styles.contact} ${styles.info}`}>
+              <PortableText value={footer.info} />
+            </div>
+            <div className={`${styles.contact} ${styles.address}`}>
+              <PortableText value={footer.address} />
+            </div>
+            <div className={`${styles.contact} ${styles.contactData}`}>
               <PortableText value={footer.contact} />
             </div>
-            <div className={styles.logosWrapper}>
-              <div className={styles.logoRow}>
-                <p>Partner Institutions</p>
-                <div className={styles.logos}>
-                  {footer.partners.map((entry: { url: string }, i: number) => (
-                    <Image
-                      key={i}
-                      src={entry.url}
-                      width={500}
-                      height={250}
-                      alt={"Logo"}
-                    />
-                  ))}
-                </div>
+            <div className={styles.links}>
+              <Link href="imprint">Imprint</Link>
+              <Link href="privacy">Privacy</Link>
+            </div>
+          </div>
+          <div className={styles.logosWrapper}>
+            <div className={styles.logoRow}>
+              <p>Partner Institutions</p>
+              <div className={styles.logos}>
+                {footer.partners.map((entry: { url: string }, i: number) => (
+                  <Image
+                    key={i}
+                    src={entry.url}
+                    width={500}
+                    height={250}
+                    alt={"Logo"}
+                  />
+                ))}
               </div>
-              <div className={styles.logoRow} style={{ marginTop: "2em" }}>
-                <p>Funded by</p>
-                <div className={styles.logos}>
-                  {footer.supporters.map(
-                    (entry: { url: string }, i: number) => (
-                      <Image
-                        key={i}
-                        src={entry.url}
-                        width={500}
-                        height={250}
-                        alt={"Logo"}
-                      />
-                    )
-                  )}
-                </div>
-              </div>
-              <div className={styles.links}>
-                <Link href="imprint">Imprint</Link>
-                <Link href="privacy">Privacy</Link>
+            </div>
+            <div className={styles.logoRow}>
+              <p>Funded by</p>
+              <div className={styles.logos}>
+                {footer.supporters.map((entry: { url: string }, i: number) => (
+                  <Image
+                    key={i}
+                    src={entry.url}
+                    width={500}
+                    height={250}
+                    alt={"Logo"}
+                  />
+                ))}
               </div>
             </div>
           </div>

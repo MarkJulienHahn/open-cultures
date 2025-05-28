@@ -28,7 +28,7 @@
   max-height: 300px;
   width: auto;
   height: auto;
-  border: 2px solid var(--white);
+  border: 1.5px solid var(--white);
   pointer-events: none;
 }
 
@@ -38,11 +38,12 @@
   margin-top: var(--space-S);
   display: none;
   z-index: 80;
+  border: 1.5px solid;
 }
 
 .newsActiveHeadline {
   margin-bottom: var(--space-S);
-  max-width: 75%;
+  font-family: "Siggnal Mono"
 }
 
 .newsActiveLink {

@@ -15,7 +15,7 @@
   --space-S: 1rem;
   --space-M: 2rem;
   --space-L: 5rem;
-  --space-XXL: 10rem;
+  --space-XXL: 15rem;
 
   --fontSize-XS: 0.9rem;
   --lineHeight-XS: 1rem;
@@ -76,11 +76,6 @@ body {
 
 h1 {
   font-size: 13pt;
-}
-
-em {
-  font-style: normal;
-  font-family: "Siggnal Mono"
 }
 
 * {

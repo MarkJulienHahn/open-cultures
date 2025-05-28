@@ -29,8 +29,18 @@ export default async function page() {
             <PortableText value={openPlanning.introtext.text} />
           </div>
           <div className={`${styles.contact} body__planning border`}>
-            <h3><em>Partner Institutions</em></h3>
+            <div className={styles.kicker} style={{ color: "var(--pink)" }}>
+              Partner Institutions
+            </div>
             <PortableText value={openPlanning.introtext.partners} />
+          </div>
+          <div
+            className={`${styles.contact}  ${styles.contactSingle} body__planning border`}
+          >
+            <div className={styles.kicker} style={{ color: "var(--pink)" }}>
+              Contact
+            </div>
+            <PortableText value={openPlanning.introtext.contact} />
           </div>
         </div>
         <Wallpaper background={"green"} img={"/images/openPlanning.png"} />

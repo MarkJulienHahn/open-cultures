@@ -11,6 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import Lightbox from "./Lightbox";
 
 type Entry = {
+  website?: string;
   name?: string;
   headline?: string;
   subHeadline?: string;
@@ -111,12 +112,11 @@ export default function IndexContent({ entry, category }: Props) {
     }
   };
 
-const showExternal = () => {
-  if (entry?.externalLink) {
-    window.open(entry.externalLink, '_blank');
-  }
-};
-
+  const showExternal = () => {
+    if (entry?.externalLink) {
+      window.open(entry.externalLink, "_blank");
+    }
+  };
 
   return (
     <>
@@ -133,7 +133,17 @@ const showExternal = () => {
         <div className={styles.rowRef} ref={rowRef}></div>
         <div className={styles.rowInner}>
           <span>
-            {entry?.title} {entry.name || entry.headline} {entry.externalLink && "↗"}
+            {entry.website && isActive ? (
+              <a href={entry.website} target="_blank" rel="norefferer">
+                {entry?.title} {entry.name || entry.headline}
+                {" ↗"}
+              </a>
+            ) : (
+              <>
+                {entry?.title} {entry.name || entry.headline}{" "}
+              </>
+            )}
+            {entry.externalLink && "↗"}
           </span>
           {category == "team" && (
             <div className={styles.rowDetails}>
@@ -159,28 +169,30 @@ const showExternal = () => {
                       <Hamburger size={20} toggled={true} />
                     </span>
 
-                    <div className={styles.content__subhead}>
-                      <div style={{ fontFamily: "Siggnal Mono" }}>
-                        {entry.affiliation ? entry.affiliation : null}
+                    {entry.affiliation && (
+                      <div className={styles.content__subhead}>
+                        <div style={{ fontFamily: "Siggnal Mono" }}>
+                          {entry.affiliation ? entry.affiliation : null}
+                        </div>
+                        <div style={{ marginTop: "1em" }}>
+                          <a href={`mailto:${entry?.email}`}>
+                            {entry?.email ? entry?.email : null}
+                          </a>
+                        </div>
+                        {entry?.link?.length &&
+                          entry?.link?.map((entry, i) => (
+                            <div key={i}>
+                              <a
+                                href={`https://${entry}`}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {entry ? `${entry} ↗` : null}
+                              </a>
+                            </div>
+                          ))}
                       </div>
-                      <div style={{ marginTop: "1em" }}>
-                        <a href={`mailto:${entry?.email}`}>
-                          {entry?.email ? entry?.email : null}
-                        </a>
-                      </div>
-                      {entry?.link?.length &&
-                        entry?.link?.map((entry, i) => (
-                          <div key={i}>
-                            <a
-                              href={`https://${entry}`}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {entry ? `${entry} ↗` : null}
-                            </a>
-                          </div>
-                        ))}
-                    </div>
+                    )}
 
                     {entry.text && <PortableText value={entry.text} />}
                     {entry.quote && <p>{entry.quote}</p>}

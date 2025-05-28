@@ -4,6 +4,7 @@ const client = createClient({
   projectId: "anxs6t8r",
   dataset: "production",
   apiVersion: "2025-03-24",
+  useCdn: false, // wieder rausnehmen für Production!
 });
 
 export async function getNews() {
@@ -177,6 +178,9 @@ export async function getSpokenWordProjects() {
 export async function getFooter() {
   return client.fetch(
     `*[_type == "footer"][0]{
+      coordination,
+      info,
+      address,
       contact,
       email,
       partners[]{ "url": asset->url },

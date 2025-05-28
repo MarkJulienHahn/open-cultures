@@ -22,18 +22,13 @@ export default defineType({
       },
     },
     {
-      name: "affiliation",
-      title: "Affiliation",
-      type: "string",
-      validation: (Rule) => Rule.required().error("Affiliation is required"),
-    },
-    {
       name: "quote",
       title: "Zitat",
       type: "text",
       validation: (Rule) =>
         Rule.max(400).warning("Zitat should not exceed 150 characters"),
     },
+    { name: "website", title: "Website", type: "string" },
     {
       name: "slug",
       type: "slug",

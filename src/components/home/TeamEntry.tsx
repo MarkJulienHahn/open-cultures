@@ -82,8 +82,13 @@ export default function TeamEntry({
       onClick={() => setActiveIndex(i)}
     >
       <div className={styles.teamName}>
-        <div>{member.title} {member.name}</div>
-        <div className={styles.teamAffiliation}>{member.affiliation}</div>
+        <a href={member.website} target="_blank" rel="noreferrer">
+          <div>
+            {member.title} {member.name}
+          </div>
+        </a>
+        <div className={styles.teamAffiliation}>{member.position}</div>
+        <div className={styles.teamAffiliation}>Open{member.lab}</div>
       </div>
       <div className={styles.teamActive}>
         <PortableText value={member.text} />

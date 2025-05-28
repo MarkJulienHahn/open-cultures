@@ -42,7 +42,7 @@ export default defineType({
       type: "string",
       title: "Referenz",
       description:
-        "Hier bitte den »slug« des Referenz-Projekts eintragen, zum Beispiel ..",
+        "Hier bitte die URL des Referenzprojekts innerhalb der Seite eintragen also zum Beispiel: »http://open-cultures.org/glossary?category=living-lab&entry=factory«",
     },
     {
       name: "lab",

@@ -24,6 +24,7 @@ type Entry = {
     url: string;
   };
   lab?: string;
+  website?: string;
 };
 
 type Props = {

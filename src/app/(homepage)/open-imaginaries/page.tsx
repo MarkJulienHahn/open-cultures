@@ -29,14 +29,20 @@ export default async function page() {
           <div className={`${styles.body} body__imaginaries border`}>
             <PortableText value={openImaginaries.introtext.text} />
           </div>
-          {openImaginaries.introtext.partners && (
-            <div className={`${styles.contact} body__imaginaries border`}>
-              <h3>
-                <em>Partner Institutions</em>
-              </h3>
-              <PortableText value={openImaginaries.introtext.partners} />
+          <div className={`${styles.contact} body__imaginaries border`}>
+            <div className={styles.kicker} style={{ color: "var(--blue)" }}>
+              Partner Institutions
             </div>
-          )}
+            <PortableText value={openImaginaries.introtext.partners} />
+          </div>
+          <div
+            className={`${styles.contact}  ${styles.contactSingle} body__imaginaries border`}
+          >
+            <div className={styles.kicker} style={{ color: "var(--blue)" }}>
+              Contact
+            </div>
+            <PortableText value={openImaginaries.introtext.contact} />
+          </div>
         </div>
         <Wallpaper background={"red"} img={"/images/openImaginaries.png"} />
       </main>

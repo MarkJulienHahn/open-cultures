@@ -162,7 +162,7 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
-        label: "Transdisciplinary Method Lab",
+        label: "Transdisciplinary MethodLab",
         category: "transdisciplinary-method-lab",
         contentText: textFrom(tml.text),
         content: tml,
