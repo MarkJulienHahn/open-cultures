@@ -10,7 +10,6 @@ export default function ProjectButton({
   content,
   position: initialPosition = { top: 0, left: 0 },
   categorySlug,
-  link,
 }: {
   category: string;
   label?: string;

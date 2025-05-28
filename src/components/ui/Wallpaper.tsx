@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 
 export default function Wallpaper({
   img,
@@ -9,8 +9,8 @@ export default function Wallpaper({
   img: string;
   background: string;
 }) {
-  const [opacity, setOpacity] = useState(1);
-  const ticking = useRef(false);
+  // const [opacity, setOpacity] = useState(1);
+  // const ticking = useRef(false);
 
   // const handleScroll = useCallback(() => {
   //   if (!ticking.current) {
@@ -70,7 +70,7 @@ export default function Wallpaper({
           left: 0,
           right: 0,
           bottom: 0,
-          opacity,
+          opacity: 1,
           transition: "opacity 0.2s ease-out",
           zIndex: -2,
         }}
