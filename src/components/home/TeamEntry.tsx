@@ -64,8 +64,6 @@ export default function TeamEntry({
     };
   }, []);
 
-  console.log(member);
-
   return (
     <div
       className={[
@@ -90,9 +88,11 @@ export default function TeamEntry({
           </div>
         </a>
 
-        {member.position.map((position) => (
-          <div className={styles.teamAffiliation}>{position}</div>
-        ))} 
+        {member.position.map((position, i) => (
+          <div key={i} className={styles.teamAffiliation}>
+            {position}
+          </div>
+        ))}
       </div>
       <div className={styles.teamActive}>
         <PortableText value={member.text} />
