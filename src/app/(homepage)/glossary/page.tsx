@@ -86,7 +86,9 @@ export default async function Glossary() {
         <Suspense fallback={null}>
           <p className={styles.section}>Climate Future Lab</p>
           <IndexRow
-            label={"Open Planning Cultures. Design Principles for Transformative Spaces"}
+            label={
+              "Open Planning Cultures. Design Principles for Transformative Spaces"
+            }
             category="open-planning-culture"
             introtext={openCultures.introtext.text}
           />
@@ -95,16 +97,28 @@ export default async function Glossary() {
             label={"OpenPlanning"}
             category="open-planning"
             introtext={openPlanning.introtext.text}
+            subtitle={openPlanning.introtext.title}
+            question={openPlanning.headerText}
+            partners={openPlanning.introtext.partners}
+            contact={openPlanning.introtext.contact}
           />
           <IndexRow
             label={"OpenFactory"}
             category="open-factory"
             introtext={openFactory.introtext.text}
+            subtitle={openFactory.introtext.title}
+            question={openFactory.headerText}
+            partners={openFactory.introtext.partners}
+            contact={openFactory.introtext.contact}
           />
           <IndexRow
             label={"OpenImaginaries"}
             category="open-imaginaries"
             introtext={openImaginaries.introtext.text}
+            subtitle={openImaginaries.introtext.title}
+            question={openImaginaries.headerText}
+            partners={openImaginaries.introtext.partners}
+            contact={openImaginaries.introtext.contact}
           />
         </Suspense>
         <p className={styles.section}>People</p>
@@ -123,17 +137,26 @@ export default async function Glossary() {
             />
           </div>
         </Suspense>
-        <p className={styles.section}>LivingLab</p>
-        <Suspense fallback={null}>
-          <div className={styles.rows}>
-            <IndexRow
-              label={"LivingLab"}
-              category="living-lab"
-              introtext={livingLab.text}
-              content={livingLabProjects}
-            />
-          </div>
-        </Suspense>
+        {livingLabProjects && (
+          <>
+            <p className={styles.section}>LivingLab</p>
+            <Suspense fallback={null}>
+              <div className={styles.rows}>
+                {livingLabProjects.map((entry, i) => (
+                  <IndexRow
+                    key={i}
+                    label={entry.headline}
+                    category={entry.slug.current}
+                    introtext={entry.text}
+                    subtitle={entry.subHeadline}
+                    images={entry.images}
+                  />
+                ))}
+              </div>
+            </Suspense>
+          </>
+        )}
+
         <p className={styles.section}>Interacting</p>
         <Suspense fallback={null}>
           <div className={styles.rows}>

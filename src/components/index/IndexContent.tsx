@@ -16,7 +16,7 @@ type Entry = {
   headline?: string;
   subHeadline?: string;
   slug: { current: string };
-  position?: string;
+  position?: string[];
   affiliation?: string;
   email: string;
   link: string[];
@@ -118,6 +118,8 @@ export default function IndexContent({ entry, category }: Props) {
     }
   };
 
+  console.log(entry);
+
   return (
     <>
       {lightbox && entry.images && (
@@ -147,7 +149,18 @@ export default function IndexContent({ entry, category }: Props) {
           </span>
           {category == "team" && (
             <div className={styles.rowDetails}>
-              <span>{!isActive ? entry.position : null}</span>
+              <span>
+                {!isActive
+                  ? entry.position.map((position, i) => (
+                      <span key={i}>
+                        {position}
+                        {entry.position.length > 1 &&
+                          entry.position.length > i + 1 &&
+                          ", "}
+                      </span>
+                    ))
+                  : null}
+              </span>
               <span>{!isActive ? `Open${entry.lab}` : null}</span>
             </div>
           )}

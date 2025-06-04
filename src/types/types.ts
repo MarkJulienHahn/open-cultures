@@ -16,7 +16,7 @@ export interface TextBlock {
 }
 
 export interface ImageType {
-  caption: { en: string, de: string };
+  caption: string;
   url: string;
   alt?: string;
   dimensions: { _type: string, width: number, height: number, aspectRatio: number }
@@ -31,12 +31,13 @@ export type NewsType = {
   text: TextBlock,
   image: ImageType,
   slug?: string,
-  lab?: string
+  lab?: string,
+  external?: { url: string, name: string }
 }
 
 export type PersonType = {
   affiliation?: string,
-  position?: string,
+  position?: string[],
   website?: string,
   lab?: string,
   title?: string,

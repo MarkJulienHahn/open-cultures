@@ -96,6 +96,15 @@ export default defineType({
         },
       ],
     },
+    {
+      name: "association",
+      type: "array",
+      of: [
+        {
+          type: "image",
+        },
+      ],
+    },
     orderRankField({ type: "footer" }),
   ],
   preview: {

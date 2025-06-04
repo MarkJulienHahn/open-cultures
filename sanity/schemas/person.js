@@ -19,7 +19,8 @@ export default {
     },
     {
       name: "position",
-      type: "string",
+      type: "array",
+      of: [{ name: "name", type: "string" }],
       validation: (Rule) => Rule.required(),
     },
     {

@@ -81,7 +81,6 @@
   width: 25em;
   padding: var(--space-XS);
   margin-top: var(--space-S);
-  border: 1.5px solid;
   display: none;
   z-index: 2;
   color: var(--beige);

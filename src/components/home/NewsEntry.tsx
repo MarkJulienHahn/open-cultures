@@ -69,8 +69,6 @@ export default function NewsEntry({
     };
   }, []);
 
-  console.log(entry.slug, extractQueryString(entry.slug));
-
   return (
     <div
       className={[styles.newsEntry, entry.lab ? styles[entry.lab] : ""]
@@ -99,7 +97,12 @@ export default function NewsEntry({
         <PortableText value={entry.text} />
         {entry.slug && (
           <div className={styles.newsActiveLink}>
-            <Link href={extractQueryString(entry.slug)}>→ Read more</Link>
+            <Link href={extractQueryString(entry.slug)}>Read more ↗</Link>
+          </div>
+        )}
+        {entry.external?.url && (
+          <div className={styles.newsActiveLink}>
+            <a href={entry.external.url}>{entry.external.name || "Learn More"} ↗</a>
           </div>
         )}
       </div>

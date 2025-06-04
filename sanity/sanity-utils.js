@@ -18,10 +18,35 @@ export async function getNews() {
         },
         slug, 
         lab,
+        external,
       }`);
 }
 export async function getOpenCultures() {
-  return client.fetch(`*[_type == "openCultures"][0]{...}`);
+  return client.fetch(`*[_type == "openCultures"][0] {
+  headerText,
+  introtext {
+    title,
+    text,
+    partners[] {
+      name,
+      link,
+      indented
+    },
+    partnerLogos[]{
+      asset->{
+        _id,
+        url
+      }
+    },
+    supporters[],
+    supporterLogos[]{
+      asset->{
+        _id,
+        url
+      }
+    }
+  }
+}`);
 }
 export async function getOpenPlanning() {
   return client.fetch(`*[_type == "openPlanning"][0]{...}`);
@@ -184,7 +209,8 @@ export async function getFooter() {
       contact,
       email,
       partners[]{ "url": asset->url },
-      supporters[]{ "url": asset->url }
+      supporters[]{ "url": asset->url },
+      association[]{ "url": asset->url }
     }`
   );
 }

@@ -59,9 +59,24 @@ export default {
           ],
         },
         {
-          name: "supporters",
+          name: "partnerLogos",
+          title: "Partner Logos",
           type: "array",
-          of: [{ name: "name", type: "string" }],
+          of: [
+            {
+              type: "image",
+            },
+          ],
+        },
+        {
+          name: "supporterLogos",
+          title: "Supporter Logos",
+          type: "array",
+          of: [
+            {
+              type: "image",
+            },
+          ],
         },
       ],
     },

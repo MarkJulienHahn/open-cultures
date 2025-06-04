@@ -6,10 +6,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./index.module.css";
 import IndexContent from "./IndexContent";
 import { PortableText } from "next-sanity";
+import Image from "next/image";
 
 import Hamburger from "hamburger-react";
-import { TextBlock } from "@/types/types";
-import { useEffect, useRef } from "react";
+import { ImageType, TextBlock } from "@/types/types";
+import { useEffect, useRef, useState } from "react";
+import Lightbox from "./Lightbox";
 
 type Entry = {
   name: string;
@@ -32,6 +34,11 @@ type Props = {
   label: string;
   introtext?: TextBlock;
   content?: Entry[];
+  subtitle?: string;
+  question?: string;
+  images?: ImageType[];
+  partners?: TextBlock;
+  contact?: TextBlock;
 };
 
 export default function IndexRow({
@@ -39,7 +46,13 @@ export default function IndexRow({
   label,
   introtext,
   content,
+  subtitle,
+  question,
+  images,
+  partners,
+  contact,
 }: Props) {
+  const [lightbox, setLightBox] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get("category");
@@ -77,6 +90,9 @@ export default function IndexRow({
 
   return (
     <>
+      {lightbox && images && (
+        <Lightbox setLightBox={setLightBox} images={images} />
+      )}
       <div
         className={`${styles.row} ${isActive && styles.rowOpen}`}
         onClick={handleClick}
@@ -98,9 +114,59 @@ export default function IndexRow({
               animate={{ opacity: 1, height: "auto", marginTop: "1em" }}
               exit={{ opacity: 0, height: 0, marginTop: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className={styles.introtext}
+              className={styles.content__wrapper}
             >
-              <PortableText value={introtext} />
+              <div className={styles.introtext}>
+                {subtitle || question ? (
+                  <div className={styles.content__subhead}>
+                    {subtitle && <div>{subtitle}</div>}
+                    {question && (
+                      <div
+                        style={{
+                          marginTop: "1em",
+                          fontFamily: "Siggnal Mono",
+                        }}
+                      >
+                        {question}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  ""
+                )}
+                <PortableText value={introtext} />
+                {partners && (
+                  <div className={styles.contact}>
+                    <h3>Partner Institutions</h3>
+                    <PortableText value={partners} />
+                  </div>
+                )}
+                {contact && (
+                  <div className={styles.contact}>
+                    <h3>Contact</h3>
+                    <PortableText value={contact} />
+                  </div>
+                )}
+              </div>
+
+              {images?.length && (
+                <div
+                  className={`${styles.content__image} ${
+                    images.length > 0 && styles.clickable
+                  }`}
+                  onClick={() => setLightBox(true)}
+                >
+                  <Image
+                    src={images[0].url}
+                    alt={images[0].alt || ""}
+                    width={500}
+                    height={600}
+                  />
+                  <p className={styles.caption}>
+                    {1} / {images.length}
+                  </p>
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -115,7 +181,11 @@ export default function IndexRow({
             transition={{ duration: 0.25 }}
           >
             {content.map((entry) => (
-              <IndexContent key={entry.slug.current} entry={entry} category={category}/>
+              <IndexContent
+                key={entry.slug.current}
+                entry={entry}
+                category={category}
+              />
             ))}
           </motion.div>
         )}

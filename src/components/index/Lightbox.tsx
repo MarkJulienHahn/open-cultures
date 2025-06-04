@@ -12,7 +12,7 @@ type Props = {
   setLightBox: (index: boolean) => void;
   images: {
     url: string;
-    alt: string | null;
+    alt?: string | null;
     caption: string | null;
     dimensions: { width: number; height: number; aspectRatio: number };
   }[];

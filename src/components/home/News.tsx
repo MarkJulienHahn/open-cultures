@@ -11,7 +11,6 @@ export default async function News() {
 
   return (
     <div className={styles.wrapper} id={"open-cultures"}>
-
       <NewsEntryWrapper news={news} />
     </div>
   );

@@ -11,6 +11,8 @@ export default defineType({
       title: "Name",
       type: "string",
       validation: (Rule) => Rule.required().error("Name is required"),
+      description:
+        "Um ungewünschte Umbrüche zu vermeiden bitte einen »Non-Breaking Space« zwischen Vor- und Nachnamen einfügen. Auf macOS: Option + Space, auf Windows: Alt + 0160 (auf numeric keypad).",
     },
     {
       name: "title",

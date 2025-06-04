@@ -4,19 +4,25 @@ import styles from "./openCultures.module.css";
 import { PortableText } from "next-sanity";
 import RouterComponent from "./RouterComponent";
 import { TextBlock } from "@/types/types";
+import Image from "next/image";
 
 type OpenCulturesData = {
   introtext: {
     title: string;
     text: TextBlock;
     partners: { name: string; link: string; indented: boolean }[];
+    partnerLogos: { asset: { url: string; _id: number } }[];
     supporters: string[];
+    supporterLogos: { asset: { url: string; _id: number } }[];
   };
   headerText: string;
 };
 
 export default async function OpenCultures() {
   const openCultures: OpenCulturesData = await getOpenCultures();
+
+  console.log(openCultures);
+
   return (
     <>
       <RouterComponent section={"?"} />
@@ -53,14 +59,37 @@ export default async function OpenCultures() {
                 </li>
               ))}
             </ul>
+            {openCultures.introtext?.partnerLogos && (
+              <div className={styles.logosWrapper}>
+                {openCultures.introtext.partnerLogos.map((logo) => (
+                  <div className={styles.logoWrapper} key={logo.asset._id}>
+                    <Image
+                      src={logo.asset.url}
+                      width={150}
+                      height={60}
+                      alt={"Logo"}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className={styles.contact}>
             <div className={styles.kicker}>Funded by</div>
-            <ul>
-              {openCultures.introtext.supporters.map((entry) => (
-                <li key={entry}>{entry}</li>
-              ))}
-            </ul>
+            {openCultures.introtext?.supporterLogos && (
+              <div className={styles.logosWrapper}>
+                {openCultures.introtext.supporterLogos.map((logo) => (
+                  <div className={styles.logoWrapper} key={logo.asset._id}>
+                    <Image
+                      src={logo.asset.url}
+                      width={100}
+                      height={60}
+                      alt={"Logo"}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

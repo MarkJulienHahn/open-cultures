@@ -64,6 +64,8 @@ export default function TeamEntry({
     };
   }, []);
 
+  console.log(member);
+
   return (
     <div
       className={[
@@ -87,8 +89,10 @@ export default function TeamEntry({
             {member.title} {member.name}
           </div>
         </a>
-        <div className={styles.teamAffiliation}>{member.position}</div>
-        <div className={styles.teamAffiliation}>Open{member.lab}</div>
+
+        {member.position.map((position) => (
+          <div className={styles.teamAffiliation}>{position}</div>
+        ))} 
       </div>
       <div className={styles.teamActive}>
         <PortableText value={member.text} />

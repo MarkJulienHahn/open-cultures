@@ -45,6 +45,23 @@ export default defineType({
         "Hier bitte die URL des Referenzprojekts innerhalb der Seite eintragen also zum Beispiel: »http://open-cultures.org/glossary?category=living-lab&entry=factory«",
     },
     {
+      name: "external",
+      type: "object",
+      title: "External Link",
+      fields: [
+        {
+          name: "url",
+          type: "string",
+          description: "Hier bitte die URL des externen Links einfügen.",
+        },
+        {
+          name: "name",
+          type: "string",
+          description: "Das ist der Name des Links.",
+        },
+      ],
+    },
+    {
       name: "lab",
       type: "string",
       title: "Lab",

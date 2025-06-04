@@ -33,6 +33,7 @@
 }
 .contactData {
   grid-column: span 2;
+  white-space: nowrap;
 }
 
 .links {
@@ -44,8 +45,9 @@
 
 .logosWrapper {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: space-evenly;
 }
 
 .topRow {
@@ -56,6 +58,13 @@
 
 .logoRow {
   width: 100%;
+}
+
+.col5 {
+  grid-column: span 5;
+}
+.col2 {
+  grid-column: span 2;
 }
 
 .logos {
