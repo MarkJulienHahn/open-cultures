@@ -119,12 +119,19 @@ export default function IndexRow({
               <div className={styles.introtext}>
                 {subtitle || question ? (
                   <div className={styles.content__subhead}>
-                    {subtitle && <div>{subtitle}</div>}
+                    {subtitle && (
+                      <div
+                        style={{
+                          fontFamily: "Siggnal Mono",
+                        }}
+                      >
+                        {subtitle}
+                      </div>
+                    )}
                     {question && (
                       <div
                         style={{
                           marginTop: "1em",
-                          fontFamily: "Siggnal Mono",
                         }}
                       >
                         {question}
