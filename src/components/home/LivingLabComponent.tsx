@@ -1,4 +1,4 @@
-export const revalidate = 10;
+
 
 import Image from "next/image";
 

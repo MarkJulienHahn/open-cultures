@@ -1,5 +1,3 @@
-export const revalidate = 10;
-
 import React from "react";
 import { getOpenCultures } from "../../../sanity/sanity-utils";
 import styles from "./openCultures.module.css";

@@ -1,5 +1,3 @@
-export const revalidate = 10;
-
 import LivingLabComponent from "./LivingLabComponent";
 import InteractingComponent from "./InteractingComponent";
 import MediatingComponent from "./MediatingComponent";

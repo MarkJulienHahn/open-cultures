@@ -1,5 +1,3 @@
-export const revalidate = 10;
-
 import { PortableText } from "next-sanity";
 import {
   getAdvisoryBoard,

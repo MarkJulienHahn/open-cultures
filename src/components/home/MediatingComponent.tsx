@@ -1,5 +1,3 @@
-export const revalidate = 10;
-
 import Image from "next/image";
 
 import { PortableText } from "next-sanity";

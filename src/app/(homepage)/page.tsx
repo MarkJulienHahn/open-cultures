@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import News from "@/components/home/News";
 import OpenCultures from "@/components/home/OpenCultures";
 import Projects from "@/components/home/Projects";
