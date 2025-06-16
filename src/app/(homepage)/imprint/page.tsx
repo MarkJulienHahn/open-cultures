@@ -1,6 +1,6 @@
 export const revalidate = 10;
 
-import styles from "@/components/legals/legals.module.css";
+import styles from "@/components/privacy/legals.module.css";
 import { getImpressum } from "../../../../sanity/sanity-utils";
 import { PortableText } from "next-sanity";
 import Footer from "@/components/ui/Footer";

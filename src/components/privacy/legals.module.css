@@ -1,12 +1,17 @@
 .wrapper {
   padding: var(--space-XXL) var(--space-S);
+  background: var(--beige);
+}
+
+.wrapper p {
+  max-width: 700px;
 }
 
 .text p + p {
-    margin-top: 1em
+  margin-top: 1em;
 }
 
 .text strong {
-    font-weight: normal;
-    font-family: "Siggnal Mono";
+  font-weight: normal;
+  font-family: "Siggnal Mono";
 }
