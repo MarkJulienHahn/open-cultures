@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import React from "react";
 import { getOpenCultures } from "../../../sanity/sanity-utils";
 import styles from "./openCultures.module.css";
@@ -20,8 +22,6 @@ type OpenCulturesData = {
 
 export default async function OpenCultures() {
   const openCultures: OpenCulturesData = await getOpenCultures();
-
-  console.log(openCultures);
 
   return (
     <>

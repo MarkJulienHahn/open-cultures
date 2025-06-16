@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import IndexRow from "@/components/index/IndexRow";
 import styles from "@/components/index/index.module.css";
 import {

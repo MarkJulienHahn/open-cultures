@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import styles from "@/components/legals/legals.module.css";
 import { getDatenschutz } from "../../../../sanity/sanity-utils";
 import { PortableText } from "next-sanity";

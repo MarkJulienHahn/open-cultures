@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import React from "react";
 import styles from "./news.module.css";
 

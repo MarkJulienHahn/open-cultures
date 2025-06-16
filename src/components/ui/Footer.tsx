@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import Link from "next/link";
 import { getFooter } from "../../../sanity/sanity-utils";
 import styles from "./footer.module.css";

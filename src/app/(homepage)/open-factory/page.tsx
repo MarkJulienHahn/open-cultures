@@ -1,3 +1,5 @@
+export const revalidate = 10;
+
 import Footer from "@/components/ui/Footer";
 import styles from "@/components/sub-labs/sub-lab.module.css";
 import { getOpenFactory } from "../../../../sanity/sanity-utils";

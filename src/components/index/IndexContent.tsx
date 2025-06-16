@@ -118,8 +118,6 @@ export default function IndexContent({ entry, category }: Props) {
     }
   };
 
-  console.log(entry);
-
   return (
     <>
       {lightbox && entry.images && (
