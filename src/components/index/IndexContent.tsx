@@ -27,6 +27,7 @@ type Entry = {
   portrait?: {
     url: string;
   };
+  caption?: string;
   images?: {
     alt: string | null;
     url: string;
@@ -117,6 +118,8 @@ export default function IndexContent({ entry, category }: Props) {
       window.open(entry.externalLink, "_blank");
     }
   };
+
+  console.log(entry.caption);
 
   return (
     <>
@@ -218,6 +221,9 @@ export default function IndexContent({ entry, category }: Props) {
                       width={400}
                       height={500}
                     />
+                    {entry.caption && (
+                      <p className={styles.caption}>{entry.caption}</p>
+                    )}
                   </div>
                 )}
 

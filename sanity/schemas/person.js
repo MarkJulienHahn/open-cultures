@@ -56,6 +56,10 @@ export default {
       title: "Portrait",
     },
     {
+      name: "caption",
+      type: "string",
+    },
+    {
       name: "text",
       title: "Text",
       type: "array",
