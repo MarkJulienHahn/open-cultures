@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .closeButton {
@@ -34,6 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 14px;
 }
 
 .image__wrapper img {
@@ -46,8 +48,8 @@
 }
 
 .caption {
-    font-size: var(--fontSize-XS);
-    font-family: "Siggnal Mono";
-    text-align: center;
-    padding-top: var(--space-XS)
-  }
+  font-size: var(--fontSize-XS);
+  font-family: "Siggnal Mono";
+  text-align: center;
+  padding-top: var(--space-XS);
+}
