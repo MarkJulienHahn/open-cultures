@@ -181,8 +181,8 @@ export default async function Glossary() {
               content={summerSchoolProjects}
             />
             <IndexRow
-              label={"Public Conferences"}
-              category="public-conferences"
+              label={"Conferences"}
+              category="conferences"
               introtext={conferences.text}
               content={conferencesProjects}
             />

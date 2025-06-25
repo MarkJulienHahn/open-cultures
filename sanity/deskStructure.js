@@ -122,7 +122,7 @@ export const myStructure = (S, context) =>
                     .documentId("sumemrSchools")
                 ),
               S.listItem()
-                .title("Public Conferences")
+                .title("Conferences")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
@@ -251,7 +251,7 @@ export const myStructure = (S, context) =>
               }),
               orderableDocumentListDeskItem({
                 type: "conferencesProject",
-                title: "Public Conferences",
+                title: "Conferences",
                 icon: JoystickIcon,
                 S,
                 context,
