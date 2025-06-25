@@ -146,4 +146,10 @@
     padding-right: 0;
     min-width: unset;
   }
+  .logosWrapper {
+    display: block;
+  }
+  .logosWrapper img {
+    max-height: 50px; 
+  }
 }

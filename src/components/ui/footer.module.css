@@ -126,3 +126,17 @@
     margin-right: var(--space-S);
   }
 }
+
+@media screen and (max-width: 700px) {
+  .logos {
+    display: grid;
+    height: unset;
+  }
+  .logos img {
+    height: auto;
+    width: 100%;
+    max-width: 120px;
+    max-height: 40px;
+    margin: 15px 0;
+  }
+}
