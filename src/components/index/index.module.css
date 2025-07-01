@@ -65,6 +65,8 @@
   line-height: var(--lineHeight-S);
   display: flex;
   justify-content: space-between;
+  /* z-index: 1;
+  position: relative; */
 }
 
 .content__text {
@@ -137,8 +139,8 @@
 
 .closeButton {
   position: absolute;
-  left: -0.2em;
-  top: -0.2em;
+  left: -0.1em;
+  top: -0.1em;
 }
 
 .closeButton:hover {
@@ -268,6 +270,11 @@
   justify-content: space-between;
 }
 
+.rowInner span {
+  z-index: 1;
+  pointer-events: none;
+}
+
 .rowDetails {
   width: 66%;
   font-size: var(--fontSize-XS);
@@ -276,6 +283,15 @@
   font-family: "Siggnal Mono";
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.row:hover .rowDetailsFactory {
+  color: var(--yellow);
+}
+.row:hover .rowDetailsImaginaries {
+  color: var(--blue);
 }
 
 .contact,
@@ -308,6 +324,39 @@
   width: auto;
   position: relative;
   width: 20em;
+}
+
+.threeColorHoverWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.threeColorHover {
+  width: 33.333%;
+  height: 100%;
+  display: none;
+}
+
+.threeColorHoverBeige {
+  background: var(--beige);
+}
+.threeColorHoverPurple {
+  background: var(--purple);
+}
+.threeColorHoverRed {
+  background: var(--red);
+}
+
+.threeColorHoverWrapper:hover .threeColorHover {
+  display: block;
+}
+
+.open .threeColorHover {
+  display: block !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -369,5 +418,9 @@
   .rowDetails span:first-child {
     width: 60%;
     padding-right: var(--space-S);
+  }
+  .closeButton {
+    left: -0.3em;
+    top: -0.2em;
   }
 }

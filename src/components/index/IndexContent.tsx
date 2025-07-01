@@ -61,6 +61,8 @@ export default function IndexContent({ entry, category }: Props) {
 
   const [shouldRender, setShouldRender] = useState(false);
 
+  const isTatjana = entry.slug.current === "tatjana-schneider";
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (isActive) {
@@ -127,11 +129,25 @@ export default function IndexContent({ entry, category }: Props) {
 
       <div
         className={`${styles.row} ${lab && styles[lab]} ${styles.indented} 
+
         ${isActive ? styles.open : styles.closed}
         `}
         onClick={!entry.externalLink ? handleClick : showExternal}
       >
         <div className={styles.rowRef} ref={rowRef}></div>
+        {isTatjana && !isActive && (
+          <div className={styles.threeColorHoverWrapper}>
+            <div
+              className={`${styles.threeColorHoverBeige} ${styles.threeColorHover}`}
+            />
+            <div
+              className={`${styles.threeColorHoverPurple} ${styles.threeColorHover}`}
+            />
+            <div
+              className={`${styles.threeColorHoverRed} ${styles.threeColorHover}`}
+            />
+          </div>
+        )}
         <div className={styles.rowInner}>
           <span>
             {entry.website && isActive ? (
@@ -148,7 +164,7 @@ export default function IndexContent({ entry, category }: Props) {
           </span>
           {category == "team" && (
             <div className={styles.rowDetails}>
-              <span>
+              <span className={isTatjana && styles.rowDetailsFactory}>
                 {!isActive
                   ? entry.position.map((position, i) => (
                       <span key={i}>
@@ -160,7 +176,9 @@ export default function IndexContent({ entry, category }: Props) {
                     ))
                   : null}
               </span>
-              <span>{!isActive ? `Open${entry.lab}` : null}</span>
+              <span className={isTatjana && styles.rowDetailsImaginaries}>
+                {!isActive ? `Open${entry.lab}` : null}
+              </span>
             </div>
           )}
         </div>
