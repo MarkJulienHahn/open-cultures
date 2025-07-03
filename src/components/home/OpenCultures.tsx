@@ -88,6 +88,11 @@ export default async function OpenCultures() {
                 ))}
               </div>
             )}
+            <div>
+              Gefördert mit Mitteln aus zukunft.niedersachsen, ein
+              Förderprogramm des Niedersächsischen Ministeriums für Wissenschaft
+              und Kultur und der VolkswagenStiftung.
+            </div>
           </div>
         </div>
       </div>
