@@ -32,7 +32,7 @@ export default async function OpenCultures() {
       <div className={styles.wrapper}>
         <div className={styles.headline}>
           <div className={styles.kicker}>OpenCultures</div>
-          {openCultures.introtext.title}
+          <h1>{openCultures.introtext.title}</h1>
         </div>
         <div className={styles.body}>
           <PortableText value={openCultures.introtext.text} />

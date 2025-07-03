@@ -75,7 +75,8 @@ body {
 }
 
 h1 {
-  font-size: 13pt;
+  font-size: var(--fontSize-S);
+  font-weight: 100;
 }
 
 * {
