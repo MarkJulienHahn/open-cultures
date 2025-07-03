@@ -192,7 +192,7 @@ export const myStructure = (S, context) =>
                     .documentId("openPlanning")
                 ),
               S.listItem()
-                .title("OpenFactoy")
+                .title("OpenFactory")
                 .icon(EarthGlobeIcon)
                 .child(
                   S.document()

@@ -1,7 +1,7 @@
 export default {
   name: "openFactory",
   type: "document",
-  title: "OpenFactoy",
+  title: "OpenFactory",
   fields: [
     {
       name: "headerText",

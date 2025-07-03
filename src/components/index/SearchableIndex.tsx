@@ -120,7 +120,7 @@ export default function SearchableIndex({
         content: openPlanning,
       },
       {
-        label: "OpenFactoy",
+        label: "OpenFactory",
         category: "open-factory",
         contentText: textFrom(openFactory.introtext.text),
         content: openFactory,
