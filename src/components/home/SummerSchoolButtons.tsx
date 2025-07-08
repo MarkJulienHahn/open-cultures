@@ -78,7 +78,7 @@ export default function SummerSchoolButtons({
     <div className={styles.summerSchool}>
       <div className={styles.mobileHeader}>
         <div className={styles.mobileKicker}>Interacting</div>
-        <div className={styles.mobileHeadline}>SummerSchools</div>
+        <div className={styles.mobileHeadline}>{category}</div>
       </div>
       <div className={styles.summerSchoolButton}>
         <ProjectButton
