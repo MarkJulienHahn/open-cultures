@@ -78,13 +78,7 @@ export default function ProjectButton({
           {content.text && <PortableText value={content.text} />}
           {content.slug?.current && (
             <div className={styles.buttonLink}>
-              <Link
-                href={
-                  categorySlug == "living-lab"
-                    ? `/glossary?category=${categorySlug}&entry=${content.slug.current}`
-                    : `/glossary?category=${content.slug.current}`
-                }
-              >
+              <Link href={`/glossary?category=${content.slug.current}`}>
                 Show More ↗
               </Link>
             </div>

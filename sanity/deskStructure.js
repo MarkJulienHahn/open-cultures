@@ -98,12 +98,20 @@ export const myStructure = (S, context) =>
                     .documentId("interacting")
                 ),
               S.listItem()
-                .title("Transdisciplinary MethodLab")
+                .title("Doing Transdisciplinarity")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
                     .schemaType("transdisciplinaryMethodLab")
                     .documentId("transdisciplinaryMethodLab")
+                ),
+              S.listItem()
+                .title("Learning & Doing")
+                .icon(JoystickIcon)
+                .child(
+                  S.document()
+                    .schemaType("learningAndDoing")
+                    .documentId("learningAndDoing")
                 ),
               S.listItem()
                 .title("Doctoral School")
@@ -114,14 +122,6 @@ export const myStructure = (S, context) =>
                     .documentId("methodologicalPhdColloquium")
                 ),
               S.listItem()
-                .title("Summer Schools")
-                .icon(JoystickIcon)
-                .child(
-                  S.document()
-                    .schemaType("summerSchools")
-                    .documentId("sumemrSchools")
-                ),
-              S.listItem()
                 .title("Conferences")
                 .icon(JoystickIcon)
                 .child(
@@ -129,6 +129,15 @@ export const myStructure = (S, context) =>
                     .schemaType("conferences")
                     .documentId("conferences")
                 ),
+              S.listItem()
+                .title("Summer Schools")
+                .icon(JoystickIcon)
+                .child(
+                  S.document()
+                    .schemaType("summerSchools")
+                    .documentId("sumemrSchools")
+                ),
+
               S.divider(),
               S.listItem()
                 .title("Mediating")
@@ -228,23 +237,21 @@ export const myStructure = (S, context) =>
               S.divider(),
               orderableDocumentListDeskItem({
                 type: "transdisciplinaryMethodLabProject",
-                title: "Transdisciplinary MethodLab",
+                title: "Doing Transdisciplinarity",
                 icon: JoystickIcon,
                 S,
                 context,
               }),
-
+              orderableDocumentListDeskItem({
+                type: "learningAndDoingProject",
+                title: "Learning & Doing",
+                icon: JoystickIcon,
+                S,
+                context,
+              }),
               orderableDocumentListDeskItem({
                 type: "methodologicalPhdColloquiumProject",
                 title: "Doctoral School",
-                icon: JoystickIcon,
-                S,
-                context,
-              }),
-
-              orderableDocumentListDeskItem({
-                type: "summerSchoolsProject",
-                title: "Summer Schools",
                 icon: JoystickIcon,
                 S,
                 context,
@@ -256,6 +263,14 @@ export const myStructure = (S, context) =>
                 S,
                 context,
               }),
+              orderableDocumentListDeskItem({
+                type: "summerSchoolsProject",
+                title: "Summer Schools",
+                icon: JoystickIcon,
+                S,
+                context,
+              }),
+
               S.divider(),
               orderableDocumentListDeskItem({
                 type: "spokenWordProject",

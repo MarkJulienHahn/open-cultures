@@ -50,6 +50,7 @@
 
 .buttonEntryOuter {
   position: absolute;
+  z-index: 100;
 }
 
 .buttonEntry:hover {
@@ -213,9 +214,10 @@
     width: 100%;
   }
   .buttonEntryOuter {
-    position: relative;
-    left: var(--space-S) !important;
-    top: unset !important;
+    /* position: relative; */
+    /* left: var(--space-S) !important; */
+    /* top: unset !important; */
+    display: None;
   }
 
   .buttonContent {

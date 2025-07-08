@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 
 import { PortableText } from "next-sanity";
@@ -8,6 +6,8 @@ import styles from "./projects.module.css";
 import {
   getConferences,
   getInteracting,
+  getLearningAndDoing,
+  getLearningAndDoingProjects,
   getMPC,
   getSummerSchools,
   getSummerSchoolsProjects,
@@ -22,9 +22,12 @@ export default async function InteractingComponent() {
   const interacting = await getInteracting();
   const TML = await getTML();
   const MPC = await getMPC();
+  const learningAndDoing = await getLearningAndDoing();
+  const learningAndDoingProjects = await getLearningAndDoingProjects();
   const summerSchools = await getSummerSchools();
   const summerSchoolProjects = await getSummerSchoolsProjects();
   const conferences = await getConferences();
+
 
   return (
     <>
@@ -54,7 +57,7 @@ export default async function InteractingComponent() {
           content={[TML, MPC, conferences]}
           category={"Interacting"}
           headlines={[
-            "Transdisciplinary MethodLab",
+            "Doing Transdisciplinarity",
             "Doctoral School",
             "Conferences",
           ]}
@@ -65,9 +68,16 @@ export default async function InteractingComponent() {
         <SummerSchoolButtons
           content={[summerSchools]}
           category={"Interacting"}
-          categorySlug={"interacting"}
+          categorySlug={"summer-schools"}
           headlines={["Summer Schools"]}
           projects={summerSchoolProjects}
+        />
+        <SummerSchoolButtons
+          content={[learningAndDoing]}
+          category={"Interacting"}
+          categorySlug={"learning-and-doing"}
+          headlines={["Learning & Doing"]}
+          projects={learningAndDoingProjects}
         />
       </div>
     </>

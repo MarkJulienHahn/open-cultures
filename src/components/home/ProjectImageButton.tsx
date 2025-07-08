@@ -62,6 +62,8 @@ export default function ProjectImageButton({
     };
   }, []);
 
+  console.log(project.slug);
+
   return (
     project.images && (
       <div
@@ -91,11 +93,7 @@ export default function ProjectImageButton({
             {project.slug?.current ? (
               <div className={styles.buttonLink}>
                 <Link
-                  href={
-                    categorySlug == "living-lab"
-                      ? `/glossary?category=${categorySlug}&entry=${project.slug.current}`
-                      : `/glossary?category=${project.slug.current}`
-                  }
+                  href={`/glossary?category=${categorySlug}&entry=${project.slug.current}`}
                 >
                   Show More ↗
                 </Link>

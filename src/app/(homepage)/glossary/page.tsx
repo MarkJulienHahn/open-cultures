@@ -20,6 +20,8 @@ import {
   getPrintedMatterProjects,
   getSpokenWord,
   getSpokenWordProjects,
+  getLearningAndDoing,
+  getLearningAndDoingProjects,
   getSummerSchools,
   getSummerSchoolsProjects,
   getTML,
@@ -47,6 +49,8 @@ export default async function Glossary() {
   const tmlProjects = await getTMLProjects();
   const mpc = await getMPC();
   const mpcProjects = await getMPCProjects();
+  const learningAndDoing = await getLearningAndDoing();
+  const learningAndDoingProjects = await getLearningAndDoingProjects();
   const summerSchools = await getSummerSchools();
   const summerSchoolProjects = await getSummerSchoolsProjects();
   const conferences = await getConferences();
@@ -75,6 +79,8 @@ export default async function Glossary() {
             tmlProjects={tmlProjects}
             mpc={mpc}
             mpcProjects={mpcProjects}
+            learningAndDoing={learningAndDoing}
+            learningAndDoingProjects={learningAndDoingProjects}
             summerSchools={summerSchools}
             summerSchoolProjects={summerSchoolProjects}
             conferences={conferences}
@@ -163,10 +169,17 @@ export default async function Glossary() {
         <Suspense fallback={null}>
           <div className={styles.rows}>
             <IndexRow
-              label={"Transdisciplinary MethodLab"}
+              label={"Doing Transdisciplinarity"}
               category="transdisciplinary-method-lab"
               introtext={tml.text}
               content={tmlProjects}
+            />
+
+            <IndexRow
+              label={"Learning & Doing"}
+              category="learning-and-doing"
+              introtext={learningAndDoing.text}
+              content={learningAndDoingProjects}
             />
             <IndexRow
               label={"Doctoral School"}
@@ -175,16 +188,16 @@ export default async function Glossary() {
               content={mpcProjects}
             />
             <IndexRow
-              label={"Summer Schools"}
-              category="summer-schools"
-              introtext={summerSchools.text}
-              content={summerSchoolProjects}
-            />
-            <IndexRow
               label={"Conferences"}
               category="conferences"
               introtext={conferences.text}
               content={conferencesProjects}
+            />
+            <IndexRow
+              label={"Summer Schools"}
+              category="summer-schools"
+              introtext={summerSchools.text}
+              content={summerSchoolProjects}
             />
           </div>
         </Suspense>

@@ -1,7 +1,7 @@
 export default {
-  name: "transdisciplinaryMethodLab",
+  name: "learningAndDoing",
   type: "document",
-  title: "Doing Transdisciplinarity",
+  title: "Learning & Doing",
   fields: [
     {
       name: "text",
@@ -34,7 +34,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: "Doing Transdisciplinarity",
+        title: "Learning & Doing",
       };
     },
   },

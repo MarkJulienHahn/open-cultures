@@ -2,9 +2,9 @@ import { defineType } from "sanity";
 import { orderRankField } from "@sanity/orderable-document-list";
 
 export default defineType({
-  name: "transdisciplinaryMethodLabProject",
+  name: "learningAndDoingProject",
   type: "document",
-  title: "Doing Transdisciplinarity — Projekt",
+  title: "Learning & Doing — Projekt",
   fields: [
     {
       name: "headline",
@@ -17,10 +17,6 @@ export default defineType({
     {
       name: "subHeadline",
       type: "text",
-      validation: (Rule) =>
-        Rule.required()
-          .min(1)
-          .error("Text is required and must contain at least one block."),
     },
     {
       name: "text",
@@ -55,6 +51,7 @@ export default defineType({
         },
       ],
     },
+
     {
       name: "slug",
       type: "slug",
@@ -64,6 +61,6 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Slug is required."),
     },
 
-    orderRankField({ type: "transdisciplinaryMethodLabProject" }),
+    orderRankField({ type: "summerSchoolsProject" }),
   ],
 });

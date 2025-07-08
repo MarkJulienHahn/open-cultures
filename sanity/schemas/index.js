@@ -15,7 +15,9 @@ import transdisciplinaryMethodLabProject from "./transdisciplinaryMethodLabProje
 import methodologicalPhdColloquium from "./methodologicalPhdColloquium";
 import methodologicalPhdColloquiumProject from "./methodologicalPhdColloquiumProject";
 import summerSchools from "./summerSchools";
+import learningAndDoing from "./learningAndDoing";
 import summerSchoolsProject from "./summerSchoolsProject";
+import learningAndDoingProject from "./learningAndDoingProject";
 import conferences from "./conferences";
 import conferencesProject from "./conferencesProject";
 import mediating from "./mediating";
@@ -45,6 +47,8 @@ const schemaTypes = [
   transdisciplinaryMethodLabProject,
   methodologicalPhdColloquium,
   methodologicalPhdColloquiumProject,
+  learningAndDoing,
+  learningAndDoingProject,
   summerSchools,
   summerSchoolsProject,
   conferences,

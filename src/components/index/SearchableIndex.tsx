@@ -71,6 +71,8 @@ export default function SearchableIndex({
   tmlProjects,
   mpc,
   mpcProjects,
+  learningAndDoing,
+  learningAndDoingProjects,
   summerSchools,
   summerSchoolProjects,
   conferences,
@@ -91,12 +93,14 @@ export default function SearchableIndex({
   tml: ProjectIntroProps;
   mpc: ProjectIntroProps;
   summerSchools: ProjectIntroProps;
+  learningAndDoing: ProjectIntroProps;
   conferences: ProjectIntroProps;
   printedMatter: ProjectIntroProps;
   spokenWord: ProjectIntroProps;
   livingLabProjects: ProjectProps[];
   tmlProjects: ProjectProps[];
   mpcProjects: ProjectProps[];
+  learningAndDoingProjects: ProjectProps[];
   summerSchoolProjects: ProjectProps[];
   conferencesProjects: ProjectProps[];
   printedMatterProjects: ProjectProps[];
@@ -162,7 +166,7 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
-        label: "Transdisciplinary MethodLab",
+        label: "Doing Transdisciplinarity",
         category: "transdisciplinary-method-lab",
         contentText: textFrom(tml.text),
         content: tml,

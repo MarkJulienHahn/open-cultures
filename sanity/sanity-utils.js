@@ -122,6 +122,26 @@ export async function getMPCProjects() {
     }`);
 }
 
+
+
+
+export async function getLearningAndDoing() {
+  return client.fetch(`*[_type == "learningAndDoing"][0]{...}`);
+}
+
+export async function getLearningAndDoingProjects() {
+  return client.fetch(`*[_type == "learningAndDoingProject"] | order(orderRank) {
+      slug, 
+      headline,
+      subHeadline,
+      text,
+      images[] { alt, caption, "url": asset->url, "dimensions": asset->metadata.dimensions}
+    }`);
+}
+
+
+
+
 export async function getSummerSchools() {
   return client.fetch(`*[_type == "summerSchools"][0]{...}`);
 }

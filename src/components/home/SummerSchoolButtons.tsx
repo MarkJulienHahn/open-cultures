@@ -87,7 +87,7 @@ export default function SummerSchoolButtons({
           content={content[0]}
           label={headlinesUsed[0]}
           position={positions[0]}
-          link={"/glossary?category=summer-schools"}
+          link={`/glossary?category=${category}`}
         />
       </div>
       {projects &&
@@ -98,12 +98,12 @@ export default function SummerSchoolButtons({
                 key={i}
                 project={project}
                 position={positions[i + 1]}
-                category={"Summer Schools"}
+                category={headlines[0]}
                 categorySlug={"summer-schools"}
               />
             )
         )}
-      <Link href="/glossary?category=transdisciplinary-method-lab">
+      <Link href={`/glossary?category=${category}`}>
         <div className={styles.linkButton}>Show More↗</div>
       </Link>
     </div>
