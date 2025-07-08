@@ -190,6 +190,18 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
+        label: "Learning & Doing",
+        category: "learning-and-doing",
+        contentText: textFrom(learningAndDoing.text),
+        content: learningAndDoing,
+      },
+      ...learningAndDoingProjects.map((entry: ProjectType) => ({
+        label: entry.headline || "Unnamed",
+        category: "learning-and-doing",
+        contentText: `${textFrom(entry?.text)}`,
+        content: entry,
+      })),
+      {
         label: "Summer Schools",
         category: "summer-schools",
         contentText: textFrom(summerSchools.text),
@@ -252,6 +264,8 @@ export default function SearchableIndex({
     tmlProjects,
     mpc,
     mpcProjects,
+    learningAndDoing,
+    learningAndDoingProjects,
     summerSchools,
     summerSchoolProjects,
     conferences,

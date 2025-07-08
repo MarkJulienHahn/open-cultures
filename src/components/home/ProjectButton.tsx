@@ -9,7 +9,7 @@ export default function ProjectButton({
   label,
   content,
   position: initialPosition = { top: 0, left: 0 },
-  categorySlug,
+  // categorySlug,
 }: {
   category: string;
   label?: string;
