@@ -16,7 +16,7 @@ type TeamEntryProps = {
 
 export default function TeamEntry({
   member,
-  activeIndex,
+  // activeIndex,
   setActiveIndex,
   i,
   initialPosition,
