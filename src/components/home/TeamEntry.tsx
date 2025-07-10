@@ -75,7 +75,7 @@ export default function TeamEntry({
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
-        zIndex: i === activeIndex ? "10" : "0",
+        // zIndex: i === activeIndex ? "10" : "0",
       }}
       ref={entryRef}
       onMouseDown={handleMouseDown}

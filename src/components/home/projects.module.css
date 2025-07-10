@@ -56,6 +56,9 @@
 .buttonEntry:hover {
   z-index: 50;
 }
+.buttonEntryOuter:hover {
+  z-index: 101;
+}
 
 .button {
   background: var(--white);

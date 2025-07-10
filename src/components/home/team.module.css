@@ -66,6 +66,10 @@
   border: 1.5px solid;
 }
 
+.teamEntry:hover {
+  z-index: 101;
+}
+
 .teamAffiliation {
   font-family: "Siggnal Mono";
   font-size: var(--fontSize-XS);
