@@ -78,15 +78,15 @@ export default function IndexRow({
 
   const isActive = currentCategory === category;
 
-  useEffect(() => {
-    if (isActive && rowRef.current) {
-      const timeout = setTimeout(() => {
-        rowRef.current &&
-          rowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 500);
-      return () => clearTimeout(timeout);
-    }
-  }, [isActive]);
+  // useEffect(() => {
+  //   if (isActive && rowRef.current) {
+  //     const timeout = setTimeout(() => {
+  //       rowRef.current &&
+  //         rowRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  //     }, 500);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [isActive]);
 
   return (
     <>

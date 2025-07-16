@@ -62,7 +62,7 @@ export default function ProjectImageButton({
     };
   }, []);
 
-  console.log(project.slug);
+
 
   return (
     project.images && (

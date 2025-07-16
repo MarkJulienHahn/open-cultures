@@ -121,6 +121,8 @@ export default function IndexContent({ entry, category }: Props) {
     }
   };
 
+  console.log(entry);
+
   return (
     <>
       {lightbox && entry.images && (
@@ -162,6 +164,7 @@ export default function IndexContent({ entry, category }: Props) {
             )}
             {entry.externalLink && "↗"}
           </span>
+
           {category == "team" && (
             <div className={styles.rowDetails}>
               <span className={isTatjana && styles.rowDetailsFactory}>
@@ -221,6 +224,14 @@ export default function IndexContent({ entry, category }: Props) {
                               </a>
                             </div>
                           ))}
+                      </div>
+                    )}
+
+                    {entry.subHeadline && (
+                      <div className={styles.content__subhead}>
+                        <div style={{ fontFamily: "Siggnal Mono" }}>
+                          {entry.subHeadline}
+                        </div>
                       </div>
                     )}
 

@@ -99,7 +99,7 @@ export default function SummerSchoolButtons({
                 project={project}
                 position={positions[i + 1]}
                 category={headlines[0]}
-                categorySlug={"summer-schools"}
+                categorySlug={categorySlug}
               />
             )
         )}
