@@ -10,7 +10,7 @@ import Image from "next/image";
 
 import Hamburger from "hamburger-react";
 import { ImageType, TextBlock } from "@/types/types";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Lightbox from "./Lightbox";
 
 type Entry = {
