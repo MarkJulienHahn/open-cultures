@@ -168,7 +168,7 @@ export default async function Glossary() {
         <p className={styles.section}>Interacting</p>
         <Suspense fallback={null}>
           <div className={styles.rows}>
-            {tml && (
+            {tml.text && (
               <IndexRow
                 label={"Inter(disciplinary Work)shop"}
                 category="interdisciplinary-workshop"
