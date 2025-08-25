@@ -2,9 +2,9 @@ import { defineType } from "sanity";
 import { orderRankField } from "@sanity/orderable-document-list";
 
 export default defineType({
-  name: "transdisciplinaryMethodLabProject",
+  name: "interdisciplinaryWorkshopProject",
   type: "document",
-  title: "Doing Transdisciplinarity — Projekt",
+  title: "Inter(disciplinary Work)shop — Projekt",
   fields: [
     {
       name: "headline",
@@ -64,6 +64,6 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Slug is required."),
     },
 
-    orderRankField({ type: "transdisciplinaryMethodLabProject" }),
+    orderRankField({ type: "interdisciplinaryWorkshopProject" }),
   ],
 });

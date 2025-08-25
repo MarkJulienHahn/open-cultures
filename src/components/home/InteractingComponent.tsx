@@ -48,7 +48,7 @@ export default async function InteractingComponent() {
             height={interacting.image.dimensions.height}
             alt={interacting.image.alt || ""}
           />
-          <Link href="/glossary?category=transdisciplinary-method-lab">
+          <Link href="/glossary?category=interdisciplinary-workshop">
             <div className={styles.linkButton}>Show More↗</div>
           </Link>
         </div>
@@ -57,7 +57,7 @@ export default async function InteractingComponent() {
           content={[TML, MPC, conferences]}
           category={"Interacting"}
           headlines={[
-            "Doing Transdisciplinarity",
+            "Inter(disciplinary Work)shop",
             "Doctoral School",
             "Conferences",
           ]}
@@ -76,7 +76,7 @@ export default async function InteractingComponent() {
           content={[learningAndDoing]}
           category={"Interacting"}
           categorySlug={"learning-and-doing"}
-          headlines={["Learning & Doing"]}
+          headlines={["Learning & Doing Transdisciplinarity"]}
           projects={learningAndDoingProjects}
         />
       </div>

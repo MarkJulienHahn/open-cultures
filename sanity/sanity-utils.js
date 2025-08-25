@@ -96,10 +96,10 @@ export async function getInteracting() {
 }
 
 export async function getTML() {
-  return client.fetch(`*[_type == "transdisciplinaryMethodLab"][0]{...}`);
+  return client.fetch(`*[_type == "interdisciplinaryWorkshop"][0]{...}`);
 }
 export async function getTMLProjects() {
-  return client.fetch(`*[_type == "transdisciplinaryMethodLabProject"] | order(orderRank) {
+  return client.fetch(`*[_type == "interdisciplinaryWorkshopProject"] | order(orderRank) {
       slug, 
       headline,
       subHeadline,

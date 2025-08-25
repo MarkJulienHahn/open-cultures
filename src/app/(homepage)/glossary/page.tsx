@@ -168,54 +168,68 @@ export default async function Glossary() {
         <p className={styles.section}>Interacting</p>
         <Suspense fallback={null}>
           <div className={styles.rows}>
-            <IndexRow
-              label={"Doing Transdisciplinarity"}
-              category="transdisciplinary-method-lab"
-              introtext={tml.text}
-              content={tmlProjects}
-            />
+            {tml && (
+              <IndexRow
+                label={"Inter(disciplinary Work)shop"}
+                category="interdisciplinary-workshop"
+                introtext={tml.text}
+                content={tmlProjects}
+              />
+            )}
 
-            <IndexRow
-              label={"Learning & Doing"}
-              category="learning-and-doing"
-              introtext={learningAndDoing.text}
-              content={learningAndDoingProjects}
-            />
-            <IndexRow
-              label={"Doctoral School"}
-              category="doctoral-school"
-              introtext={mpc.text}
-              content={mpcProjects}
-            />
-            <IndexRow
-              label={"Conferences"}
-              category="conferences"
-              introtext={conferences.text}
-              content={conferencesProjects}
-            />
-            <IndexRow
-              label={"Summer Schools"}
-              category="summer-schools"
-              introtext={summerSchools.text}
-              content={summerSchoolProjects}
-            />
+            {learningAndDoing && (
+              <IndexRow
+                label={"Learning & Doing Transdisciplinarity"}
+                category="learning-and-doing"
+                introtext={learningAndDoing.text}
+                content={learningAndDoingProjects}
+              />
+            )}
+            {mpc && (
+              <IndexRow
+                label={"Doctoral School"}
+                category="doctoral-school"
+                introtext={mpc.text}
+                content={mpcProjects}
+              />
+            )}
+            {conferences && (
+              <IndexRow
+                label={"Conferences"}
+                category="conferences"
+                introtext={conferences.text}
+                content={conferencesProjects}
+              />
+            )}
+            {summerSchools && (
+              <IndexRow
+                label={"Summer Schools"}
+                category="summer-schools"
+                introtext={summerSchools.text}
+                content={summerSchoolProjects}
+              />
+            )}
           </div>
         </Suspense>
         <p className={styles.section}>Mediating</p>
         <Suspense fallback={null}>
           <div className={styles.rows}>
-            <IndexRow
-              label={"Printed Matter"}
-              category="printed-matter"
-              introtext={printedMatter.text}
-              content={printedMatterProjects}
-            />
-            <IndexRow
-              label={"Spoken Word"}
-              category="spoken-word"
-              introtext={spokenWord.text}
-              content={spokenWordProjects}
-            />
+            {printedMatter && (
+              <IndexRow
+                label={"Printed Matter"}
+                category="printed-matter"
+                introtext={printedMatter.text}
+                content={printedMatterProjects}
+              />
+            )}
+            {spokenWord && (
+              <IndexRow
+                label={"Spoken Word"}
+                category="spoken-word"
+                introtext={spokenWord.text}
+                content={spokenWordProjects}
+              />
+            )}
           </div>
         </Suspense>
         <Wallpaper background={"beige"} img={""} />

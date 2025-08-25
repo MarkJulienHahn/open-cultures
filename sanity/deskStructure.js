@@ -98,15 +98,15 @@ export const myStructure = (S, context) =>
                     .documentId("interacting")
                 ),
               S.listItem()
-                .title("Doing Transdisciplinarity")
+                .title("Inter(disciplinary Work)shop")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
-                    .schemaType("transdisciplinaryMethodLab")
-                    .documentId("transdisciplinaryMethodLab")
+                    .schemaType("interdisciplinaryWorkshop")
+                    .documentId("interdisciplinaryWorkshop")
                 ),
               S.listItem()
-                .title("Learning & Doing")
+                .title("Learning & Doing Transdisciplinarity")
                 .icon(JoystickIcon)
                 .child(
                   S.document()
@@ -236,15 +236,15 @@ export const myStructure = (S, context) =>
               }),
               S.divider(),
               orderableDocumentListDeskItem({
-                type: "transdisciplinaryMethodLabProject",
-                title: "Doing Transdisciplinarity",
+                type: "interdisciplinaryWorkshopProject",
+                title: "Inter(disciplinary Work)shop",
                 icon: JoystickIcon,
                 S,
                 context,
               }),
               orderableDocumentListDeskItem({
                 type: "learningAndDoingProject",
-                title: "Learning & Doing",
+                title: "Learning & Doing Transdisciplinarity",
                 icon: JoystickIcon,
                 S,
                 context,

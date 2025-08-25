@@ -1,7 +1,7 @@
 export default {
-  name: "transdisciplinaryMethodLab",
+  name: "interdisciplinaryWorkshop",
   type: "document",
-  title: "Doing Transdisciplinarity",
+  title: "Inter(disciplinary Work)shop",
   fields: [
     {
       name: "text",
@@ -16,10 +16,10 @@ export default {
           },
         },
       ],
-      validation: (Rule) =>
-        Rule.required()
-          .min(1)
-          .error("Text is required and must contain at least one block."),
+      // validation: (Rule) =>
+      //   Rule.required()
+      //     .min(1)
+      //     .error("Text is required and must contain at least one block."),
     },
     {
       name: "slug",
@@ -27,14 +27,14 @@ export default {
       options: {
         source: "headline",
       },
-      readOnly: true,
+      // readOnly: true,
       validation: (Rule) => Rule.required().error("Slug is required."),
     },
   ],
   preview: {
     prepare() {
       return {
-        title: "Doing Transdisciplinarity",
+        title: "Inter(disciplinary Work)shop",
       };
     },
   },

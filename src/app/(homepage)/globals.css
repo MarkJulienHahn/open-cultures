@@ -69,10 +69,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
+/* ::selection {
   background: transparent;
   color: inherit;
-}
+} */
 
 h1 {
   font-size: var(--fontSize-S);

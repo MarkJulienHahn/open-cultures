@@ -10,8 +10,8 @@ import openImaginaries from "./openImaginaries";
 import livingLab from "./livingLab";
 import livingLabProject from "./livingLabProject";
 import interacting from "./interacting";
-import transdisciplinaryMethodLab from "./transdisciplinaryMethodLab";
-import transdisciplinaryMethodLabProject from "./transdisciplinaryMethodLabProject";
+import interdisciplinaryWorkshop from "./interdisciplinaryWorkshop";
+import interdisciplinaryWorkshopProject from "./interdisciplinaryWorkshopProject";
 import methodologicalPhdColloquium from "./methodologicalPhdColloquium";
 import methodologicalPhdColloquiumProject from "./methodologicalPhdColloquiumProject";
 import summerSchools from "./summerSchools";
@@ -43,8 +43,8 @@ const schemaTypes = [
   livingLab,
   livingLabProject,
   interacting,
-  transdisciplinaryMethodLab,
-  transdisciplinaryMethodLabProject,
+  interdisciplinaryWorkshop,
+  interdisciplinaryWorkshopProject,
   methodologicalPhdColloquium,
   methodologicalPhdColloquiumProject,
   learningAndDoing,

@@ -75,8 +75,8 @@ export default function ProjectButton({
           {label}
         </div>
         <div className={styles.buttonContent}>
-          {content.text && <PortableText value={content.text} />}
-          {content.slug?.current && (
+          {content?.text && <PortableText value={content.text} />}
+          {content?.slug?.current && (
             <div className={styles.buttonLink}>
               <Link href={`/glossary?category=${content.slug.current}`}>
                 Show More ↗

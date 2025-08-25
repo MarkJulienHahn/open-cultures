@@ -166,14 +166,14 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
-        label: "Doing Transdisciplinarity",
-        category: "transdisciplinary-method-lab",
-        contentText: textFrom(tml.text),
+        label: "Inter(disciplinary Work)shop",
+        category: "interdisciplinary-workshop",
+        contentText: textFrom(tml?.text),
         content: tml,
       },
       ...tmlProjects.map((entry: ProjectType) => ({
         label: entry.headline || "Unnamed",
-        category: "transdisciplinary-method-lab",
+        category: "interdisciplinary-workshop",
         contentText: `${textFrom(entry?.text)}`,
         content: entry,
       })),
@@ -190,7 +190,7 @@ export default function SearchableIndex({
         content: entry,
       })),
       {
-        label: "Learning & Doing",
+        label: "Learning & Doing Transdisciplinarity",
         category: "learning-and-doing",
         contentText: textFrom(learningAndDoing.text),
         content: learningAndDoing,
