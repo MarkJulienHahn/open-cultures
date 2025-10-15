@@ -153,7 +153,12 @@ export default function IndexContent({ entry, category }: Props) {
         <div className={styles.rowInner}>
           <span>
             {entry.website && isActive ? (
-              <a href={entry.website} target="_blank" rel="norefferer">
+              <a
+                href={entry.website}
+                target="_blank"
+                rel="norefferer"
+                style={{ pointerEvents: "auto" }}
+              >
                 {entry?.title} {entry.name || entry.headline}
                 {" ↗"}
               </a>
@@ -236,7 +241,7 @@ export default function IndexContent({ entry, category }: Props) {
                     )}
 
                     {entry.text && <PortableText value={entry.text} />}
-                    {entry.quote && <p>{entry.quote}</p>}
+                    {entry.quote && <p>»{entry.quote}«</p>}
                   </div>
                 </div>
 
