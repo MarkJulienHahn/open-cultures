@@ -169,6 +169,7 @@ export default function IndexContent({ entry, category }: Props) {
             )}
             {entry.externalLink && "↗"}
           </span>
+          
 
           {category == "team" && (
             <div className={styles.rowDetails}>
