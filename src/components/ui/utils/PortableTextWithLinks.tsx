@@ -1,10 +1,10 @@
 "use client";
 
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import type { TextBlock } from "@/types/types";
 
 type PortableTextWithLinksProps = {
-  value: any;
-  className?: string;
+  value: TextBlock
 };
 
 const components: PortableTextComponents = {
