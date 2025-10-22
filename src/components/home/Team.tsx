@@ -11,6 +11,7 @@ import TeamEntryWrapper from "./TeamEntryWrapper";
 import AdvisoryBoard from "./AdvisoryBoard";
 import PraxisPartners from "./PraxisPartners";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default async function Team() {
   const persons = await getPerson();
@@ -23,7 +24,7 @@ export default async function Team() {
       <div className={styles.wrapper}>
         <div className={styles.body}>
           <div className={styles.kicker}>People</div>
-          <PortableText value={team.text} />
+          <PortableTextWithLinks value={team.text} />
         </div>
       </div>
       <TeamEntryWrapper persons={persons} />

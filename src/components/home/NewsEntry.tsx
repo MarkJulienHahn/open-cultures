@@ -1,9 +1,9 @@
 import { NewsType } from "@/types/types";
 import styles from "./news.module.css";
 import Image from "next/image";
-import { PortableText } from "next-sanity";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default function NewsEntry({
   i,
@@ -94,7 +94,7 @@ export default function NewsEntry({
       </div>
       <div className={styles.newsActive}>
         <p className={styles.newsActiveHeadline}>{entry.title}</p>
-        <PortableText value={entry.text} />
+        <PortableTextWithLinks value={entry.text} />
         {entry.slug && (
           <div className={styles.newsActiveLink}>
             <Link href={extractQueryString(entry.slug)}>Read more ↗</Link>

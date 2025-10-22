@@ -4,8 +4,8 @@ import Footer from "@/components/ui/Footer";
 import styles from "@/components/sub-labs/sub-lab.module.css";
 import { getOpenPlanning } from "../../../../sanity/sanity-utils";
 
-import { PortableText } from "next-sanity";
 import Wallpaper from "@/components/ui/Wallpaper";
+import { PortableTextWithLinks } from "@/components/ui/utils/PortableTextWithLinks";
 
 export default async function page() {
   const openPlanning = await getOpenPlanning();
@@ -28,13 +28,13 @@ export default async function page() {
             {openPlanning.introtext.title}
           </div>
           <div className={`${styles.body} body__planning border`}>
-            <PortableText value={openPlanning.introtext.text} />
+            <PortableTextWithLinks value={openPlanning.introtext.text} />
           </div>
           <div className={`${styles.contact} body__planning border`}>
             <div className={styles.kicker} style={{ color: "var(--pink)" }}>
               Partner Institutions
             </div>
-            <PortableText value={openPlanning.introtext.partners} />
+            <PortableTextWithLinks value={openPlanning.introtext.partners} />
           </div>
           <div
             className={`${styles.contact}  ${styles.contactSingle} body__planning border`}
@@ -42,7 +42,7 @@ export default async function page() {
             <div className={styles.kicker} style={{ color: "var(--pink)" }}>
               Contact
             </div>
-            <PortableText value={openPlanning.introtext.contact} />
+            <PortableTextWithLinks value={openPlanning.introtext.contact} />
           </div>
         </div>
         <Wallpaper background={"green"} img={"/images/openPlanning.png"} />

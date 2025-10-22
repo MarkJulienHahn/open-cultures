@@ -2,13 +2,14 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { PortableText } from "next-sanity";
+
 import styles from "./index.module.css";
 import Image from "next/image";
 import { TextBlock } from "@/types/types";
 import Hamburger from "hamburger-react";
 import { useState, useRef, useEffect } from "react";
 import Lightbox from "./Lightbox";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 type Entry = {
   website?: string;
@@ -241,7 +242,7 @@ export default function IndexContent({ entry, category }: Props) {
                       </div>
                     )}
 
-                    {entry.text && <PortableText value={entry.text} />}
+                    {entry.text && <PortableTextWithLinks value={entry.text} />}
                     {entry.quote && <p>»{entry.quote}«</p>}
                   </div>
                 </div>

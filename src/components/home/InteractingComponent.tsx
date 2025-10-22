@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { PortableText } from "next-sanity";
-
 import styles from "./projects.module.css";
 import {
   getConferences,
@@ -17,6 +15,7 @@ import ProjectButtons from "./ProjectButtons";
 import SummerSchoolButtons from "./SummerSchoolButtons";
 import RouterComponent from "./RouterComponent";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default async function InteractingComponent() {
   const interacting = await getInteracting();
@@ -39,7 +38,7 @@ export default async function InteractingComponent() {
         </div>
         <div className={styles.text}>
           <div className={styles.kicker}>Interacting</div>
-          <PortableText value={interacting.text} />
+          <PortableTextWithLinks value={interacting.text} />
         </div>
         <div className={styles.image}>
           <Image

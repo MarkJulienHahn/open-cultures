@@ -1,10 +1,11 @@
 import React from "react";
 import { getOpenCultures } from "../../../sanity/sanity-utils";
 import styles from "./openCultures.module.css";
-import { PortableText } from "next-sanity";
+
 import RouterComponent from "./RouterComponent";
 import { TextBlock } from "@/types/types";
 import Image from "next/image";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 type OpenCulturesData = {
   introtext: {
@@ -35,7 +36,7 @@ export default async function OpenCultures() {
           <h1>{openCultures.introtext.title}</h1>
         </div>
         <div className={styles.body}>
-          <PortableText value={openCultures.introtext.text} />
+          <PortableTextWithLinks value={openCultures.introtext.text} />
         </div>
         <div className={styles.contactWrapper}>
           <div className={styles.contact}>

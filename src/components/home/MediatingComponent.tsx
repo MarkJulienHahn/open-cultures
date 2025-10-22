@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { PortableText } from "next-sanity";
-
 import styles from "./projects.module.css";
 import {
   getMediating,
@@ -11,6 +9,7 @@ import {
 import ProjectButtons from "./ProjectButtons";
 import RouterComponent from "./RouterComponent";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default async function MediatingComponent() {
   const mediating = await getMediating();
@@ -26,7 +25,7 @@ export default async function MediatingComponent() {
       </div>
       <div className={styles.text}>
         <div className={styles.kicker}>Mediating</div>
-        <PortableText value={mediating.text} />
+        <PortableTextWithLinks value={mediating.text} />
       </div>
       <div className={styles.image}>
         <Image

@@ -4,8 +4,8 @@ import Footer from "@/components/ui/Footer";
 import styles from "@/components/sub-labs/sub-lab.module.css";
 import { getOpenImaginaries } from "../../../../sanity/sanity-utils";
 
-import { PortableText } from "next-sanity";
 import Wallpaper from "@/components/ui/Wallpaper";
+import { PortableTextWithLinks } from "@/components/ui/utils/PortableTextWithLinks";
 
 export default async function page() {
   const openImaginaries = await getOpenImaginaries();
@@ -29,13 +29,13 @@ export default async function page() {
             {openImaginaries.introtext.title}
           </div>
           <div className={`${styles.body} body__imaginaries border`}>
-            <PortableText value={openImaginaries.introtext.text} />
+            <PortableTextWithLinks value={openImaginaries.introtext.text} />
           </div>
           <div className={`${styles.contact} body__imaginaries border`}>
             <div className={styles.kicker} style={{ color: "var(--blue)" }}>
               Partner Institutions
             </div>
-            <PortableText value={openImaginaries.introtext.partners} />
+            <PortableTextWithLinks value={openImaginaries.introtext.partners} />
           </div>
           <div
             className={`${styles.contact}  ${styles.contactSingle} body__imaginaries border`}
@@ -43,7 +43,7 @@ export default async function page() {
             <div className={styles.kicker} style={{ color: "var(--blue)" }}>
               Contact
             </div>
-            <PortableText value={openImaginaries.introtext.contact} />
+            <PortableTextWithLinks value={openImaginaries.introtext.contact} />
           </div>
         </div>
         <Wallpaper background={"red"} img={"/images/openImaginaries.png"} />

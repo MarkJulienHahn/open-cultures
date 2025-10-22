@@ -29,7 +29,7 @@ export default {
               styles: [],
               lists: [],
               marks: {
-                decorators: [{ title: "Italic", value: "em" }],
+                 
               },
             },
           ],
@@ -47,7 +47,7 @@ export default {
               styles: [],
               lists: [],
               marks: {
-                decorators: [{ title: "Italic", value: "em" }],
+                 
               },
             },
           ],
@@ -65,7 +65,7 @@ export default {
               styles: [],
               lists: [],
               marks: {
-                decorators: [{ title: "Italic", value: "em" }],
+                 
               },
             },
           ],

@@ -11,9 +11,9 @@ export default {
           type: "block",
           styles: [],
           lists: [],
-          marks: {
-            decorators: [{ title: "Italic", value: "em" }],
-          },
+    marks: {
+      decorators: [],
+    },
         },
       ],
       validation: (Rule) =>

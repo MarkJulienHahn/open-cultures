@@ -4,8 +4,8 @@ import Footer from "@/components/ui/Footer";
 import styles from "@/components/sub-labs/sub-lab.module.css";
 import { getOpenFactory } from "../../../../sanity/sanity-utils";
 
-import { PortableText } from "next-sanity";
 import Wallpaper from "@/components/ui/Wallpaper";
+import { PortableTextWithLinks } from "@/components/ui/utils/PortableTextWithLinks";
 
 export default async function page() {
   const openFactory = await getOpenFactory();
@@ -28,13 +28,13 @@ export default async function page() {
             {openFactory.introtext.title}
           </div>
           <div className={`${styles.body} body__factory border`}>
-            <PortableText value={openFactory.introtext.text} />
+            <PortableTextWithLinks value={openFactory.introtext.text} />
           </div>
           <div className={`${styles.contact} body__factory border`}>
             <div className={styles.kicker} style={{ color: "var(--yellow)" }}>
               Partner Institutions
             </div>
-            <PortableText value={openFactory.introtext.partners} />
+            <PortableTextWithLinks value={openFactory.introtext.partners} />
           </div>
           <div
             className={`${styles.contact}  ${styles.contactSingle} body__factory border`}
@@ -42,7 +42,7 @@ export default async function page() {
             <div className={styles.kicker} style={{ color: "var(--yellow)" }}>
               Contact
             </div>
-            <PortableText value={openFactory.introtext.contact} />
+            <PortableTextWithLinks value={openFactory.introtext.contact} />
           </div>
         </div>
         <Wallpaper background={"purple"} img={"/images/openFactory.png"} />

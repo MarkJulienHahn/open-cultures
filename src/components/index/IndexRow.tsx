@@ -5,13 +5,14 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import styles from "./index.module.css";
 import IndexContent from "./IndexContent";
-import { PortableText } from "next-sanity";
+
 import Image from "next/image";
 
 import Hamburger from "hamburger-react";
 import { ImageType, TextBlock } from "@/types/types";
 import { useRef, useState } from "react";
 import Lightbox from "./Lightbox";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 type Entry = {
   name: string;
@@ -141,17 +142,17 @@ export default function IndexRow({
                 ) : (
                   ""
                 )}
-                <PortableText value={introtext} />
+                <PortableTextWithLinks value={introtext} />
                 {partners && (
                   <div className={styles.contact}>
                     <h3>Partner Institutions</h3>
-                    <PortableText value={partners} />
+                    <PortableTextWithLinks value={partners} />
                   </div>
                 )}
                 {contact && (
                   <div className={styles.contact}>
                     <h3>Contact</h3>
-                    <PortableText value={contact} />
+                    <PortableTextWithLinks value={contact} />
                   </div>
                 )}
               </div>

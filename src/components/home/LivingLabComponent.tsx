@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-import { PortableText } from "next-sanity";
-
 import styles from "./projects.module.css";
 import {
   getLivingLab,
@@ -12,6 +10,7 @@ import {
 import ProjectButtons from "./ProjectButtons";
 import RouterComponent from "./RouterComponent";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default async function LivingLabComponent() {
   const livingLab = await getLivingLab();
@@ -27,7 +26,7 @@ export default async function LivingLabComponent() {
         </div>
         <div className={styles.text}>
           <div className={styles.kicker}>LivingLab</div>
-          <PortableText value={livingLab.text} />
+          <PortableTextWithLinks value={livingLab.text} />
         </div>
         <div className={styles.image}>
           <Image

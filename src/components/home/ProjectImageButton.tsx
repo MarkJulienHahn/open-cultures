@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { PortableText } from "next-sanity";
+
 import styles from "./projects.module.css";
 import { TextBlock, ImageType } from "@/types/types";
 import Link from "next/link";
 import Image from "next/image";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 export default function ProjectImageButton({
   category,
@@ -89,7 +90,7 @@ export default function ProjectImageButton({
           </div>
           <div className={styles.buttonContent}>
             <div className={styles.textHeadline}>{project.headline}</div>
-            <PortableText value={project.text} />
+            <PortableTextWithLinks value={project.text} />
             {project.slug?.current ? (
               <div className={styles.buttonLink}>
                 <Link

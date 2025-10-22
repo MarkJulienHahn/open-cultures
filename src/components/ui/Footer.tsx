@@ -2,7 +2,8 @@ import Link from "next/link";
 import { getFooter } from "../../../sanity/sanity-utils";
 import styles from "./footer.module.css";
 import Image from "next/image";
-import { PortableText } from "next-sanity";
+
+import { PortableTextWithLinks } from "./utils/PortableTextWithLinks";
 
 export default async function Footer({ page }: { page?: string }) {
   const footer = await getFooter();
@@ -13,16 +14,16 @@ export default async function Footer({ page }: { page?: string }) {
         <div className={styles.footerInner}>
           <div className={styles.topRow}>
             <div className={`${styles.contact} ${styles.coordination}`}>
-              <PortableText value={footer.coordination} />
+              <PortableTextWithLinks value={footer.coordination} />
             </div>
             <div className={`${styles.contact} ${styles.info}`}>
-              <PortableText value={footer.info} />
+              <PortableTextWithLinks value={footer.info} />
             </div>
             <div className={`${styles.contact} ${styles.address}`}>
-              <PortableText value={footer.address} />
+              <PortableTextWithLinks value={footer.address} />
             </div>
             <div className={`${styles.contact} ${styles.contactData}`}>
-              <PortableText value={footer.contact} />
+              <PortableTextWithLinks value={footer.contact} />
             </div>
             <div className={styles.links}>
               <Link href="imprint">Imprint</Link>

@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./team.module.css";
-import { PortableText } from "next-sanity";
+
 import { PersonType } from "@/types/types";
 import Link from "next/link";
+import { PortableTextWithLinks } from "../ui/utils/PortableTextWithLinks";
 
 type TeamEntryProps = {
   member: PersonType;
@@ -95,7 +96,7 @@ export default function TeamEntry({
         ))}
       </div>
       <div className={styles.teamActive}>
-        <PortableText value={member.text} />
+        <PortableTextWithLinks value={member.text} />
         <div className={styles.link}>
           <Link href={`/glossary?category=team&entry=${member.slug.current}`}>
             Show Profile ↗
