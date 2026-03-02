@@ -30,7 +30,7 @@ export default async function Team() {
       <TeamEntryWrapper persons={persons} />
       <div className={styles.buttonsWrapper}>
         <AdvisoryBoard label={"Advisory Board"} content={advisoryBoard} />
-        <PraxisPartners label={"Praxis Partners"} content={praxisPartners} />
+        <PraxisPartners label={"Practice Partners"} content={praxisPartners} />
       </div>
       <Link href="/glossary?category=team">
         <div className={styles.linkButton}>Show Team↗</div>

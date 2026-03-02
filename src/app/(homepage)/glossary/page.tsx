@@ -134,7 +134,7 @@ export default async function Glossary() {
           <div className={styles.rows}>
             <IndexRow label={"Team"} content={team} category="team" />
             <IndexRow
-              label={"Praxis Partners"}
+              label={"Practice Partners"}
               content={praxisPartners}
               category="praxis-partners"
             />
