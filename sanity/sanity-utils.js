@@ -65,6 +65,11 @@ export async function getPerson() {
     `*[_type == "person"]|order(name){..., portrait {alt, "url": asset->url}}`
   );
 }
+export async function getFormerTeamMembers() {
+  return client.fetch(
+    `*[_type == "formerTeamMembers"]|order(name){...}`
+  );
+}
 export async function getAdvisoryBoard() {
   return client.fetch(`*[_type == "advisoryBoard"]{...}`);
 }

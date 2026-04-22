@@ -1,6 +1,7 @@
 import newsmeldung from "./newsmeldung";
 import team from "./team";
 import person from "./person";
+import formerTeamMembers from "./formerTeamMembers";
 import advisoryBoard from "./advisoryBoard";
 import praxisPartners from "./praxisPartners";
 import openCultures from "./openCultures";
@@ -33,7 +34,7 @@ import footer from "./footer";
 const schemaTypes = [
   newsmeldung,
   team,
-  person,
+  person,formerTeamMembers,
   advisoryBoard,
   praxisPartners,
   openCultures,

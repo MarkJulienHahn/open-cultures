@@ -65,6 +65,7 @@ export default function SearchableIndex({
   team,
   praxisPartners,
   advisoryBoard,
+  formerTeamMembers,
   livingLab,
   livingLabProjects,
   tml,
@@ -89,6 +90,7 @@ export default function SearchableIndex({
   team: PersonType[];
   praxisPartners: PersonType[];
   advisoryBoard: PersonType[];
+  formerTeamMembers: PersonType[];
   livingLab: ProjectIntroProps;
   tml: ProjectIntroProps;
   mpc: ProjectIntroProps;

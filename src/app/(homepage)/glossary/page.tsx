@@ -26,6 +26,7 @@ import {
   getSummerSchoolsProjects,
   getTML,
   getTMLProjects,
+  getFormerTeamMembers,
 } from "../../../../sanity/sanity-utils";
 import SearchableIndex from "@/components/index/SearchableIndex";
 import Footer from "@/components/ui/Footer";
@@ -41,6 +42,7 @@ export default async function Glossary() {
   const team = await getPerson();
   const praxisPartners = await getPraxisPartners();
   const advisoryBoard = await getAdvisoryBoard();
+  const formerTeamMembers = await getFormerTeamMembers();
 
   const livingLab = await getLivingLab();
   const livingLabProjects = await getLivingLabProjects();
@@ -73,6 +75,7 @@ export default async function Glossary() {
             team={team}
             praxisPartners={praxisPartners}
             advisoryBoard={advisoryBoard}
+            formerTeamMembers={formerTeamMembers}
             livingLab={livingLab}
             livingLabProjects={livingLabProjects}
             tml={tml}
@@ -143,6 +146,13 @@ export default async function Glossary() {
               content={advisoryBoard}
               category="advisory-board"
             />
+            {formerTeamMembers.length && (
+              <IndexRow
+                label={"Former Team Members"}
+                content={formerTeamMembers}
+                category="formerTeamMembers"
+              />
+            )}
           </div>
         </Suspense>
         {livingLabProjects && (

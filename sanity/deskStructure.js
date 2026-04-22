@@ -40,7 +40,7 @@ export const myStructure = (S, context) =>
                     .filter('_type == "person"')
                     .defaultOrdering([
                       { field: "_createdAt", direction: "desc" },
-                    ])
+                    ]),
                 ),
               orderableDocumentListDeskItem({
                 type: "advisoryBoard",
@@ -56,7 +56,18 @@ export const myStructure = (S, context) =>
                 S,
                 context,
               }),
-            ])
+              S.listItem()
+                .title("Former Team Members")
+                .icon(UserIcon)
+                .child(
+                  S.documentTypeList("formerTeamMembers")
+                    .title("Former Team Members")
+                    .filter('_type == "formerTeamMembers"')
+                    .defaultOrdering([
+                      { field: "_createdAt", direction: "desc" },
+                    ]),
+                ),
+            ]),
         ),
 
       S.divider(),
@@ -74,7 +85,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("openCultures")
-                    .documentId("openCultures")
+                    .documentId("openCultures"),
                 ),
               S.divider(),
               S.listItem()
@@ -86,7 +97,7 @@ export const myStructure = (S, context) =>
                 .title("LivingLab")
                 .icon(HomeIcon)
                 .child(
-                  S.document().schemaType("livingLab").documentId("linvingLab")
+                  S.document().schemaType("livingLab").documentId("linvingLab"),
                 ),
               S.divider(),
               S.listItem()
@@ -95,7 +106,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("interacting")
-                    .documentId("interacting")
+                    .documentId("interacting"),
                 ),
               S.listItem()
                 .title("Inter(disciplinary Work)shop")
@@ -103,7 +114,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("interdisciplinaryWorkshop")
-                    .documentId("interdisciplinaryWorkshop")
+                    .documentId("interdisciplinaryWorkshop"),
                 ),
               S.listItem()
                 .title("Learning & Doing Transdisciplinarity")
@@ -111,7 +122,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("learningAndDoing")
-                    .documentId("learningAndDoing")
+                    .documentId("learningAndDoing"),
                 ),
               S.listItem()
                 .title("Doctoral School")
@@ -119,7 +130,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("methodologicalPhdColloquium")
-                    .documentId("methodologicalPhdColloquium")
+                    .documentId("methodologicalPhdColloquium"),
                 ),
               S.listItem()
                 .title("Conferences")
@@ -127,7 +138,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("conferences")
-                    .documentId("conferences")
+                    .documentId("conferences"),
                 ),
               S.listItem()
                 .title("Summer Schools")
@@ -135,7 +146,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("summerSchools")
-                    .documentId("sumemrSchools")
+                    .documentId("sumemrSchools"),
                 ),
 
               S.divider(),
@@ -143,7 +154,7 @@ export const myStructure = (S, context) =>
                 .title("Mediating")
                 .icon(CommentIcon)
                 .child(
-                  S.document().schemaType("mediating").documentId("mediating")
+                  S.document().schemaType("mediating").documentId("mediating"),
                 ),
               S.listItem()
                 .title("Printed Matter")
@@ -151,13 +162,15 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("printedMatter")
-                    .documentId("printedMatter")
+                    .documentId("printedMatter"),
                 ),
               S.listItem()
                 .title("Spoken Word")
                 .icon(CommentIcon)
                 .child(
-                  S.document().schemaType("spokenWord").documentId("spokenWord")
+                  S.document()
+                    .schemaType("spokenWord")
+                    .documentId("spokenWord"),
                 ),
 
               S.divider(),
@@ -165,7 +178,7 @@ export const myStructure = (S, context) =>
                 .title("Impressum")
                 .icon(EqualIcon)
                 .child(
-                  S.document().schemaType("impressum").documentId("impressum")
+                  S.document().schemaType("impressum").documentId("impressum"),
                 ),
               S.listItem()
                 .title("Datenschutz")
@@ -173,14 +186,14 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("datenschutz")
-                    .documentId("datenschutz")
+                    .documentId("datenschutz"),
                 ),
               S.divider(),
               S.listItem()
                 .title("Footer")
                 .icon(EqualIcon)
                 .child(S.document().schemaType("footer").documentId("footer")),
-            ])
+            ]),
         ),
 
       S.divider(),
@@ -198,7 +211,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("openPlanning")
-                    .documentId("openPlanning")
+                    .documentId("openPlanning"),
                 ),
               S.listItem()
                 .title("OpenFactory")
@@ -206,7 +219,7 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("openFactory")
-                    .documentId("openFactory")
+                    .documentId("openFactory"),
                 ),
               S.listItem()
                 .title("OpenImaginaries")
@@ -214,9 +227,9 @@ export const myStructure = (S, context) =>
                 .child(
                   S.document()
                     .schemaType("openImaginaries")
-                    .documentId("openImaginaries")
+                    .documentId("openImaginaries"),
                 ),
-            ])
+            ]),
         ),
       S.divider(),
 
@@ -286,6 +299,6 @@ export const myStructure = (S, context) =>
                 S,
                 context,
               }),
-            ])
+            ]),
         ),
     ]);
